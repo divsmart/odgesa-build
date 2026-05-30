@@ -1,4 +1,4 @@
-export default function HomePage() {
+export default function Page() {
   return (
     <section style={{
       padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)',
@@ -11,11 +11,9 @@ export default function HomePage() {
         color: 'var(--color-teal)',
         marginBottom: '1rem'
       }}>
-        ODGESA — Réseau scolaire adventiste de Guadeloupe
+        Projet éducatif
       </h1>
-      <p style={{ color: 'var(--color-text-muted)' }}>
-        Page d'accueil — contenu à venir.
-      </p>
+      <p style={{ color: 'var(--color-text-muted)' }}>Contenu à venir.</p>
     </section>
   );
 }

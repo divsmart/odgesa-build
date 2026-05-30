@@ -1,0 +1,122 @@
+/* ─── Footer ────────────────────────────────────────────────────────────── */
+
+.footer {
+  background: #081419;
+  color: rgba(255, 255, 255, 0.65);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* ─── Brand column ───────────────────────────────────────────────────────── */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.logo {
+  height: clamp(32px, 4vw, 44px) !important;
+  width: auto !important;
+  object-fit: contain;
+  align-self: flex-start;
+}
+
+.tagline {
+  font-size: clamp(0.72rem, 1.05vw, 0.82rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+.since {
+  font-family: var(--font-condensed, 'Barlow Condensed', sans-serif);
+  font-size: clamp(0.65rem, 0.95vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e8a030;
+}
+
+/* ─── Link columns ───────────────────────────────────────────────────────── */
+
+.col {}
+
+.colTitle {
+  font-family: var(--font-condensed, 'Barlow Condensed', sans-serif);
+  font-size: clamp(0.65rem, 0.95vw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e8a030;
+  margin: 0 0 1rem 0;
+}
+
+.colLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.colLinks a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-size: clamp(0.72rem, 1.05vw, 0.82rem);
+  line-height: 1.45;
+  transition: color 0.2s ease;
+}
+
+.colLinks a:hover {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ─── Bottom bar ─────────────────────────────────────────────────────────── */
+
+.bottom {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.1rem clamp(1rem, 4vw, 2.5rem);
+}
+
+.bottom p {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-size: clamp(0.6rem, 0.85vw, 0.7rem);
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    grid-column: auto;
+  }
+}
