@@ -22,9 +22,9 @@
 
 .slide.active { opacity: 1; }
 
-.slide1 { background: linear-gradient(135deg, #0d4d62 0%, #081419 60%, #0b3d50 100%); }
-.slide2 { background: linear-gradient(135deg, #081419 0%, #0d4d62 50%, #0a3347 100%); }
-.slide3 { background: linear-gradient(135deg, #0b3d50 0%, #081419 55%, #0d4d62 100%); }
+.slide1 { background-image: url('/images/slide1.jpg'); background-size: cover; background-position: center; }
+.slide2 { background-image: url('/images/slide2.jpg'); background-size: cover; background-position: center; }
+.slide3 { background-image: url('/images/slide3.jpg'); background-size: cover; background-position: center; }
 
 .overlay {
   position: absolute;
