@@ -1,6 +1,5 @@
 'use client';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import styles from './NavBar.module.css';
 
@@ -85,16 +84,12 @@ export default function NavBar() {
       <nav className={styles.nav}>
 
         {/* ── Logo ─────────────────────────────────────────────────── */}
-        <Link href="/" className={styles.logoWrap} onClick={closeAll}>
-          <Image
-            src="/logo.png"
-            alt="ODGESA"
-            width={140}
-            height={56}
-            className={styles.logo}
-            priority
-          />
-        </Link>
+      <Link href="/" className={styles.logoWrap} onClick={closeAll}>
+        <span className={styles.logoText}>
+         <span className={styles.logoTitle}>Écoles Persévérance</span>
+         <span className={styles.logoSub}>Guadeloupe</span>
+        </span>
+      </Link>
 
         {/* ── Nav links ─────────────────────────────────────────────── */}
         <ul className={`${styles.navLinks} ${mobileOpen ? styles.open : ''}`}>
