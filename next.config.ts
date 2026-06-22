@@ -1,4 +1,2 @@
-const nextConfig = {
-  basePath: '/build',
-};
+const nextConfig = {};
 export default nextConfig;
