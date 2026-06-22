@@ -7,8 +7,8 @@ const slides = [
   {
     id: 1,
     eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
-    heading: "Grandir dans la foi,\nl'excellence et le service",
-    body: "Quatre établissements chrétiens adventistes en Guadeloupe — unis autour d'une pédagogie intégrale, une alimentation saine et le plein épanouissement de l'enfant.",
+    heading: "Des écoles chrétiennes ouvertes,\nbienveillantes, au service de l'épanouissement\nde chacun de nos élèves",
+    body: "Quatre établissements chrétiens adventistes en Guadeloupe — unis autour d'une pédagogie chrétienne intégrale, une alimentation saine et le plein épanouissement de l'enfant.",
     cta: { label: 'Découvrir le réseau', href: '/nos-ecoles' },
     ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/baillif#inscription' },
     bg: 'slide1',
@@ -24,7 +24,7 @@ const slides = [
   },
   {
     id: 3,
-    eyebrow: 'Inscriptions ouvertes — janvier 2027',
+    eyebrow: 'Inscriptions ouvertes — janvier 2026',
     heading: "Rejoignez la famille\ndes Écoles Persévérance",
     body: "Trois sites en Guadeloupe — Baillif, Duportail (Sainte-Rose) et Marie-Galante. Écolage : 2 000 à 2 400 € / an. Transport scolaire disponible.",
     cta: { label: "Demande d'inscription", href: '/nos-ecoles/baillif#inscription' },
@@ -62,7 +62,7 @@ export default function HeroSlider() {
   }
 
   const slide = slides[current];
-return (
+  return (
     <section
       className={styles.hero}
       onMouseEnter={() => setPaused(true)}
@@ -106,9 +106,9 @@ return (
 
       <div className={styles.statsBar}>
         {[
-          { value: '80+', label: "ans d'éducation adventiste" },
-          { value: '4',   label: 'établissements — 3 îles' },
-          { value: 'PS–CM2', label: 'niveaux scolaires' },
+          { value: '+80',  label: "ans d'éducation adventiste" },
+          { value: '4',    label: 'établissements — 3 îles' },
+          { value: 'TPS–CM2 · Collège · Lycée · BTS', label: 'niveaux scolaires' },
           { value: '1943', label: 'fondation' },
         ].map(stat => (
           <div key={stat.value} className={styles.stat}>
