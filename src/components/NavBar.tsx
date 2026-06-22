@@ -10,25 +10,44 @@ const schools = [
   { name: 'La Persévérance Marie-Galante',  slug: 'marie-galante' },
 ];
 
-// Les Abymes is sous contrat — inscription via Éducation nationale, not listed here.
+const projetLinks = [
+  { name: 'Notre identité éducative',        href: '/projet-educatif/notre-identite-educative' },
+  { name: 'Charte éducative commune',        href: '/projet-educatif/charte-educative-commune' },
+  { name: 'Cadre de vie des établissements', href: '/projet-educatif/cadre-de-vie' },
+];
+
+const aproposLinks = [
+  { name: 'Qui sommes-nous ?',             href: '/a-propos/qui-sommes-nous' },
+  { name: 'Histoire',                      href: '/a-propos/histoire' },
+  { name: 'Administration et gouvernance', href: '/a-propos/administration-et-gouvernance' },
+  { name: 'Notre Réseau',                  href: '/a-propos/notre-reseau' },
+];
 
 const langs = ['FR', 'EN', 'ES'] as const;
 type Lang = typeof langs[number];
 
 export default function NavBar() {
-  const [mobileOpen,    setMobileOpen]    = useState(false);
-  const [ecolesOpen,    setEcolesOpen]    = useState(false);
-  const [inscrireOpen,  setInscrireOpen]  = useState(false);
-  const [lang,          setLang]          = useState<Lang>('FR');
+  const [mobileOpen,   setMobileOpen]   = useState(false);
+  const [projetOpen,   setProjetOpen]   = useState(false);
+  const [ecolesOpen,   setEcolesOpen]   = useState(false);
+  const [aproposOpen,  setAproposOpen]  = useState(false);
+  const [inscrireOpen, setInscrireOpen] = useState(false);
+  const [lang,         setLang]         = useState<Lang>('FR');
 
+  const projetRef   = useRef<HTMLLIElement>(null);
   const ecolesRef   = useRef<HTMLLIElement>(null);
+  const aproposRef  = useRef<HTMLLIElement>(null);
   const inscrireRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdowns on outside click
+  // Close all dropdowns on outside click
   useEffect(() => {
     function handle(e: MouseEvent) {
-      if (ecolesRef.current && !ecolesRef.current.contains(e.target as Node))
+      if (projetRef.current  && !projetRef.current.contains(e.target as Node))
+        setProjetOpen(false);
+      if (ecolesRef.current  && !ecolesRef.current.contains(e.target as Node))
         setEcolesOpen(false);
+      if (aproposRef.current && !aproposRef.current.contains(e.target as Node))
+        setAproposOpen(false);
       if (inscrireRef.current && !inscrireRef.current.contains(e.target as Node))
         setInscrireOpen(false);
     }
@@ -43,13 +62,30 @@ export default function NavBar() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  function closeAll() {
+    setProjetOpen(false);
+    setEcolesOpen(false);
+    setAproposOpen(false);
+    setInscrireOpen(false);
+    setMobileOpen(false);
+  }
+
+  const chevron = (open: boolean) => (
+    <svg
+      className={`${styles.chevron} ${open ? styles.chevronOpen : ''}`}
+      width="10" height="6" viewBox="0 0 10 6" fill="none"
+    >
+      <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5"
+        strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
 
         {/* ── Logo ─────────────────────────────────────────────────── */}
-        <Link href="/" className={styles.logoWrap}
-          onClick={() => setMobileOpen(false)}>
+        <Link href="/" className={styles.logoWrap} onClick={closeAll}>
           <Image
             src="/logo.png"
             alt="ODGESA"
@@ -63,11 +99,27 @@ export default function NavBar() {
         {/* ── Nav links ─────────────────────────────────────────────── */}
         <ul className={`${styles.navLinks} ${mobileOpen ? styles.open : ''}`}>
 
-          <li>
-            <Link href="/projet-educatif" className={styles.navLink}
-              onClick={() => setMobileOpen(false)}>
+          {/* Projet éducatif dropdown */}
+          <li ref={projetRef} className={styles.dropdownWrap}>
+            <button
+              className={`${styles.navLink} ${styles.dropdownToggle}`}
+              onClick={() => setProjetOpen(p => !p)}
+              aria-expanded={projetOpen}
+            >
               Projet éducatif
-            </Link>
+              {chevron(projetOpen)}
+            </button>
+            {projetOpen && (
+              <ul className={styles.dropdown}>
+                {projetLinks.map(l => (
+                  <li key={l.href}>
+                    <Link href={l.href} className={styles.dropdownLink} onClick={closeAll}>
+                      {l.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
 
           {/* Nos écoles dropdown */}
@@ -78,25 +130,19 @@ export default function NavBar() {
               aria-expanded={ecolesOpen}
             >
               Nos écoles
-              <svg className={`${styles.chevron} ${ecolesOpen ? styles.chevronOpen : ''}`}
-                width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5"
-                  strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              {chevron(ecolesOpen)}
             </button>
             {ecolesOpen && (
               <ul className={styles.dropdown}>
                 <li>
-                  <Link href="/nos-ecoles" className={styles.dropdownAll}
-                    onClick={() => { setEcolesOpen(false); setMobileOpen(false); }}>
+                  <Link href="/nos-ecoles" className={styles.dropdownAll} onClick={closeAll}>
                     Toutes nos écoles
                   </Link>
                 </li>
                 {[...schools, { name: 'Cité Scolaire J.Bigord Les Abymes', slug: 'les-abymes' }]
                   .map(s => (
                     <li key={s.slug}>
-                      <Link href={`/nos-ecoles/${s.slug}`} className={styles.dropdownLink}
-                        onClick={() => { setEcolesOpen(false); setMobileOpen(false); }}>
+                      <Link href={`/nos-ecoles/${s.slug}`} className={styles.dropdownLink} onClick={closeAll}>
                         {s.name}
                       </Link>
                     </li>
@@ -105,24 +151,45 @@ export default function NavBar() {
             )}
           </li>
 
+          {/* À propos dropdown */}
+          <li ref={aproposRef} className={styles.dropdownWrap}>
+            <button
+              className={`${styles.navLink} ${styles.dropdownToggle}`}
+              onClick={() => setAproposOpen(p => !p)}
+              aria-expanded={aproposOpen}
+            >
+              À propos
+              {chevron(aproposOpen)}
+            </button>
+            {aproposOpen && (
+              <ul className={styles.dropdown}>
+                {aproposLinks.map(l => (
+                  <li key={l.href}>
+                    <Link href={l.href} className={styles.dropdownLink} onClick={closeAll}>
+                      {l.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+
           <li>
-            <Link href="/familles" className={styles.navLink}
-              onClick={() => setMobileOpen(false)}>
+            <Link href="/familles" className={styles.navLink} onClick={closeAll}>
               Familles
             </Link>
           </li>
           <li>
-            <Link href="/actualites" className={styles.navLink}
-              onClick={() => setMobileOpen(false)}>
+            <Link href="/actualites" className={styles.navLink} onClick={closeAll}>
               Actualités
             </Link>
           </li>
           <li>
-            <Link href="/contact" className={styles.navLink}
-              onClick={() => setMobileOpen(false)}>
+            <Link href="/contact" className={styles.navLink} onClick={closeAll}>
               Contact
             </Link>
           </li>
+
         </ul>
 
         {/* ── Right controls ────────────────────────────────────────── */}
@@ -139,13 +206,12 @@ export default function NavBar() {
                 >
                   {l}
                 </button>
-                {i < langs.length - 1 &&
-                  <span className={styles.langSep}>|</span>}
+                {i < langs.length - 1 && <span className={styles.langSep}>|</span>}
               </span>
             ))}
           </div>
 
-          {/* S'inscrire — opens school picker dropdown */}
+          {/* S'inscrire — opens school picker dropdown, hors contrat schools only */}
           <div ref={inscrireRef} className={styles.inscrireWrap}>
             <button
               className={styles.cta}
@@ -154,9 +220,10 @@ export default function NavBar() {
               aria-haspopup="true"
             >
               S'inscrire
-              <svg className={`${styles.chevron} ${styles.ctaChevron}
-                ${inscrireOpen ? styles.chevronOpen : ''}`}
-                width="9" height="5" viewBox="0 0 10 6" fill="none">
+              <svg
+                className={`${styles.chevron} ${styles.ctaChevron} ${inscrireOpen ? styles.chevronOpen : ''}`}
+                width="9" height="5" viewBox="0 0 10 6" fill="none"
+              >
                 <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.8"
                   strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -164,16 +231,14 @@ export default function NavBar() {
 
             {inscrireOpen && (
               <div className={styles.inscrireDropdown} role="menu">
-                <p className={styles.inscrireHint}>
-                  Choisissez votre établissement
-                </p>
+                <p className={styles.inscrireHint}>Choisissez votre établissement</p>
                 {schools.map(s => (
                   <Link
                     key={s.slug}
                     href={`/nos-ecoles/${s.slug}#inscription`}
                     className={styles.inscrireLink}
                     role="menuitem"
-                    onClick={() => { setInscrireOpen(false); setMobileOpen(false); }}
+                    onClick={closeAll}
                   >
                     {s.name}
                   </Link>
