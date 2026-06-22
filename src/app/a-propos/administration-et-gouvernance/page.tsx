@@ -127,6 +127,7 @@ export default function Page() {
             <div style={{
               width: '100%',
               aspectRatio: '1 / 1',
+              maxHeight: '280px',
               background: '#e8f0f3',
               position: 'relative',
               overflow: 'hidden',
