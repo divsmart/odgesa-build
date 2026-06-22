@@ -7,7 +7,7 @@ const slides = [
   {
     id: 1,
     eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
-    heading: "Des écoles chrétiennes ouvertes,\nbienveillantes, au service de l'épanouissement\nde chacun de nos élèves",
+    heading: "Des écoles chrétiennes ouvertes,\nbienveillantes, au service\nde chaque enfant",
     body: "Quatre établissements chrétiens adventistes en Guadeloupe — unis autour d'une pédagogie chrétienne intégrale, une alimentation saine et le plein épanouissement de l'enfant.",
     cta: { label: 'Découvrir le réseau', href: '/nos-ecoles' },
     ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/baillif#inscription' },
