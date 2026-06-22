@@ -1,267 +1,164 @@
-import Image from 'next/image';
+import type { Metadata } from "next";
 
-const bureau = [
-  {
-    nom: 'Mme Patricia Sablier',
-    titre: 'Présidente',
-    role: null,
-    photo: '/images/bureau/patricia-sablier.jpg',
+export const metadata: Metadata = {
+  title: "ODGESA — Site en construction",
+  description: "Site en construction",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
   },
-  {
-    nom: 'M. Sébastien Régis',
-    titre: 'Président adjoint',
-    role: 'Référent numérique',
-    photo: '/images/bureau/sebastien-regis.jpg',
-  },
-  {
-    nom: 'Mme Ruth Nanette',
-    titre: 'Secrétaire',
-    role: 'Référente formation',
-    photo: '/images/bureau/ruth-nanette.jpg',
-  },
-  {
-    nom: 'M. Hugues Placide',
-    titre: 'Trésorier',
-    role: 'Référent travaux',
-    photo: '/images/bureau/hugues-placide.jpg',
-  },
+};
 
-];
-
-const ca = [
-  {
-    categorie: 'Membres de droit — Union des Antilles Guyane Françaises (UAGF)',
-    membres: [
-      "CARPIN Eddy-Michel — Président de l'UAGF",
-      "MARTIAS Marie-Andrée — Directrice de l'Éducation de l'UAGF",
-    ],
-  },
-  {
-    categorie: 'Membres de droit — FACSA',
-    membres: [
-      'AUGUSTE Esaïe — Président',
-      'VOLTAIRE Franck — Secrétaire',
-      'ZENARRE Rony — Trésorier',
-    ],
-  },
-  {
-    categorie: "Membre de droit — Église Adventiste de Guadeloupe",
-    membres: [
-      "BLOCAIL Corinne — Directrice de l'Éducation",
-    ],
-  },
-  {
-    categorie: 'Aumônerie',
-    membres: [
-      "DAUBE Nahomie — Aumônière d'établissement scolaire",
-    ],
-  },
-  {
-    categorie: "Responsables des départements de l'Éducation",
-    membres: ['CLODINE-FLORENT Chantal', 'FELIX Eddy', 'NANETTE Ruth', 'REGIS Sébastien'],
-  },
-  {
-    categorie: 'Expertise en éducation et formation',
-    membres: ['DRELIN Esméralda', 'DUBE Raphaël', 'MAYA Patricia', 'SABLIER Patricia', 'SIOUSARAN Cinthia'],
-  },
-  {
-    categorie: "Chefs d'établissement élus par leurs pairs",
-    membres: ['BERNAY Kathy — Collège-lycée', 'CHARBONNE Martin — Primaire'],
-  },
-  {
-    categorie: 'Enseignants élus par leurs pairs',
-    membres: ['GRAVILLON Antoine — Collège-lycée', 'RETEL Sandrine — Primaire'],
-  },
-  {
-    categorie: 'Personnel non enseignant',
-    membres: ['PLACIDE Hugues'],
-  },
-  {
-    categorie: "Représentant des parents d'élèves",
-    membres: ['CLAUDEON André'],
-  },
-];
-
-const initials = (nom: string) =>
-  nom.replace(/^(Mme?|M\.)\s+/, '').split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
-
-export default function Page() {
+export default function ConstructionPage() {
   return (
-    <section style={{
-      padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)',
-      maxWidth: '900px',
-      margin: '0 auto',
-    }}>
-      <h1 style={{
-        fontFamily: 'var(--font-condensed)',
-        fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-        color: 'var(--color-teal)',
-        marginBottom: '0.5rem',
-      }}>
-        Administration et gouvernance
-      </h1>
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem', fontSize: 'clamp(0.875rem, 1.4vw, 1rem)' }}>
-        Mandat 2023–2027
-      </p>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400&display=swap');
 
-      {/* Bureau */}
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '1.25rem' }}>
-        Le Bureau
-      </h2>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-        gap: '1.25rem',
-        marginBottom: '3rem',
-      }}>
-        {bureau.map((b) => (
-          <div key={b.nom} style={{
-            border: '1px solid #d0dde3',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            borderTop: '3px solid var(--color-teal)',
-            display: 'flex',
-            flexDirection: 'column',
-          }}>
-            {/* Photo or initials fallback */}
-            <div style={{
-              width: '100%',
-              aspectRatio: '1 / 1',
-              background: '#e8f0f3',
-              position: 'relative',
-              overflow: 'hidden',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              {b.photo ? (
-                <Image
-                  src={b.photo}
-                  alt={b.nom}
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
-                  sizes="220px"
-                />
-              ) : (
-                <span style={{
-                  fontSize: '2rem',
-                  fontWeight: 700,
-                  color: 'var(--color-teal)',
-                  opacity: 0.4,
-                }}>
-                  {initials(b.nom)}
-                </span>
-              )}
-            </div>
-            {/* Info */}
-            <div style={{ padding: '1rem' }}>
-              <p style={{
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                color: 'var(--color-yellow)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                marginBottom: '0.3rem',
-              }}>
-                {b.titre}
-              </p>
-              <p style={{
-                fontWeight: 600,
-                color: 'var(--color-navy)',
-                fontSize: 'clamp(0.9rem, 1.5vw, 1rem)',
-                marginBottom: b.role ? '0.3rem' : 0,
-              }}>
-                {b.nom}
-              </p>
-              {b.role && (
-                <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', lineHeight: '1.4' }}>
-                  {b.role}
-                </p>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      {/* Rôle ODGESA */}
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '0.75rem' }}>
-        Rôle de l&apos;ODGESA
-      </h2>
-      <p style={{ marginBottom: '1rem' }}>
-        La charte éducative est portée par l&apos;ODGESA et déclinée dans chaque établissement en cohérence
-        avec son projet propre, son règlement intérieur et son contexte local.
-      </p>
-      <ul style={{ paddingLeft: '1.25rem', lineHeight: '2', marginBottom: '2rem' }}>
-        <li>Définit les orientations éducatives communes à travers les Projets d&apos;école de chaque établissement</li>
-        <li>Veille à la cohérence pédagogique du réseau et à la qualité de l&apos;enseignement dispensé</li>
-        <li>Soutient les directeurs d&apos;établissement dans leur mission de pilotage pédagogique</li>
-        <li>Coordonne les plans de formation continue des personnels enseignants et non enseignants</li>
-        <li>Organise les échanges de bonnes pratiques entre établissements du réseau</li>
-      </ul>
+        body {
+          background-color: #0a1628;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Montserrat', sans-serif;
+          overflow: hidden;
+        }
 
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '0.75rem' }}>
-        Rôle des directeurs d&apos;établissement
-      </h2>
-      <p style={{ marginBottom: '2rem' }}>
-        Chaque directeur est le garant, au sein de son établissement, de la mise en œuvre fidèle du
-        Projet d&apos;école. Il anime son équipe, conduit le dialogue avec les familles et représente
-        l&apos;établissement dans ses relations avec son environnement local.
-      </p>
+        .bg {
+          position: fixed;
+          inset: 0;
+          background:
+            radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,175,100,0.08) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 40% at 80% 100%, rgba(30,60,120,0.4) 0%, transparent 60%),
+            #0a1628;
+          z-index: 0;
+        }
 
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '0.75rem' }}>
-        Évaluation et amélioration continue
-      </h2>
-      <p style={{ marginBottom: '1rem' }}>
-        Le Projet d&apos;école est un document vivant, révisé régulièrement sur la base :
-      </p>
-      <ul style={{ paddingLeft: '1.25rem', lineHeight: '2', marginBottom: '3rem' }}>
-        <li>Des bilans annuels de chaque établissement</li>
-        <li>Des questionnaires d&apos;auto-évaluation (familles, élèves, personnels)</li>
-        <li>Des évolutions du cadre légal applicable à l&apos;enseignement hors contrat</li>
-        <li>Des apports théologiques et pédagogiques de la Division Interaméricaine (DIA)</li>
-        <li>Des retours d&apos;expérience des réseaux scolaires adventistes partenaires (Antilles-Guyane, Europe et Monde)</li>
-      </ul>
+        .grain {
+          position: fixed;
+          inset: 0;
+          z-index: 1;
+          opacity: 0.03;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+          background-size: 200px 200px;
+        }
 
-      {/* Organigramme */}
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
-        Organigramme du réseau scolaire adventiste
-      </h2>
-      <div style={{ position: 'relative', width: '100%', marginBottom: '3rem' }}>
-        <Image
-          src="/images/bureau/organigramme-odgesa.png"
-          alt="Organigramme de l'ODGESA"
-          width={1122}
-          height={563}
-          style={{ width: '100%', height: 'auto' }}
-        />
-      </div>
+        .container {
+          position: relative;
+          z-index: 2;
+          text-align: center;
+          padding: 2rem;
+          animation: fadeUp 1.2s ease both;
+        }
 
-      {/* Conseil d'administration */}
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
-        Le Conseil d&apos;administration
-      </h2>
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: 'clamp(0.875rem, 1.4vw, 1rem)' }}>
-        22 membres élus par l&apos;Assemblée Générale Ordinaire pour 4 ans, rééligibles.
-      </p>
-      {ca.map((group) => (
-        <div key={group.categorie} style={{ marginBottom: '1.5rem' }}>
-          <h3 style={{
-            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
-            fontWeight: 700,
-            color: 'var(--color-navy)',
-            borderBottom: '1px solid #e5e7eb',
-            paddingBottom: '0.4rem',
-            marginBottom: '0.6rem',
-          }}>
-            {group.categorie}
-          </h3>
-          <ul style={{ paddingLeft: '1.25rem', lineHeight: '1.9', fontSize: 'clamp(0.875rem, 1.4vw, 1rem)' }}>
-            {group.membres.map((m) => (
-              <li key={m}>{m}</li>
-            ))}
-          </ul>
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-wrap {
+          margin-bottom: 3rem;
+          animation: fadeUp 1.2s 0.1s ease both;
+        }
+
+        .logo-wrap img {
+          height: 110px;
+          width: auto;
+          filter: drop-shadow(0 4px 24px rgba(212,175,100,0.25));
+        }
+
+        .divider {
+          width: 60px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(212,175,100,0.7), transparent);
+          margin: 0 auto 2.5rem;
+          animation: fadeUp 1.2s 0.25s ease both;
+        }
+
+        .headline {
+          font-family: 'Cormorant Garamond', serif;
+          font-weight: 300;
+          font-size: clamp(2rem, 5vw, 3.2rem);
+          color: #f5efe0;
+          letter-spacing: 0.04em;
+          line-height: 1.2;
+          margin-bottom: 1.2rem;
+          animation: fadeUp 1.2s 0.35s ease both;
+        }
+
+        .headline em {
+          font-style: italic;
+          color: #d4af64;
+        }
+
+        .sub {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 300;
+          font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+          color: rgba(245,239,224,0.45);
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          animation: fadeUp 1.2s 0.5s ease both;
+        }
+
+        .dots {
+          display: flex;
+          gap: 6px;
+          justify-content: center;
+          margin-top: 3rem;
+          animation: fadeUp 1.2s 0.65s ease both;
+        }
+
+        .dot {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: rgba(212,175,100,0.5);
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.3s; }
+        .dot:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes pulse {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50%       { opacity: 1;   transform: scale(1.4); }
+        }
+      `}</style>
+
+      <div className="bg" />
+      <div className="grain" />
+
+      <div className="container">
+        <div className="logo-wrap">
+          {/* Replace src with your actual logo path */}
+          <img
+            src="/images/logo-odgesa.png"
+            alt="ODGESA — Organisme Départemental de Gestion des Établissements Scolaires Adventistes"
+          />
         </div>
-      ))}
-    </section>
+
+        <div className="divider" />
+
+        <h1 className="headline">
+          Ce site est <em>en construction</em>
+        </h1>
+
+        <p className="sub">Nous serons bientôt en ligne</p>
+
+        <div className="dots">
+          <span className="dot" />
+          <span className="dot" />
+          <span className="dot" />
+        </div>
+      </div>
+    </>
   );
 }
