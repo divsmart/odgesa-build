@@ -1,19 +1,15 @@
+import ContactForm from '@/components/ContactForm';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact — Écoles Persévérance Guadeloupe',
+  description: 'Contactez le réseau des écoles adventistes La Persévérance en Guadeloupe.',
+};
+
 export default function Page() {
   return (
-    <section style={{
-      padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)',
-      maxWidth: '1440px',
-      margin: '0 auto'
-    }}>
-      <h1 style={{
-        fontFamily: 'var(--font-condensed)',
-        fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-        color: 'var(--color-teal)',
-        marginBottom: '1rem'
-      }}>
-        Contact
-      </h1>
-      <p style={{ color: 'var(--color-text-muted)' }}>Contenu à venir.</p>
-    </section>
+    <main>
+    <ContactForm />
+    </main>
   );
 }
