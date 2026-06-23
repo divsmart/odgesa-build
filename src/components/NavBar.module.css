@@ -28,7 +28,37 @@
   flex-shrink: 0;
   text-decoration: none;
 }
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  text-decoration: none;
+}
 
+.logoTitle {
+  font-size: clamp(0.75rem, 1.8vw, 1rem);
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.logoSub {
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+  font-weight: 400;
+  color: #FCCA3F;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .logoTitle {
+    font-size: 0.7rem;
+  }
+  .logoSub {
+    font-size: 0.6rem;
+  }
+}
 .logo {
   height: clamp(32px, 4.5vw, 48px) !important;
   width: auto !important;

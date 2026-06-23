@@ -1,76 +1,73 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
-
   return (
     <footer className={styles.footer}>
-      <div className={styles.inner}>
+    <div className={styles.inner}>
+    {/* Brand */}
+    <div className={styles.brand}>
+    <Link href="/" className={styles.wordmark}>
+    Écoles Persévérance<br />
+    <span>Guadeloupe</span>
+    </Link>
+    <p className={styles.tagline}>
+    Réseau scolaire adventiste<br />de Guadeloupe
+    </p>
+    <span className={styles.since}>Depuis 1943</span>
+    </div>
 
-        {/* Brand */}
-        <div className={styles.brand}>
-          <Image src="/logo.png" alt="ODGESA" width={110} height={44}
-            className={styles.logo} />
-          <p className={styles.tagline}>
-            Réseau scolaire adventiste<br />de Guadeloupe
-          </p>
-          <span className={styles.since}>Depuis 1943</span>
-        </div>
+    {/* Nos écoles */}
+    <div className={styles.col}>
+    <h3 className={styles.colTitle}>Nos écoles</h3>
+    <ul className={styles.colLinks}>
+    <li><Link href="/nos-ecoles/baillif">La Persévérance Baillif</Link></li>
+    <li><Link href="/nos-ecoles/duportail">La Persévérance Duportail</Link></li>
+    <li><Link href="/nos-ecoles/marie-galante">La Persévérance Marie-Galante</Link></li>
+    <li><Link href="/nos-ecoles/les-abymes">Cité Scolaire J.Bigord Les Abymes</Link></li>
+    </ul>
+    </div>
 
-        {/* Nos écoles */}
-        <div className={styles.col}>
-          <h3 className={styles.colTitle}>Nos écoles</h3>
-          <ul className={styles.colLinks}>
-            <li><Link href="/nos-ecoles/baillif">La Persévérance Baillif</Link></li>
-            <li><Link href="/nos-ecoles/duportail">La Persévérance Duportail</Link></li>
-            <li><Link href="/nos-ecoles/marie-galante">La Persévérance Marie-Galante</Link></li>
-            <li><Link href="/nos-ecoles/les-abymes">Cité Scolaire J.Bigord Les Abymes</Link></li>
-          </ul>
-        </div>
+    {/* Institution */}
+    <div className={styles.col}>
+    <h3 className={styles.colTitle}>Institution</h3>
+    <ul className={styles.colLinks}>
+    <li><Link href="/#notre-eglise">Notre Église</Link></li>
+    <li><Link href="/a-propos/administration-et-gouvernance">Administration et Gouvernance</Link></li>
+    <li><Link href="/mentions-legales">Mentions légales</Link></li>
+    </ul>
+    </div>
 
-        {/* Institution */}
-        <div className={styles.col}>
-          <h3 className={styles.colTitle}>Institution</h3>
-          <ul className={styles.colLinks}>
-            <li><Link href="/notre-eglise">Notre Église</Link></li>
-            <li><Link href="/administration-et-gouvernance">Administration et Gouvernance</Link></li>
-            <li><Link href="/mentions-legales">Mentions légales</Link></li>
-          </ul>
-        </div>
-
-        {/* Réseau */}
-        <div className={styles.col}>
-          <h3 className={styles.colTitle}>Réseau UAGF</h3>
-          <ul className={styles.colLinks}>
-            <li>
-              <a href="https://laperseverance.fr" target="_blank" rel="noreferrer">
-                La Persévérance — Martinique
-              </a>
-            </li>
-            <li>
-              <a href="https://uagf.org" target="_blank" rel="noreferrer">
-                UAGF
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/ecoles_perseverance_971/"
-                target="_blank" rel="noreferrer">
-                Instagram
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div className={styles.bottom}>
-        <p>
-          © {year} ODGESA — Organisme Départemental de Gestion
-          des Établissements Scolaires Adventistes
-        </p>
-      </div>
+    {/* Réseau */}
+    <div className={styles.col}>
+    <h3 className={styles.colTitle}>Réseau UAGF</h3>
+    <ul className={styles.colLinks}>
+    <li>
+    <a href="https://uagf.org/nos-ecoles/" target="_blank" rel="noreferrer">
+    La Persévérance — Martinique
+    </a>
+    </li>
+    <li>
+    <a href="https://uagf.org" target="_blank" rel="noreferrer">
+    UAGF
+    </a>
+    </li>
+    <li>
+    <a href="https://www.instagram.com/ecoles_perseverance_971/"
+    target="_blank" rel="noreferrer">
+    Instagram
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div className={styles.bottom}>
+    <p>
+    © {year} ODGESA — Organisme Départemental de Gestion
+    des Établissements Scolaires Adventistes
+    </p>
+    </div>
     </footer>
   );
 }

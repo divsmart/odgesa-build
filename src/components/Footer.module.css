@@ -120,3 +120,22 @@
     grid-column: auto;
   }
 }
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.wordmark span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #FCCA3F;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
