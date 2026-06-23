@@ -202,6 +202,7 @@ export default function ContactForm() {
             <altcha-widget
             challengeurl="/api/altcha-challenge"
             name="altcha"
+            lang="fr"
             onStateChange={(e: CustomEvent) => {
                 if (e.detail?.payload) setAltcha(e.detail.payload);
             }}
