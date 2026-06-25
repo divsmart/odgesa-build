@@ -44,6 +44,16 @@ const slides = [
   bg: 'slide5',
   external: true,
 },
+{
+  id: 5,
+  eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
+  heading: "Un réseau, des écoles chrétiennes\nà taille humaine, enracinées\nen Guadeloupe",
+  body: "Pour former des enfants épanouis, équilibrés, cultivés et ouverts au monde.",
+  cta: { label: 'Qui sommes-nous', href: '/a-propos/qui-sommes-nous' },
+  ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
+  bg: 'slide5',
+  external: false,
+},
 ];
 
 const INTERVAL = 6000;

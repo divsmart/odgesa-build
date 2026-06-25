@@ -26,6 +26,9 @@
 .slide2 { background-image: url('/images/slide2.jpg'); background-size: cover; background-position: center; }
 .slide3 { background-image: url('/images/slide3.jpg'); background-size: cover; background-position: center; }
 .slide4 { background-image: url('/images/slide4.jpg'); background-size: cover; background-position: center; }
+.slide5 {
+  background: linear-gradient(135deg, #0d4d62 0%, #081419 100%);
+}
 .ctaDonate { background: var(--color-orange); }
 
 .overlay {
