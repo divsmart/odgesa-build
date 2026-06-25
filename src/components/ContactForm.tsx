@@ -33,6 +33,7 @@ export default function ContactForm() {
   const [niveau, setNiveau] = useState('');
   const [discipline, setDiscipline] = useState('');
   const [message, setMessage] = useState('');
+  const [gdprConsent, setGdprConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -45,6 +46,10 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!gdprConsent) {
+      setError('Veuillez accepter la politique de confidentialité pour continuer.');
+      return;
+    }
     setSubmitting(true);
     setError('');
     try {
@@ -183,6 +188,21 @@ export default function ContactForm() {
               <label className={styles.label} htmlFor="message">Message</label>
               <textarea id="message" className={styles.textarea} value={message}
                 onChange={e => setMessage(e.target.value)} />
+            </div>
+
+            <div className={styles.field}>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={gdprConsent}
+                  onChange={e => setGdprConsent(e.target.checked)}
+                  required
+                />
+                J'accepte que mes données personnelles (nom, email, message) soient utilisées par l'ODGESA pour traiter ma demande et conservées pour une durée maximale de 12 mois. Consultez notre{' '}
+                <a href="/mentions-legales" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-teal)', textDecoration: 'underline' }}>
+                  politique de confidentialité
+                </a>.
+              </label>
             </div>
 
             {error && <div className={styles.error}>{error}</div>}
