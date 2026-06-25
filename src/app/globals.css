@@ -1,8 +1,14 @@
 /* ─── ODGESA — Global Styles ─────────────────────────────────────────────── */
 
 /* Fonts — import in _document or next/font in production */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500;600&display=swap');
-
+@import '@fontsource/barlow/300.css';
+@import '@fontsource/barlow/400.css';
+@import '@fontsource/barlow/500.css';
+@import '@fontsource/barlow/600.css';
+@import '@fontsource/barlow-condensed/300.css';
+@import '@fontsource/barlow-condensed/400.css';
+@import '@fontsource/barlow-condensed/600.css';
+@import '@fontsource/barlow-condensed/700.css';
 /* ─── Custom properties ──────────────────────────────────────────────────── */
 
 :root {
