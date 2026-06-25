@@ -35,7 +35,7 @@
 
 .button {
   background: #FCCA3F;
-  color: #081419;
+  color: #e8a030;
   border: none;
   border-radius: 3px;
   padding: 0.5rem 1.25rem;
@@ -50,7 +50,7 @@
 }
 
 .button:hover {
-  background: #e8b82e;
+  background: #d4911e;
 }
 
 @media (max-width: 480px) {
