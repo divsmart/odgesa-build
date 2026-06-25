@@ -41,7 +41,7 @@ const slides = [
   body: "Les travaux de rénovation sont en cours — chaque don, grand ou petit, améliore directement le cadre de vie et d'apprentissage de nos élèves. Merci pour votre soutien.",
   cta: { label: 'Faire un don pour Baillif', href: 'https://donate.stripe.com/BAILLIF_PLACEHOLDER' },
   ctaSecondary: { label: 'Don général au réseau', href: 'https://donate.stripe.com/GENERAL_PLACEHOLDER' },
-  bg: 'slide4',
+  bg: 'slide5',
   external: true,
 },
 ];
