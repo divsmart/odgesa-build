@@ -40,9 +40,12 @@ const slides = [
   heading: "Aidez-nous à rénover\nl'école de Baillif",
   body: "Les travaux de rénovation sont en cours — chaque don, grand ou petit, améliore directement le cadre de vie et d'apprentissage de nos élèves. Merci pour votre soutien.",
   cta: { label: 'Faire un don pour Baillif', href: 'https://donate.stripe.com/BAILLIF_PLACEHOLDER' },
-  ctaSecondary: { label: 'Don général au réseau', href: 'https://donate.stripe.com/GENERAL_PLACEHOLDER' },
-  bg: 'slide5',
+  ctaSecondary: { label: 'En savoir plus', href: '/nos-ecoles/baillif' },
+  external: false,
+  bg: 'slide4',
   external: true,
+  externalSecondary: false,
+
 },
 {
   id: 5,
@@ -116,9 +119,15 @@ export default function HeroSlider() {
       <a href={slide.cta.href} className={`${styles.ctaPrimary} ${styles.ctaDonate}`} target="_blank" rel="noopener noreferrer">
       {slide.cta.label}
       </a>
-      <a href={slide.ctaSecondary.href} className={styles.ctaSecondary} target="_blank" rel="noopener noreferrer">
-      {slide.ctaSecondary.label}
-      </a>
+      {slide.externalSecondary ? (
+        <a href={slide.ctaSecondary.href} className={styles.ctaSecondary} target="_blank" rel="noopener noreferrer">
+        {slide.ctaSecondary.label}
+        </a>
+      ) : (
+        <Link href={slide.ctaSecondary.href} className={styles.ctaSecondary}>
+        {slide.ctaSecondary.label}
+        </Link>
+      )}
       </>
     ) : (
       <>
@@ -126,6 +135,8 @@ export default function HeroSlider() {
       <Link href={slide.ctaSecondary.href} className={styles.ctaSecondary}>{slide.ctaSecondary.label}</Link>
       </>
     )}
+
+  )}
     </div>
     </div>
 
