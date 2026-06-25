@@ -19,11 +19,11 @@ const tdStyle: React.CSSProperties = {
 };
 
 const mondial = [
-  { niveau: 'Élémentaires',          ecoles: '6 623',  enseignants: '56 752', eleves: '1 268 405' },
-  { niveau: 'Secondaires',           ecoles: '2 640',  enseignants: '42 083', eleves: '587 283'   },
-  { niveau: 'Formation continue',    ecoles: '38',     enseignants: '547',    eleves: '7 159'     },
-  { niveau: 'Universitaires',        ecoles: '118',    enseignants: '14 256', eleves: '160 996'   },
-  { niveau: 'Total',                 ecoles: '9 419',  enseignants: '113 638',eleves: '2 023 844' },
+  { niveau: 'Élémentaires',       ecoles: '6 623',  enseignants: '56 752',  eleves: '1 268 405' },
+  { niveau: 'Secondaires',        ecoles: '2 640',  enseignants: '42 083',  eleves: '587 283'   },
+  { niveau: 'Formation continue', ecoles: '38',     enseignants: '547',     eleves: '7 159'     },
+  { niveau: 'Universitaires',     ecoles: '118',    enseignants: '14 256',  eleves: '160 996'   },
+  { niveau: 'Total',              ecoles: '9 419',  enseignants: '113 638', eleves: '2 023 844' },
 ];
 
 export default function Page() {
@@ -71,10 +71,9 @@ export default function Page() {
         </tbody>
       </table>
 
-      {/* World map placeholder */}
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem' }}>
-        <img src="/images/shared/stats-monde.png" alt="Réseau scolaire adventiste mondial" style={{ width: '100%', borderRadius: '6px', marginBottom: '2.5rem' }} />
-        </p>
+      <div style={{ marginBottom: '2.5rem' }}>
+        <img src="/images/shared/stats-monde.png" alt="Réseau scolaire adventiste mondial" style={{ width: '100%', borderRadius: '6px' }} />
+      </div>
 
       {/* Antilles / Guyane / Martinique breakdown */}
       <h2 style={{
@@ -88,10 +87,9 @@ export default function Page() {
         9 écoles primaires, 3 collèges, et 2 lycées — soit un total de 3 842 élèves et 212 enseignants.
       </p>
 
-      {/* Regional breakdown placeholder — the PDF figure (e2) is a formatted table image */}
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem' }}>
-        <img src="/images/shared/stats-uagf.png" alt="Réseau UAGF — Guadeloupe, Martinique, Guyane" style={{ width: '100%', borderRadius: '6px', marginBottom: '2.5rem' }} />
-        </p>
+      <div style={{ marginBottom: '2.5rem' }}>
+        <img src="/images/shared/stats-uagf.png" alt="Réseau UAGF — Guadeloupe, Martinique, Guyane" style={{ width: '100%', borderRadius: '6px' }} />
+      </div>
 
       {/* Guadeloupe map */}
       <h2 style={{
@@ -107,9 +105,11 @@ export default function Page() {
         <li>École La Persévérance — Duportail, Sainte-Rose</li>
         <li>École La Persévérance — Grand-Bourg, Marie-Galante</li>
       </ul>
-      <p style={{ color: 'var(--color-text-muted)' }}>
- <img src="/images/shared/stats-gpe.png" alt="Les quatre établissements en Guadeloupe" style={{ width: '100%', borderRadius: '6px', marginBottom: '2.5rem' }} />
- </p>
+
+      <div style={{ marginBottom: '2.5rem' }}>
+        <img src="/images/shared/stats-gpe.png" alt="Les quatre établissements en Guadeloupe" style={{ width: '100%', borderRadius: '6px' }} />
+      </div>
+
     </section>
   );
 }
