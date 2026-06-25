@@ -73,9 +73,8 @@ export default function Page() {
 
       {/* World map placeholder */}
       <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem' }}>
-        {/* TODO: replace with <Image> pointing to the world map once uploaded */}
-        [Carte mondiale — image à intégrer]
-      </p>
+        <img src="/images/shared/stats-monde.png" alt="Réseau scolaire adventiste mondial" style={{ width: '100%', borderRadius: '6px', marginBottom: '2.5rem' }} />
+        </p>
 
       {/* Antilles / Guyane / Martinique breakdown */}
       <h2 style={{
@@ -91,9 +90,8 @@ export default function Page() {
 
       {/* Regional breakdown placeholder — the PDF figure (e2) is a formatted table image */}
       <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem' }}>
-        {/* TODO: replace with <Image> pointing to the regional breakdown table once uploaded */}
-        [Tableau des établissements par territoire — image à intégrer]
-      </p>
+        <img src="/images/shared/stats-uagf.png" alt="Réseau UAGF — Guadeloupe, Martinique, Guyane" style={{ width: '100%', borderRadius: '6px', marginBottom: '2.5rem' }} />
+        </p>
 
       {/* Guadeloupe map */}
       <h2 style={{
@@ -110,9 +108,8 @@ export default function Page() {
         <li>École La Persévérance — Grand-Bourg, Marie-Galante</li>
       </ul>
       <p style={{ color: 'var(--color-text-muted)' }}>
-        {/* TODO: replace with <Image> pointing to the Guadeloupe map once uploaded */}
-        [Carte de la Guadeloupe — image à intégrer]
-      </p>
+ <img src="/images/shared/stats-gpe.png" alt="Les quatre établissements en Guadeloupe" style={{ width: '100%', borderRadius: '6px', marginBottom: '2.5rem' }} />
+ </p>
     </section>
   );
 }
