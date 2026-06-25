@@ -25,6 +25,9 @@
 .slide1 { background-image: url('/images/slide1.jpg'); background-size: cover; background-position: center; }
 .slide2 { background-image: url('/images/slide2.jpg'); background-size: cover; background-position: center; }
 .slide3 { background-image: url('/images/slide3.jpg'); background-size: cover; background-position: center; }
+.slide4 { background-image: url('/images/slide4.jpg'); background-size: cover; background-position: center; }
+.slide5 { background-image: url('/images/baillif/baillif-ecole.jpg'); background-size: cover; background-position: center top; }
+.ctaDonate { background: var(--color-orange); }
 
 .overlay {
   position: absolute;
