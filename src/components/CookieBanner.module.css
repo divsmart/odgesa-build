@@ -34,8 +34,8 @@
 }
 
 .button {
-  background: #FCCA3F;
-  color: #e8a030;
+  background: var(--color-orange);
+  color: var(--color-teal-dark);
   border: none;
   border-radius: 3px;
   padding: 0.5rem 1.25rem;
@@ -50,7 +50,7 @@
 }
 
 .button:hover {
-  background: #d4911e;
+  background: var(--color-orange-dark);
 }
 
 @media (max-width: 480px) {
