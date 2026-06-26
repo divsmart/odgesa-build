@@ -25,7 +25,7 @@
 .slide1 { background-image: url('/images/slide1.jpg'); background-size: cover; background-position: center; }
 .slide2 { background-image: url('/images/slide2.jpg'); background-size: cover; background-position: center; }
 .slide3 { background-image: url('/images/slide3.jpg'); background-size: cover; background-position: center; }
-.slide4 { background-image: url('/images/baillif/baillif-ecole.jpg'); background-size: cover; background-position: center top; }
+.slide4 { background-image: url('/images/baillif/baillif-ecole.jpg'); background-size: cover; background-position: center 40%; }
 .slide5 {
   background: linear-gradient(135deg, #0d4d62 0%, #081419 100%);
 }
