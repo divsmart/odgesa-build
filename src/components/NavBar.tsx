@@ -134,14 +134,18 @@ export default function NavBar() {
                     Toutes nos écoles
                   </Link>
                 </li>
-                {[...schools, { name: 'Cité Scolaire J.Bigord Les Abymes', slug: 'les-abymes' }]
-                  .map(s => (
-                    <li key={s.slug}>
-                      <Link href={`/nos-ecoles/${s.slug}`} className={styles.dropdownLink} onClick={closeAll}>
-                        {s.name}
-                      </Link>
-                    </li>
-                  ))}
+                {schools.map(s => (
+                  <li key={s.slug}>
+                  <Link href={`/nos-ecoles/${s.slug}`} className={styles.dropdownLink} onClick={closeAll}>
+                  {s.name}
+                  </Link>
+                  </li>
+                ))}
+                <li key="les-abymes">
+                <a href="https://www.laperseverance.fr/" target="_blank" rel="noopener noreferrer" className={styles.dropdownLink} onClick={closeAll}>
+                Cité Scolaire J.Bigord Les Abymes
+                </a>
+                </li>
               </ul>
             )}
           </li>

@@ -25,8 +25,7 @@ export default function Footer() {
     <li><Link href="/nos-ecoles/baillif">La Persévérance Baillif</Link></li>
     <li><Link href="/nos-ecoles/duportail">La Persévérance Duportail</Link></li>
     <li><Link href="/nos-ecoles/marie-galante">La Persévérance Marie-Galante</Link></li>
-    <li><Link href="/nos-ecoles/les-abymes">Cité Scolaire J.Bigord Les Abymes</Link></li>
-    </ul>
+    <li><Link href="https://www.laperseverance.fr/" target="_blank" rel="noopener noreferrer">Cité Scolaire J.Bigord Les Abymes</a></li>
     </div>
 
     {/* Institution */}
