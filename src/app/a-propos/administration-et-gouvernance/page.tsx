@@ -226,12 +226,12 @@ export default function Page() {
       <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
         Organigramme du réseau scolaire adventiste
       </h2>
-      <div style={{ position: 'relative', width: '100%', marginBottom: '3rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/bureau/organigramme-odgesa.png"
-          alt="Organigramme de l'ODGESA"
-          style={{ width: '100%', height: 'auto' }}
+          src="/images/shared/admin-gouvernance-infographique.jpeg"
+          alt="Organigramme simplifié du réseau scolaire adventiste — de l'établissement local à l'organisation mondiale"
+          style={{ width: '100%', maxWidth: '620px', height: 'auto', display: 'block', borderRadius: '8px' }}
         />
       </div>
 
