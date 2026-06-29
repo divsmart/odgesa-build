@@ -62,7 +62,7 @@ const slides = [
   body: "Pour former des enfants épanouis, équilibrés, cultivés et ouverts au monde.",
   cta: { label: 'Qui sommes-nous', href: '/a-propos/qui-sommes-nous' },
   ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
-  bg: 'slide5',
+  bg: 'slide6',
   external: false,
 },
 ];
