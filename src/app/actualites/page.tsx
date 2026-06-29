@@ -99,13 +99,14 @@ export default function Page() {
             flexDirection: 'column',
             transition: 'box-shadow 0.2s',
           }}>
-            <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
-              <img
-                src={post.image}
-                alt={post.imageAlt}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-            </div>
+
+          <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', background: '#f0f4f5' }}>
+          <img
+          src={post.image}
+          alt={post.imageAlt}
+          style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+          />
+          </div>
 
             <div style={{ padding: '1.25rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
