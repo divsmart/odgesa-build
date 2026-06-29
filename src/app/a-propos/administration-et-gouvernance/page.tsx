@@ -223,9 +223,6 @@ export default function Page() {
       </ul>
 
       {/* Organigramme */}
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
-        Organigramme du réseau scolaire adventiste
-      </h2>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
