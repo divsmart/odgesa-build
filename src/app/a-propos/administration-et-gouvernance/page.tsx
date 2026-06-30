@@ -222,16 +222,6 @@ export default function Page() {
         <li>Des retours d&apos;expérience des réseaux scolaires adventistes partenaires (Antilles-Guyane, Europe et Monde)</li>
       </ul>
 
-      {/* Organigramme */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/shared/admin-gouvernance-infographique.jpeg"
-          alt="Organigramme simplifié du réseau scolaire adventiste — de l'établissement local à l'organisation mondiale"
-          style={{ width: '100%', maxWidth: '620px', height: 'auto', display: 'block', borderRadius: '8px' }}
-        />
-      </div>
-
       {/* Conseil d'administration */}
       <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
         Le Conseil d&apos;administration
@@ -258,6 +248,16 @@ export default function Page() {
           </ul>
         </div>
       ))}
+
+      {/* Organigramme */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem', marginBottom: '2rem' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/shared/admin-gouvernance-infographique.jpeg"
+          alt="Organigramme simplifié du réseau scolaire adventiste — de l'établissement local à l'organisation mondiale"
+          style={{ width: '100%', maxWidth: '620px', height: 'auto', display: 'block', borderRadius: '8px' }}
+        />
+      </div>
     </section>
   );
 }
