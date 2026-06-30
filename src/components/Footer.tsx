@@ -26,7 +26,6 @@ export default function Footer() {
     <li><Link href="/nos-ecoles/duportail">La Persévérance Duportail</Link></li>
     <li><Link href="/nos-ecoles/marie-galante">La Persévérance Marie-Galante</Link></li>
     <li><a href="https://www.laperseverance.fr/" target="_blank" rel="noopener noreferrer">Cité Scolaire J.Bigord Les Abymes</a></li>
-    </ul>
     </div>
 
     {/* Institution */}
@@ -67,6 +66,9 @@ export default function Footer() {
     © {year} ODGESA — Organisme Départemental de Gestion
     des Établissements Scolaires Adventistes
     </p>
+    </div>
+    <div className={styles.subFooter}>
+    <p>Conçu et entretenu pour l&apos;ODGESA par la famille Sharp-Joe, Guadeloupe, Antilles françaises.</p>
     </div>
     </footer>
   );

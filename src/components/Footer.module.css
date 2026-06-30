@@ -98,6 +98,15 @@
   letter-spacing: 0.02em;
 }
 
+.subFooter {
+  background: rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.04em;
+}
+
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 
 @media (max-width: 960px) {
