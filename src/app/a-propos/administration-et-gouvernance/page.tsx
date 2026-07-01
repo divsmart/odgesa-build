@@ -110,7 +110,7 @@ export default function Page() {
       </h2>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
         gap: '1.25rem',
         marginBottom: '3rem',
       }}>
@@ -126,8 +126,8 @@ export default function Page() {
             {/* Photo or initials fallback */}
             <div style={{
               width: '100%',
-              aspectRatio: '1 / 1',
-              maxHeight: '280px',
+              aspectRatio: '3 / 4',
+              maxHeight: '220px',
               background: '#e8f0f3',
               position: 'relative',
               overflow: 'hidden',
