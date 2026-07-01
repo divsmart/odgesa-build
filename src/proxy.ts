@@ -3,12 +3,11 @@ import type { NextRequest } from 'next/server';
 
 const COOKIE_NAME = 'odgesa-preview';
 const LOGIN_PATH  = '/login';
-const AUTH_PATH   = '/api/auth';
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname === LOGIN_PATH || pathname.startsWith(AUTH_PATH)) {
+  if (pathname === LOGIN_PATH || pathname.startsWith('/api/')) {
     return NextResponse.next();
   }
 

@@ -13,8 +13,11 @@ export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const code = (formData.get('code') as string || '').trim().toUpperCase();
 
+  const host = request.headers.get('x-forwarded-host') || new URL(request.url).host;
+  const protocol = request.headers.get('x-forwarded-proto') || 'https';
+
   if (CODES[code]) {
-    const response = NextResponse.redirect(new URL('/', request.url));
+    const response = NextResponse.redirect(`${protocol}://${host}/`);
     response.cookies.set('odgesa-preview', 'granted', {
       httpOnly: true,
       secure: true,
@@ -25,7 +28,7 @@ export async function POST(request: NextRequest) {
     return response;
   }
 
-  const loginUrl = new URL('/login', request.url);
+  const loginUrl = new URL('/login', `${protocol}://${host}`);
   loginUrl.searchParams.set('error', '1');
   return NextResponse.redirect(loginUrl);
 }
