@@ -87,6 +87,34 @@ const initials = (nom: string) =>
 
 export default function Page() {
   return (
+    <>
+    <style>{`
+      .bureau-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1.25rem;
+        margin-bottom: 3rem;
+      }
+      .bureau-photo {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        max-height: 220px;
+        background: #e8f0f3;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 480px) {
+        .bureau-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+        .bureau-photo {
+          max-height: 180px;
+        }
+      }
+    `}</style>
     <section style={{
       padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)',
       maxWidth: '900px',
@@ -108,12 +136,7 @@ export default function Page() {
       <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '1.25rem' }}>
         Le Bureau
       </h2>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-        gap: '1.25rem',
-        marginBottom: '3rem',
-      }}>
+      <div className="bureau-grid">
         {bureau.map((b) => (
           <div key={b.nom} style={{
             border: '1px solid #d0dde3',
@@ -124,17 +147,7 @@ export default function Page() {
             flexDirection: 'column',
           }}>
             {/* Photo or initials fallback */}
-            <div style={{
-              width: '100%',
-              aspectRatio: '3 / 4',
-              maxHeight: '220px',
-              background: '#e8f0f3',
-              position: 'relative',
-              overflow: 'hidden',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
+            <div className="bureau-photo">
               {b.photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -259,5 +272,6 @@ export default function Page() {
         />
       </div>
     </section>
+    </>
   );
 }
