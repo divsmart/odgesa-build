@@ -174,13 +174,13 @@ export default function NavBar() {
           </li>
 
           <li>
-            <Link href="/familles" className={styles.navLink} onClick={closeAll}>
-              Familles
+            <Link href="/actualites" className={styles.navLink} onClick={closeAll}>
+              Actualités
             </Link>
           </li>
           <li>
-            <Link href="/actualites" className={styles.navLink} onClick={closeAll}>
-              Actualités
+            <Link href="/ressources" className={styles.navLink} onClick={closeAll}>
+              Ressources
             </Link>
           </li>
           <li>

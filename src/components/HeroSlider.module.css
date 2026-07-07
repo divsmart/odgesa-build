@@ -90,7 +90,7 @@
 }
 
 .body {
-  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-size: clamp(1.08rem, 1.68vw, 1.26rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.82);
   max-width: 560px;
