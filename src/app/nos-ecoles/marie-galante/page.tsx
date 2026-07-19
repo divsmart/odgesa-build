@@ -1,3 +1,23 @@
+import Image from 'next/image';
+import styles from './StickyMedia.module.css';
+
+const supplyLists = [
+  { level: 'Petite Section (PS)', file: 'fournitures-marie-galante-ps.pdf' },
+  { level: 'Moyenne Section (MS)', file: 'fournitures-marie-galante-ms.pdf' },
+  { level: 'Grande Section (GS)', file: 'fournitures-marie-galante-gs.pdf' },
+  { level: 'CP', file: 'fournitures-marie-galante-cp.pdf' },
+  { level: 'CE1', file: 'fournitures-marie-galante-ce1.pdf' },
+  { level: 'CE2', file: 'fournitures-marie-galante-ce2.pdf' },
+  { level: 'CM1', file: 'fournitures-marie-galante-cm1.pdf' },
+  { level: 'CM2', file: 'fournitures-marie-galante-cm2.pdf' },
+];
+
+const galleryPhotos = [
+  { src: '/images/marie-galante/bibliotheque-marie-galante-1.jpg', alt: 'Temps de lecture à la bibliothèque — École La Persévérance Marie-Galante' },
+  { src: '/images/marie-galante/bibliotheque-marie-galante-2.jpg', alt: 'Élèves en atelier de lecture à la bibliothèque — École La Persévérance Marie-Galante' },
+  { src: '/images/marie-galante/journee-sportive-marie-galante.jpg', alt: 'Journée sportive — École La Persévérance Marie-Galante' },
+];
+
 export default function Page() {
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)' }}>
@@ -105,16 +125,47 @@ export default function Page() {
         ))}
       </div>
 
-      {/* Vie scolaire & spirituelle */}
+      {/* Vie scolaire & spirituelle — sticky image, scrolling text */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
         Vie scolaire et spirituelle
       </h2>
-      <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>
-        La dimension spirituelle fait naturellement partie de notre projet éducatif. Elle accompagne les élèves dans la découverte des valeurs chrétiennes telles que le respect, la bienveillance, le service, la gratitude et l&apos;espérance.
-      </p>
-      <p style={{ lineHeight: 1.8, marginBottom: '3rem' }}>
-        Chaque semaine, les élèves participent à des moments de chapelle animés par l&apos;aumônier Roger Mathias — le lundi à partir de 8h et le vendredi à partir de 11h. Ces temps privilégiés invitent les enfants à réfléchir, chanter, prier et approfondir les enseignements bibliques dans un esprit d&apos;ouverture et de partage.
-      </p>
+      <div className={styles.wrapper}>
+        <div className={styles.imageCol}>
+          <div className={styles.mainImage}>
+            <Image
+              src={galleryPhotos[2].src}
+              alt={galleryPhotos[2].alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 400px"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div className={styles.thumbRow}>
+            {galleryPhotos.slice(0, 2).map(photo => (
+              <div key={photo.src} className={styles.thumb}>
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 195px"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.textCol}>
+          <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>
+            La dimension spirituelle fait naturellement partie de notre projet éducatif. Elle accompagne les élèves dans la découverte des valeurs chrétiennes telles que le respect, la bienveillance, le service, la gratitude et l&apos;espérance.
+          </p>
+          <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>
+            Chaque semaine, les élèves participent à des moments de chapelle animés par l&apos;aumônier Roger Mathias — le lundi à partir de 8h et le vendredi à partir de 11h. Ces temps privilégiés invitent les enfants à réfléchir, chanter, prier et approfondir les enseignements bibliques dans un esprit d&apos;ouverture et de partage.
+          </p>
+          <p style={{ lineHeight: 1.8 }}>
+            La vie scolaire se vit aussi dans le mouvement et le partage : temps de lecture à la bibliothèque et journées sportives rythment l&apos;année et renforcent l&apos;esprit d&apos;équipe entre les élèves.
+          </p>
+        </div>
+      </div>
 
       {/* Horaires & restauration */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
@@ -169,12 +220,56 @@ export default function Page() {
       </div>
 
       {/* Inscriptions */}
-      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
+      <h2 id="inscription" style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem', scrollMarginTop: '100px' }}>
         Inscriptions
       </h2>
-      <p style={{ lineHeight: 1.8, marginBottom: '3rem' }}>
-        Les dossiers d&apos;inscription sont disponibles en téléchargement sur ce site. Une fois complétés, ils sont à remettre directement à l&apos;établissement. Pour toute première inscription ou demande d&apos;information, nous vous invitons à prendre rendez-vous par téléphone.
+      <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
+        Les dossiers d&apos;inscription sont disponibles en téléchargement ci-dessous. Une fois complétés, ils sont à remettre directement à l&apos;établissement. Pour toute première inscription ou demande d&apos;information, nous vous invitons à prendre rendez-vous par téléphone.
       </p>
+      <a
+        href="/documents/marie-galante/fiche-inscription-marie-galante-2026-2027.pdf"
+        download
+        style={{
+          display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+          background: 'var(--color-orange)', color: '#fff', fontWeight: 700,
+          fontFamily: 'var(--font-condensed)', fontSize: '0.95rem',
+          padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none',
+          marginBottom: '3rem',
+        }}
+      >
+        Télécharger la fiche d&apos;inscription 2026–2027
+      </a>
+
+      {/* Fournitures scolaires */}
+      <h2 id="fournitures" style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem', scrollMarginTop: '100px' }}>
+        Listes de fournitures scolaires 2026–2027
+      </h2>
+      <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
+        Choisissez la classe de votre enfant pour télécharger uniquement la liste qui le concerne.
+      </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '0.75rem', marginBottom: '3rem' }}>
+        {supplyLists.map(item => (
+          <a
+            key={item.file}
+            href={`/documents/marie-galante/${item.file}`}
+            download
+            style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              gap: '0.35rem', textAlign: 'center',
+              background: '#f0f7f9', border: '1px solid #dceaee', borderRadius: '8px',
+              padding: '1rem 0.75rem', textDecoration: 'none',
+              borderTop: '3px solid var(--color-teal)',
+            }}
+          >
+            <span style={{ fontFamily: 'var(--font-condensed)', fontWeight: 700, color: 'var(--color-navy)', fontSize: '1rem' }}>
+              {item.level}
+            </span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--color-teal)', fontWeight: 600 }}>
+              Télécharger PDF
+            </span>
+          </a>
+        ))}
+      </div>
 
       {/* Contact */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
