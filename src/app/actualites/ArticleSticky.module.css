@@ -1,0 +1,98 @@
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+.back {
+  display: inline-block;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+.back:hover {
+  color: var(--color-teal);
+}
+
+.kicker {
+  font-family: var(--font-condensed);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-orange, #E6B320);
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: var(--font-condensed);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--color-teal);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.date {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.intro {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--color-text);
+  max-width: 720px;
+  margin: 0 0 2.5rem;
+}
+
+.stickyBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 3rem 0;
+}
+
+.stickyCol {
+  position: sticky;
+  top: 2rem;
+}
+
+.stickyCol img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.textCol p {
+  margin: 0 0 1.4rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.textCol p.dropcap::first-letter {
+  font-family: var(--font-condensed);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--color-orange, #E6B320);
+  float: left;
+  line-height: 0.85;
+  margin: 0.05em 0.08em 0 0;
+}
+
+@media (max-width: 720px) {
+  .stickyBlock {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .stickyCol {
+    position: static;
+  }
+}
