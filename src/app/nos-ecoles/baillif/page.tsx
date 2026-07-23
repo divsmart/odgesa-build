@@ -216,6 +216,39 @@ export default function Page() {
         Les listes de fournitures par classe seront mises en ligne prochainement.
       </p>
 
+      {/* Documents */}
+      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
+        Documents
+      </h2>
+      <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
+        Retrouvez ci-dessous les documents officiels de l&apos;établissement pour l&apos;année scolaire 2026–2027.
+      </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.75rem', marginBottom: '3rem' }}>
+        {[
+          { label: 'Règlement intérieur', file: 'reglement-interieur-baillif-2026-2027.pdf' },
+          { label: 'Convention de scolarisation & règlement financier', file: 'convention-reglement-financier-baillif-2026-2027.pdf' },
+          { label: "Fiche d'inscription", file: 'fiche-inscription-baillif-2026-2027.pdf' },
+          { label: "Fiche d'urgence & droit à l'image", file: 'fiche-urgence-droit-image-baillif-2026-2027.pdf' },
+        ].map(doc => (
+          <a
+            key={doc.file}
+            href={`/documents/baillif/${doc.file}`}
+            download
+            style={{
+              display: 'flex', alignItems: 'center', gap: '0.6rem',
+              background: '#f0f7f9', border: '1px solid #dceaee', borderRadius: '8px',
+              padding: '0.85rem 1rem', textDecoration: 'none',
+              borderLeft: '3px solid var(--color-teal)',
+            }}
+          >
+            <span style={{ fontSize: '1.1rem', lineHeight: 1 }}>📄</span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-navy)', lineHeight: 1.4 }}>
+              {doc.label}
+            </span>
+          </a>
+        ))}
+      </div>
+
       {/* Contact */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
         Contact et accès
