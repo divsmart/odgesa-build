@@ -1,5 +1,4 @@
 
-
 const bureau = [
   {
     nom: 'Mme Patricia Sablier',
@@ -26,60 +25,6 @@ const bureau = [
     photo: '/images/bureau/hugues-placide.jpg',
   },
 
-];
-
-const ca = [
-  {
-    categorie: 'Membres de droit — Union des Antilles Guyane Françaises (UAGF)',
-    membres: [
-      "CARPIN Eddy-Michel — Président de l'UAGF",
-      "MARTIAS Marie-Andrée — Directrice de l'Éducation de l'UAGF",
-    ],
-  },
-  {
-    categorie: 'Membres de droit — FACSA',
-    membres: [
-      'AUGUSTE Esaïe — Président',
-      'VOLTAIRE Franck — Secrétaire',
-      'ZENARRE Rony — Trésorier',
-    ],
-  },
-  {
-    categorie: "Membre de droit — Église Adventiste de Guadeloupe",
-    membres: [
-      "BLOCAIL Corinne — Directrice de l'Éducation",
-    ],
-  },
-  {
-    categorie: 'Aumônerie',
-    membres: [
-      "DAUBE Nahomie — Aumônière d'établissement scolaire",
-    ],
-  },
-  {
-    categorie: "Responsables des départements de l'Éducation",
-    membres: ['CLODINE-FLORENT Chantal', 'FELIX Eddy', 'NANETTE Ruth', 'REGIS Sébastien'],
-  },
-  {
-    categorie: 'Expertise en éducation et formation',
-    membres: ['DRELIN Esméralda', 'DUBE Raphaël', 'MAYA Patricia', 'SABLIER Patricia', 'SIOUSARAN Cinthia'],
-  },
-  {
-    categorie: "Chefs d'établissement élus par leurs pairs",
-    membres: ['BERNAY Kathy — Collège-lycée', 'CHARBONNE Martin — Primaire'],
-  },
-  {
-    categorie: 'Enseignants élus par leurs pairs',
-    membres: ['GRAVILLON Antoine — Collège-lycée', 'RETEL Sandrine — Primaire'],
-  },
-  {
-    categorie: 'Personnel non enseignant',
-    membres: ['PLACIDE Hugues'],
-  },
-  {
-    categorie: "Représentant des parents d'élèves",
-    membres: ['CLAUDEON André'],
-  },
 ];
 
 const initials = (nom: string) =>
@@ -227,7 +172,7 @@ export default function Page() {
       <p style={{ marginBottom: '1rem' }}>
         Le Projet d&apos;école est un document vivant, révisé régulièrement sur la base :
       </p>
-      <ul style={{ paddingLeft: '1.25rem', lineHeight: '2', marginBottom: '3rem' }}>
+      <ul style={{ paddingLeft: '1.25rem', lineHeight: '2', marginBottom: '1rem' }}>
         <li>Des bilans annuels de chaque établissement</li>
         <li>Des questionnaires d&apos;auto-évaluation (familles, élèves, personnels)</li>
         <li>Des évolutions du cadre légal applicable à l&apos;enseignement hors contrat</li>
@@ -235,42 +180,6 @@ export default function Page() {
         <li>Des retours d&apos;expérience des réseaux scolaires adventistes partenaires (Antilles-Guyane, Europe et Monde)</li>
       </ul>
 
-      {/* Conseil d'administration */}
-      <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
-        Le Conseil d&apos;administration
-      </h2>
-      <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: 'clamp(0.875rem, 1.4vw, 1rem)' }}>
-        22 membres élus par l&apos;Assemblée Générale Ordinaire pour 4 ans, rééligibles.
-      </p>
-      {ca.map((group) => (
-        <div key={group.categorie} style={{ marginBottom: '1.5rem' }}>
-          <h3 style={{
-            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
-            fontWeight: 700,
-            color: 'var(--color-navy)',
-            borderBottom: '1px solid #e5e7eb',
-            paddingBottom: '0.4rem',
-            marginBottom: '0.6rem',
-          }}>
-            {group.categorie}
-          </h3>
-          <ul style={{ paddingLeft: '1.25rem', lineHeight: '1.9', fontSize: 'clamp(0.875rem, 1.4vw, 1rem)' }}>
-            {group.membres.map((m) => (
-              <li key={m}>{m}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-
-      {/* Organigramme */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem', marginBottom: '2rem' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/shared/admin-gouvernance-infographique.jpeg"
-          alt="Organigramme simplifié du réseau scolaire adventiste — de l'établissement local à l'organisation mondiale"
-          style={{ width: '100%', maxWidth: '620px', height: 'auto', display: 'block', borderRadius: '8px' }}
-        />
-      </div>
     </section>
     </>
   );
