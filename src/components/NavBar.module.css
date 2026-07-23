@@ -25,6 +25,7 @@
 .logoWrap {
   display: flex;
   align-items: center;
+  gap: clamp(0.4rem, 1vw, 0.65rem);
   flex-shrink: 0;
   text-decoration: none;
 }
@@ -169,6 +170,49 @@
 .dropdownLink:hover {
   background: rgba(255, 255, 255, 0.07);
   color: #e8a030;
+}
+
+/* ─── Nested flyout (Fournitures ▸ École ▸ Classe) ───────────────────────── */
+
+.subDropdownWrap {
+  position: relative;
+}
+
+.subDropdownToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0.55rem 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.65rem, 1vw, 0.78rem);
+  font-weight: 400;
+  line-height: 1.45;
+  transition: background 0.15s, color 0.15s;
+}
+
+.subDropdownToggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #e8a030;
+}
+
+.subDropdown {
+  position: absolute;
+  top: -0.5rem;
+  left: 100%;
+  margin-left: 0.4rem;
+  background: #0b3d50;
+  border-top: 2px solid #e8a030;
+  list-style: none;
+  padding: 0.4rem 0;
+  min-width: 140px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 0 4px 4px 4px;
+  z-index: 210;
 }
 
 /* ─── Right controls ─────────────────────────────────────────────────────── */
@@ -378,6 +422,23 @@
   .dropdownLink {
     padding: 0.5rem 0.75rem;
     font-size: 0.82rem;
+  }
+
+  /* Mobile — nested flyout becomes a deeper indented accordion, not a popout */
+  .subDropdownToggle {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .subDropdown {
+    position: static;
+    margin: 0.15rem 0 0.35rem 0.75rem;
+    border-top: none;
+    border-left: 2px solid #e8a030;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: unset;
+    padding: 0.15rem 0;
   }
 
   /* Mobile — inscrire dropdown anchors right of button */

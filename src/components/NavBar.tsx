@@ -9,17 +9,45 @@ const schools = [
   { name: 'La Persévérance Marie-Galante',  slug: 'marie-galante' },
 ];
 
+// Fournitures ▸ École ▸ Classe — per-school, per-class supply-list PDFs.
+// Schools with an empty `classes` array don't have PDFs yet: clicking the
+// school name links straight to the school's #fournitures anchor instead of
+// opening an (empty) submenu. Once a school's PDFs are ready, just fill in
+// its `classes` array below — no other changes needed.
+const fournituresData: {
+  slug: string;
+  name: string;
+  classes: { name: string; href: string }[];
+}[] = [
+  { name: 'La Persévérance Baillif',      slug: 'baillif',      classes: [] },
+  { name: 'La Persévérance Duportail',    slug: 'duportail',    classes: [] },
+  {
+    name: 'La Persévérance Marie-Galante',
+    slug: 'marie-galante',
+    classes: [
+      { name: 'PS',  href: '/documents/marie-galante/fournitures/ps.pdf'  },
+      { name: 'MS',  href: '/documents/marie-galante/fournitures/ms.pdf'  },
+      { name: 'GS',  href: '/documents/marie-galante/fournitures/gs.pdf'  },
+      { name: 'CP',  href: '/documents/marie-galante/fournitures/cp.pdf'  },
+      { name: 'CE1', href: '/documents/marie-galante/fournitures/ce1.pdf' },
+      { name: 'CE2', href: '/documents/marie-galante/fournitures/ce2.pdf' },
+      { name: 'CM1', href: '/documents/marie-galante/fournitures/cm1.pdf' },
+      { name: 'CM2', href: '/documents/marie-galante/fournitures/cm2.pdf' },
+    ],
+  },
+];
+
 const projetLinks = [
   { name: 'Notre identité éducative',        href: '/projet-educatif/notre-identite-educative' },
   { name: 'Charte éducative commune',        href: '/projet-educatif/charte-educative-commune' },
   { name: 'Cadre de vie des établissements', href: '/projet-educatif/cadre-de-vie' },
+  { name: 'Notre Réseau La Persévérance',    href: '/projet-educatif/notre-reseau' },
 ];
 
 const aproposLinks = [
   { name: 'Qui sommes-nous ?',             href: '/a-propos/qui-sommes-nous' },
   { name: 'Histoire',                      href: '/a-propos/histoire' },
   { name: 'Administration et gouvernance', href: '/a-propos/administration-et-gouvernance' },
-  { name: 'Notre Réseau',                  href: '/a-propos/notre-reseau' },
 ];
 
 const langs = ['FR', 'EN', 'ES'] as const;
@@ -31,12 +59,15 @@ export default function NavBar() {
   const [ecolesOpen,   setEcolesOpen]   = useState(false);
   const [aproposOpen,  setAproposOpen]  = useState(false);
   const [inscrireOpen, setInscrireOpen] = useState(false);
+  const [fournOpen,       setFournOpen]       = useState(false);
+  const [fournSchoolOpen, setFournSchoolOpen] = useState<string | null>(null);
   const [lang,         setLang]         = useState<Lang>('FR');
 
   const projetRef   = useRef<HTMLLIElement>(null);
   const ecolesRef   = useRef<HTMLLIElement>(null);
   const aproposRef  = useRef<HTMLLIElement>(null);
   const inscrireRef = useRef<HTMLDivElement>(null);
+  const fournRef    = useRef<HTMLLIElement>(null);
 
   // Close all dropdowns on outside click
   useEffect(() => {
@@ -49,6 +80,10 @@ export default function NavBar() {
         setAproposOpen(false);
       if (inscrireRef.current && !inscrireRef.current.contains(e.target as Node))
         setInscrireOpen(false);
+      if (fournRef.current && !fournRef.current.contains(e.target as Node)) {
+        setFournOpen(false);
+        setFournSchoolOpen(null);
+      }
     }
     document.addEventListener('mousedown', handle);
     return () => document.removeEventListener('mousedown', handle);
@@ -66,6 +101,8 @@ export default function NavBar() {
     setEcolesOpen(false);
     setAproposOpen(false);
     setInscrireOpen(false);
+    setFournOpen(false);
+    setFournSchoolOpen(null);
     setMobileOpen(false);
   }
 
@@ -85,6 +122,11 @@ export default function NavBar() {
 
         {/* ── Logo ─────────────────────────────────────────────────── */}
       <Link href="/" className={styles.logoWrap} onClick={closeAll}>
+        <img
+          src="/images/shared/odgesa-logo-icon.png"
+          alt="ODGESA"
+          className={styles.logo}
+        />
         <span className={styles.logoText}>
          <span className={styles.logoTitle}>Écoles Persévérance</span>
          <span className={styles.logoSub}>Guadeloupe</span>
@@ -146,6 +188,70 @@ export default function NavBar() {
                 Cité Scolaire J.Bigord Les Abymes
                 </a>
                 </li>
+              </ul>
+            )}
+          </li>
+
+          {/* Fournitures ▸ École ▸ Classe */}
+          <li ref={fournRef} className={styles.dropdownWrap}>
+            <button
+              className={`${styles.navLink} ${styles.dropdownToggle}`}
+              onClick={() => { setFournOpen(p => !p); setFournSchoolOpen(null); }}
+              aria-expanded={fournOpen}
+            >
+              Fournitures
+              {chevron(fournOpen)}
+            </button>
+            {fournOpen && (
+              <ul className={styles.dropdown}>
+                {fournituresData.map(school => (
+                  school.classes.length === 0 ? (
+                    <li key={school.slug}>
+                      <Link
+                        href={`/nos-ecoles/${school.slug}#fournitures`}
+                        className={styles.dropdownLink}
+                        onClick={closeAll}
+                      >
+                        {school.name}
+                      </Link>
+                    </li>
+                  ) : (
+                    <li
+                      key={school.slug}
+                      className={styles.subDropdownWrap}
+                      onMouseEnter={() => setFournSchoolOpen(school.slug)}
+                      onMouseLeave={() => setFournSchoolOpen(null)}
+                    >
+                      <button
+                        className={styles.subDropdownToggle}
+                        onClick={() =>
+                          setFournSchoolOpen(p => (p === school.slug ? null : school.slug))
+                        }
+                        aria-expanded={fournSchoolOpen === school.slug}
+                      >
+                        {school.name}
+                        {chevron(fournSchoolOpen === school.slug)}
+                      </button>
+                      {fournSchoolOpen === school.slug && (
+                        <ul className={styles.subDropdown}>
+                          {school.classes.map(c => (
+                            <li key={c.href}>
+                              <a
+                                href={c.href}
+                                className={styles.dropdownLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={closeAll}
+                              >
+                                {c.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  )
+                ))}
               </ul>
             )}
           </li>
