@@ -14,36 +14,63 @@
 .slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 0.9s ease;
 }
 
 .slide.active { opacity: 1; }
 
-.slide1 { background-image: url('/images/slide1.jpg'); background-size: cover; background-position: center; }
-.slide2 { background-image: url('/images/slide2.jpg'); background-size: cover; background-position: center; }
-.slide3 { background-image: url('/images/slide3.jpg'); background-size: cover; background-position: center; }
-.slide4 { background-image: url('/images/baillif/baillif-ecole.jpg'); background-size: cover; background-position: center 40%; }
-.slide5 {
-  background-image: url('/images/duportail/duportail-ecole.jpg');
+/* ─── Split-slide image layers (2 images per slide) ──────────────────────── */
+/* Desktop default: side-by-side, static, no animation. */
+
+.slideImage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
   background-size: cover;
-  background-position: center top;
+  background-position: center;
 }
 
-.slide5 .overlay {
-  background: linear-gradient(
-    to right,
-    rgba(8, 20, 25, 0.85) 0%,
-                              rgba(8, 20, 25, 0.65) 0%,
-                              rgba(8, 20, 25, 0.35) 60%
-                              rgba(8, 20, 25, 0.10) 100%
-  );
-}
+.slideImageLeft  { left: 0;   width: 50%; }
+.slideImageRight { left: 50%; width: 50%; }
 
-.slide6 {
+/* Single-image slides (e.g. Bigord graduation) — full-bleed on every viewport. */
+.slideImageSingle { left: 0; width: 100%; }
+
+/* Gradient slides (no photo at all — e.g. the tagline slide) */
+.slideGradient {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(135deg, #0d4d62 0%, #081419 100%);
+}
+
+/* ─── Mobile: single-image-at-a-time crossfade instead of a side-by-side split ─── */
+/* A 50/50 vertical split becomes two illegible slivers on a phone-width screen,
+   so below 768px each split slide instead shows one photo at a time, fading
+   between the two on a loop. Single-image and gradient slides are unaffected —
+   they already render the same way on every viewport. */
+
+@media (max-width: 768px) {
+  .slideImageLeft,
+  .slideImageRight {
+    width: 100%;
+    left: 0;
+  }
+
+  .slideImageLeft  { animation: heroCrossfadeA 9s ease-in-out infinite; }
+  .slideImageRight { animation: heroCrossfadeB 9s ease-in-out infinite; }
+}
+
+@keyframes heroCrossfadeA {
+  0%, 42%  { opacity: 1; }
+  50%, 92% { opacity: 0; }
+  100%     { opacity: 1; }
+}
+
+@keyframes heroCrossfadeB {
+  0%, 42%  { opacity: 0; }
+  50%, 92% { opacity: 1; }
+  100%     { opacity: 0; }
 }
 
 .ctaDonate { background: var(--color-orange); }
@@ -57,6 +84,20 @@
     rgba(8, 20, 25, 0.4) 60%,
     rgba(8, 20, 25, 0.15) 100%
   );
+}
+
+@media (max-width: 768px) {
+  /* On mobile the image is full-bleed and crossfading, so a left-anchored
+     gradient reads oddly (it would darken one edge of a full photo rather
+     than "the far side from the text"). Flatten to an even scrim instead. */
+  .overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 20, 25, 0.35) 0%,
+      rgba(8, 20, 25, 0.55) 55%,
+      rgba(8, 20, 25, 0.8) 100%
+    );
+  }
 }
 
 .content {

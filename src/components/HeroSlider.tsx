@@ -3,68 +3,104 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import styles from './HeroSlider.module.css';
 
+// Each slide can be:
+//  - a split slide: two images (left/right on desktop, crossfading on mobile)
+//  - a single-image slide: one image, same on desktop and mobile
+//  - a gradient slide: no images at all (background is a CSS gradient)
+type SlideImages =
+  | { mode: 'split'; left: string; right: string }
+  | { mode: 'single'; src: string }
+  | { mode: 'gradient' };
+
 const slides = [
   {
     id: 1,
+    key: 'marie-galante',
     eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
     heading: "Des écoles chrétiennes ouvertes,\nbienveillantes, au service\nde chaque enfant",
     body: "Quatre établissements chrétiens adventistes en Guadeloupe — unis autour d'une pédagogie chrétienne intégrale, une alimentation saine et le plein épanouissement de l'enfant.",
     cta: { label: 'Découvrir le réseau', href: '/nos-ecoles' },
-    ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/baillif#inscription' },
-    bg: 'slide1',
+    ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/marie-galante#inscription' },
+    images: { mode: 'split', left: '/images/marie-galante/hero-left.jpg', right: '/images/marie-galante/hero-right.jpg' } as SlideImages,
     external: false,
   },
-{
-  id: 2,
-  eyebrow: 'Pédagogie classique & Montessori',
-  heading: "Une éducation qui respecte\nle rythme de chaque enfant",
-  body: "De la maternelle au CM2 — anglais, espagnol, LSF, arts, sport et accompagnement spirituel dans un cadre structurant et bienveillant.",
-  cta: { label: 'Notre projet éducatif', href: '/projet-educatif' },
-  ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
-  bg: 'slide2',
-  external: false,
-},
-{
-  id: 3,
-  eyebrow: 'École La Persévérance — Baillif',
-  heading: "Un cadre chaleureux\npour l'épanouissement\nde chaque élève",
-  body: "À Baillif, nos élèves grandissent dans un environnement bienveillant et stimulant, où chaque enfant est accompagné avec soin dans son parcours scolaire et personnel.",
-  cta: { label: 'Faire un don pour Baillif', href: 'https://donate.stripe.com/BAILLIF_PLACEHOLDER' },
-  ctaSecondary: { label: 'Découvrir l\'école', href: '/nos-ecoles/baillif' },
-  bg: 'slide4',
-  external: true,
-  externalSecondary: false,
-},
-{
-  id: 4,
-  eyebrow: 'École La Persévérance — Duportail · Sainte-Rose',
-  heading: "Pédagogie classique et Montessori\ndans un cadre verdoyant\nen Guadeloupe",
-  body: "À Duportail, nos élèves bénéficient d'un environnement naturel exceptionnel et d'un accompagnement pédagogique attentif, du plus jeune âge jusqu'au CM2.",
-  cta: { label: "Découvrir l'école", href: '/nos-ecoles/duportail' },
-  ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/duportail#inscription' },
-  bg: 'slide5',
-  external: false,
-},
-{
-  id: 5,
-  eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
-  heading: "Un réseau, des écoles chrétiennes\nà taille humaine, enracinées\nen Guadeloupe",
-  body: "Pour former des enfants épanouis, équilibrés, cultivés et ouverts au monde.",
-  cta: { label: 'Qui sommes-nous', href: '/a-propos/qui-sommes-nous' },
-  ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
-  bg: 'slide6',
-  external: false,
-},
-{
-  id: 6,
-  eyebrow: 'Inscriptions ouvertes — janvier 2026',
-  heading: "Rejoignez la famille\ndes Écoles Persévérance",
-  body: "Trois sites en Guadeloupe — Baillif, Duportail (Sainte-Rose) et Marie-Galante. Écolage : 2 000 à 2 400 € / an. Transport scolaire disponible.",
-  cta: { label: "Demande d'inscription", href: '/nos-ecoles/baillif#inscription' },
-  ctaSecondary: { label: 'Nous contacter', href: '/contact' },
-  bg: 'slide3',
-  external: false,
-},
+  {
+    id: 2,
+    key: 'baillif',
+    eyebrow: 'École La Persévérance — Baillif',
+    heading: "Un cadre chaleureux\npour l'épanouissement\nde chaque élève",
+    body: "À Baillif, nos élèves grandissent dans un environnement bienveillant et stimulant, où chaque enfant est accompagné avec soin dans son parcours scolaire et personnel.",
+    cta: { label: 'Faire un don pour Baillif', href: 'https://donate.stripe.com/BAILLIF_PLACEHOLDER' },
+    ctaSecondary: { label: "Découvrir l'école", href: '/nos-ecoles/baillif' },
+    images: { mode: 'split', left: '/images/baillif/hero-left.jpg', right: '/images/baillif/hero-right.jpg' } as SlideImages,
+    external: true,
+    externalSecondary: false,
+  },
+  {
+    id: 3,
+    key: 'duportail',
+    eyebrow: 'École La Persévérance — Duportail · Sainte-Rose',
+    heading: "Pédagogie classique et Montessori\ndans un cadre verdoyant\nen Guadeloupe",
+    body: "À Duportail, nos élèves bénéficient d'un environnement naturel exceptionnel et d'un accompagnement pédagogique attentif, du plus jeune âge jusqu'au CM2.",
+    cta: { label: "Découvrir l'école", href: '/nos-ecoles/duportail' },
+    ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/duportail#inscription' },
+    images: { mode: 'split', left: '/images/duportail/hero-left.jpg', right: '/images/duportail/hero-right.jpg' } as SlideImages,
+    external: false,
+  },
+  {
+    id: 4,
+    key: 'talents',
+    // PLACEHOLDER — awaiting the real jardinage/chorale/chants photos from Michael.
+    // Using two Marie-Galante activity photos as temporary filler so the slide
+    // isn't broken in the meantime. Swap `images.left` / `images.right` below
+    // once the real photos are in hand.
+    eyebrow: 'Arts, culture et activités — Réseau ODGESA',
+    heading: "Des talents à découvrir,\ndes passions à développer,\ndes valeurs à cultiver",
+    body: "Chant choral, musique, théâtre, langues, jardinage… pour former le corps, l'esprit et le cœur.",
+    cta: { label: 'Notre projet éducatif', href: '/projet-educatif' },
+    ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
+    images: { mode: 'split', left: '/images/marie-galante/journee-sportive-marie-galante.jpg', right: '/images/marie-galante/bibliotheque-marie-galante-1.jpg' } as SlideImages,
+    external: false,
+  },
+  {
+    id: 5,
+    key: 'reseau',
+    // Unchanged — Michael flagged this slide for new instructions later.
+    eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
+    heading: "Un réseau, des écoles chrétiennes\nà taille humaine, enracinées\nen Guadeloupe",
+    body: "Pour former des enfants épanouis, équilibrés, cultivés et ouverts au monde.",
+    cta: { label: 'Qui sommes-nous', href: '/a-propos/qui-sommes-nous' },
+    ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
+    images: { mode: 'gradient' } as SlideImages,
+    external: false,
+  },
+  {
+    id: 6,
+    key: 'inscriptions',
+    eyebrow: 'Inscriptions ouvertes — janvier 2026',
+    heading: "Rejoignez la famille\ndes Écoles Persévérance",
+    body: "Trois sites en Guadeloupe — Baillif, Duportail (Sainte-Rose) et Marie-Galante. Écolage : 2 000 à 2 400 € / an. Transport scolaire disponible.",
+    cta: { label: "Demande d'inscription", href: '/nos-ecoles/baillif#inscription' },
+    ctaSecondary: { label: 'Nous contacter', href: '/contact' },
+    images: { mode: 'gradient' } as SlideImages,
+    external: false,
+  },
+  {
+    id: 7,
+    key: 'bigord',
+    // DRAFT COPY — not yet confirmed by Michael/Patricia. Graduation photo is
+    // real (slide3.jpg from 23 July); this is a single-image slide since we
+    // don't have a second Bigord photo yet (the low-res courtyard shot was
+    // parked as unusable).
+    eyebrow: 'Cité Scolaire La Persévérance — J. Bigord, Les Abymes',
+    heading: "L'excellence académique,\nde la 6ème au BTS",
+    body: "1ère place Académie de Guadeloupe (2021–2022) et Académie de Martinique (2022–2023) — nos élèves de Bigord se distinguent d'année en année.",
+    cta: { label: "Découvrir Bigord", href: 'https://www.laperseverance.fr/' },
+    ctaSecondary: { label: 'Nous contacter', href: '/contact' },
+    images: { mode: 'single', src: '/images/bigord/hero-graduation.jpg' } as SlideImages,
+    external: true,
+    externalSecondary: false,
+  },
 ];
 
 const INTERVAL = 6000;
@@ -108,7 +144,19 @@ export default function HeroSlider() {
     aria-label="Diaporama principal"
     >
     {slides.map((s, i) => (
-      <div key={s.id} className={`${styles.slide} ${styles[s.bg]} ${i === current ? styles.active : ''}`} aria-hidden={i !== current}>
+      <div key={s.id} className={`${styles.slide} ${i === current ? styles.active : ''}`} aria-hidden={i !== current}>
+        {s.images.mode === 'split' && (
+          <>
+            <div className={`${styles.slideImage} ${styles.slideImageLeft}`} style={{ backgroundImage: `url(${s.images.left})` }} />
+            <div className={`${styles.slideImage} ${styles.slideImageRight}`} style={{ backgroundImage: `url(${s.images.right})` }} />
+          </>
+        )}
+        {s.images.mode === 'single' && (
+          <div className={`${styles.slideImage} ${styles.slideImageSingle}`} style={{ backgroundImage: `url(${s.images.src})` }} />
+        )}
+        {s.images.mode === 'gradient' && (
+          <div className={styles.slideGradient} />
+        )}
       <div className={styles.overlay} />
       </div>
     ))}
