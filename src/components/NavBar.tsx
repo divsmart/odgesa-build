@@ -20,7 +20,20 @@ const fournituresData: {
   classes: { name: string; href: string }[];
 }[] = [
   { name: 'La Persévérance Baillif',      slug: 'baillif',      classes: [] },
-  { name: 'La Persévérance Duportail',    slug: 'duportail',    classes: [] },
+  {
+    name: 'La Persévérance Duportail',
+    slug: 'duportail',
+    classes: [
+      { name: 'TPS / PS / MS', href: '/documents/duportail/fournitures-duportail-tps-ps-ms.pdf' },
+      { name: 'GS',            href: '/documents/duportail/fournitures-duportail-gs.pdf'         },
+      { name: 'CP',            href: '/documents/duportail/fournitures-duportail-cp.pdf'         },
+      { name: 'CE1',           href: '/documents/duportail/fournitures-duportail-ce1.pdf'        },
+      { name: 'CE2',           href: '/documents/duportail/fournitures-duportail-ce2.pdf'        },
+      { name: 'CM1',           href: '/documents/duportail/fournitures-duportail-cm1.pdf'        },
+      { name: 'CM2',           href: '/documents/duportail/fournitures-duportail-cm2.pdf'        },
+      { name: 'Montessori (PS–GS)', href: '/documents/duportail/fournitures-duportail-montessori.pdf' },
+    ],
+  },
   {
     name: 'La Persévérance Marie-Galante',
     slug: 'marie-galante',
