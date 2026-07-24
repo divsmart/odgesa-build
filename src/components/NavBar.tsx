@@ -232,8 +232,6 @@ export default function NavBar() {
                     <li
                       key={school.slug}
                       className={styles.subDropdownWrap}
-                      onMouseEnter={() => setFournSchoolOpen(school.slug)}
-                      onMouseLeave={() => setFournSchoolOpen(null)}
                     >
                       <button
                         className={styles.subDropdownToggle}
