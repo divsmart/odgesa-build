@@ -184,11 +184,6 @@ export default function NavBar() {
             </button>
             {ecolesOpen && (
               <ul className={styles.dropdown}>
-                <li>
-                  <Link href="/nos-ecoles" className={styles.dropdownAll} onClick={closeAll}>
-                    Toutes nos écoles
-                  </Link>
-                </li>
                 {schools.map(s => (
                   <li key={s.slug}>
                   <Link href={`/nos-ecoles/${s.slug}`} className={styles.dropdownLink} onClick={closeAll}>
@@ -212,7 +207,7 @@ export default function NavBar() {
               onClick={() => { setFournOpen(p => !p); setFournSchoolOpen(null); }}
               aria-expanded={fournOpen}
             >
-              Fournitures
+              2026-2027
               {chevron(fournOpen)}
             </button>
             {fournOpen && (
@@ -297,7 +292,7 @@ export default function NavBar() {
           </li>
           <li>
             <Link href="/ressources" className={styles.navLink} onClick={closeAll}>
-              Ressources
+              Parents
             </Link>
           </li>
           <li>
