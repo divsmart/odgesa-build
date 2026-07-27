@@ -271,6 +271,23 @@ export default function Page() {
         ))}
       </div>
 
+      {/* Espace Parents */}
+      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
+        Espace Parents
+      </h2>
+      <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>
+        Grâce à{' '}
+        <a href="https://www.ecoledirecte.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-teal)', fontWeight: 600 }}>
+          École Directe
+        </a>
+        , les familles peuvent suivre la scolarité de leur enfant, consulter les informations de
+        l&apos;établissement, communiquer avec l&apos;équipe éducative et accéder aux documents importants.
+      </p>
+      <p style={{ lineHeight: 1.8, marginBottom: '3rem', color: 'var(--color-text-muted)' }}>
+        Le règlement intérieur, remis en début d&apos;année scolaire, définit les règles de vie de
+        l&apos;établissement et sera disponible en téléchargement prochainement.
+      </p>
+
       {/* Contact */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
         Contact et accès
