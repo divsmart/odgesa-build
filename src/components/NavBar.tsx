@@ -9,6 +9,17 @@ const schools = [
   { name: 'La Persévérance Marie-Galante',  slug: 'marie-galante' },
 ];
 
+// Full "Nos Écoles" list — the four primary schools under ODGESA management.
+// Henri Beauregard (formerly listed as Cité Scolaire J. Bigord) has no page
+// on this site yet, so it links externally like before, but is now shown as
+// a full peer among the other three rather than a visually separate item.
+const nosEcolesList: { name: string; slug: string; href?: string; external?: boolean }[] = [
+  { name: 'La Persévérance Baillif',       slug: 'baillif' },
+  { name: 'La Persévérance Duportail',     slug: 'duportail' },
+  { name: 'La Persévérance Marie-Galante', slug: 'marie-galante' },
+  { name: 'École Henri Beauregard',        slug: 'henri-beauregard', href: 'https://www.laperseverance.fr/', external: true },
+];
+
 // Fournitures ▸ École ▸ Classe — per-school, per-class supply-list PDFs.
 // Schools with an empty `classes` array don't have PDFs yet: clicking the
 // school name links straight to the school's #fournitures anchor instead of
@@ -129,7 +140,7 @@ export default function NavBar() {
           className={styles.logo}
         />
         <span className={styles.logoText}>
-         <span className={styles.logoTitle}>Écoles La Persévérance</span>
+         <span className={styles.logoTitle}>Réseau La Persévérance</span>
          <span className={styles.logoSub}>Guadeloupe</span>
         </span>
       </Link>
@@ -138,7 +149,12 @@ export default function NavBar() {
         <ul className={`${styles.navLinks} ${mobileOpen ? styles.open : ''}`}>
 
           {/* Projet éducatif dropdown */}
-          <li ref={projetRef} className={styles.dropdownWrap}>
+          <li
+            ref={projetRef}
+            className={styles.dropdownWrap}
+            onMouseEnter={() => setProjetOpen(true)}
+            onMouseLeave={() => setProjetOpen(false)}
+          >
             <button
               className={`${styles.navLink} ${styles.dropdownToggle}`}
               onClick={() => setProjetOpen(p => !p)}
@@ -161,7 +177,12 @@ export default function NavBar() {
           </li>
 
           {/* Nos écoles dropdown */}
-          <li ref={ecolesRef} className={styles.dropdownWrap}>
+          <li
+            ref={ecolesRef}
+            className={styles.dropdownWrap}
+            onMouseEnter={() => setEcolesOpen(true)}
+            onMouseLeave={() => setEcolesOpen(false)}
+          >
             <button
               className={`${styles.navLink} ${styles.dropdownToggle}`}
               onClick={() => setEcolesOpen(p => !p)}
@@ -172,24 +193,35 @@ export default function NavBar() {
             </button>
             {ecolesOpen && (
               <ul className={styles.dropdown}>
-                {schools.map(s => (
-                  <li key={s.slug}>
-                  <Link href={`/nos-ecoles/${s.slug}`} className={styles.dropdownLink} onClick={closeAll}>
-                  {s.name}
+                <li>
+                  <Link href="/nos-ecoles" className={styles.dropdownAll} onClick={closeAll}>
+                    Toutes nos écoles
                   </Link>
+                </li>
+                {nosEcolesList.map(s => (
+                  <li key={s.slug}>
+                    {s.external ? (
+                      <a href={s.href} target="_blank" rel="noopener noreferrer" className={styles.dropdownLink} onClick={closeAll}>
+                        {s.name}
+                      </a>
+                    ) : (
+                      <Link href={`/nos-ecoles/${s.slug}`} className={styles.dropdownLink} onClick={closeAll}>
+                        {s.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
-                <li key="les-abymes">
-                <a href="https://www.laperseverance.fr/" target="_blank" rel="noopener noreferrer" className={styles.dropdownLink} onClick={closeAll}>
-                Cité Scolaire J.Bigord Les Abymes
-                </a>
-                </li>
               </ul>
             )}
           </li>
 
           {/* Fournitures ▸ École ▸ Classe */}
-          <li ref={fournRef} className={styles.dropdownWrap}>
+          <li
+            ref={fournRef}
+            className={styles.dropdownWrap}
+            onMouseEnter={() => setFournOpen(true)}
+            onMouseLeave={() => { setFournOpen(false); setFournSchoolOpen(null); }}
+          >
             <button
               className={`${styles.navLink} ${styles.dropdownToggle}`}
               onClick={() => { setFournOpen(p => !p); setFournSchoolOpen(null); }}
@@ -251,13 +283,18 @@ export default function NavBar() {
           </li>
 
           <li>
+            <a href="https://www.ecoledirecte.com/" target="_blank" rel="noopener noreferrer" className={styles.navLink} onClick={closeAll}>
+              Parents
+            </a>
+          </li>
+          <li>
             <Link href="/actualites" className={styles.navLink} onClick={closeAll}>
               Actualités
             </Link>
           </li>
           <li>
-            <Link href="/ressources" className={styles.navLink} onClick={closeAll}>
-              Parents
+            <Link href="/galerie" className={styles.navLink} onClick={closeAll}>
+              Galerie
             </Link>
           </li>
           <li>
