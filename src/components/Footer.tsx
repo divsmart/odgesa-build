@@ -18,6 +18,16 @@ export default function Footer() {
     <span className={styles.since}>Depuis 1943</span>
     </div>
 
+    {/* À propos */}
+    <div className={styles.col}>
+    <h3 className={styles.colTitle}>À propos</h3>
+    <ul className={styles.colLinks}>
+    <li><Link href="/a-propos/qui-sommes-nous">Qui sommes-nous ?</Link></li>
+    <li><Link href="/a-propos/histoire">Histoire</Link></li>
+    <li><Link href="/a-propos/administration-et-gouvernance">Administration et gouvernance</Link></li>
+    </ul>
+    </div>
+
     {/* Nos écoles */}
     <div className={styles.col}>
     <h3 className={styles.colTitle}>Nos écoles</h3>
@@ -41,16 +51,27 @@ export default function Footer() {
 
     {/* Réseau */}
     <div className={styles.col}>
-    <h3 className={styles.colTitle}>Réseau UAGF</h3>
+    <h3 className={styles.colTitle}>Réseau</h3>
     <ul className={styles.colLinks}>
     <li>
-    <a href="https://uagf.org/nos-ecoles/" target="_blank" rel="noreferrer">
-    La Persévérance — Martinique
+    {/* TODO: confirm URL for UAGF Mondiale */}
+    <a href="#" target="_blank" rel="noreferrer">
+    UAGF Mondiale
     </a>
     </li>
     <li>
     <a href="https://uagf.org" target="_blank" rel="noreferrer">
     UAGF
+    </a>
+    </li>
+    <li>
+    <Link href="/projet-educatif/notre-reseau">
+    La Persévérance — Guadeloupe
+    </Link>
+    </li>
+    <li>
+    <a href="https://uagf.org/nos-ecoles/" target="_blank" rel="noreferrer">
+    La Persévérance — Martinique
     </a>
     </li>
     <li>

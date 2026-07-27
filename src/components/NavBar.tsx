@@ -54,13 +54,6 @@ const projetLinks = [
   { name: 'Notre identité éducative',        href: '/projet-educatif/notre-identite-educative' },
   { name: 'Charte éducative commune',        href: '/projet-educatif/charte-educative-commune' },
   { name: 'Cadre de vie des établissements', href: '/projet-educatif/cadre-de-vie' },
-  { name: 'Notre Réseau La Persévérance',    href: '/projet-educatif/notre-reseau' },
-];
-
-const aproposLinks = [
-  { name: 'Qui sommes-nous ?',             href: '/a-propos/qui-sommes-nous' },
-  { name: 'Histoire',                      href: '/a-propos/histoire' },
-  { name: 'Administration et gouvernance', href: '/a-propos/administration-et-gouvernance' },
 ];
 
 const langs = ['FR', 'EN', 'ES'] as const;
@@ -70,7 +63,6 @@ export default function NavBar() {
   const [mobileOpen,   setMobileOpen]   = useState(false);
   const [projetOpen,   setProjetOpen]   = useState(false);
   const [ecolesOpen,   setEcolesOpen]   = useState(false);
-  const [aproposOpen,  setAproposOpen]  = useState(false);
   const [inscrireOpen, setInscrireOpen] = useState(false);
   const [fournOpen,       setFournOpen]       = useState(false);
   const [fournSchoolOpen, setFournSchoolOpen] = useState<string | null>(null);
@@ -78,7 +70,6 @@ export default function NavBar() {
 
   const projetRef   = useRef<HTMLLIElement>(null);
   const ecolesRef   = useRef<HTMLLIElement>(null);
-  const aproposRef  = useRef<HTMLLIElement>(null);
   const inscrireRef = useRef<HTMLDivElement>(null);
   const fournRef    = useRef<HTMLLIElement>(null);
 
@@ -89,8 +80,6 @@ export default function NavBar() {
         setProjetOpen(false);
       if (ecolesRef.current  && !ecolesRef.current.contains(e.target as Node))
         setEcolesOpen(false);
-      if (aproposRef.current && !aproposRef.current.contains(e.target as Node))
-        setAproposOpen(false);
       if (inscrireRef.current && !inscrireRef.current.contains(e.target as Node))
         setInscrireOpen(false);
       if (fournRef.current && !fournRef.current.contains(e.target as Node)) {
@@ -112,7 +101,6 @@ export default function NavBar() {
   function closeAll() {
     setProjetOpen(false);
     setEcolesOpen(false);
-    setAproposOpen(false);
     setInscrireOpen(false);
     setFournOpen(false);
     setFournSchoolOpen(null);
@@ -257,29 +245,6 @@ export default function NavBar() {
                       )}
                     </li>
                   )
-                ))}
-              </ul>
-            )}
-          </li>
-
-          {/* À propos dropdown */}
-          <li ref={aproposRef} className={styles.dropdownWrap}>
-            <button
-              className={`${styles.navLink} ${styles.dropdownToggle}`}
-              onClick={() => setAproposOpen(p => !p)}
-              aria-expanded={aproposOpen}
-            >
-              À propos
-              {chevron(aproposOpen)}
-            </button>
-            {aproposOpen && (
-              <ul className={styles.dropdown}>
-                {aproposLinks.map(l => (
-                  <li key={l.href}>
-                    <Link href={l.href} className={styles.dropdownLink} onClick={closeAll}>
-                      {l.name}
-                    </Link>
-                  </li>
                 ))}
               </ul>
             )}
