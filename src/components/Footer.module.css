@@ -11,7 +11,7 @@
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2.5rem);
   display: grid;
-  grid-template-columns: 1.6fr repeat(3, 1fr);
+  grid-template-columns: 1.4fr repeat(4, 1fr);
   gap: clamp(1.5rem, 3vw, 3rem);
 }
 
