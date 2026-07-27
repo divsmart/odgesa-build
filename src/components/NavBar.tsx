@@ -129,7 +129,7 @@ export default function NavBar() {
           className={styles.logo}
         />
         <span className={styles.logoText}>
-         <span className={styles.logoTitle}>Écoles Persévérance</span>
+         <span className={styles.logoTitle}>Écoles La Persévérance</span>
          <span className={styles.logoSub}>Guadeloupe</span>
         </span>
       </Link>

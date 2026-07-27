@@ -9,7 +9,7 @@ export default function Footer() {
     {/* Brand */}
     <div className={styles.brand}>
     <Link href="/" className={styles.wordmark}>
-    Écoles Persévérance<br />
+    Écoles La Persévérance<br />
     <span>Guadeloupe</span>
     </Link>
     <p className={styles.tagline}>
