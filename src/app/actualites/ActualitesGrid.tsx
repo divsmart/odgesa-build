@@ -10,12 +10,20 @@ type Props = {
 
 const ALL = 'Toutes';
 
+function ecoleList(ecole: string | string[]): string[] {
+  return Array.isArray(ecole) ? ecole : [ecole];
+}
+
+function ecoleBadge(ecole: string | string[]): string {
+  return Array.isArray(ecole) ? 'Réseau' : ecole;
+}
+
 export default function ActualitesGrid({ posts }: Props) {
   const [ecoleFilter, setEcoleFilter] = useState<string>(ALL);
   const [tagFilter, setTagFilter] = useState<string>(ALL);
 
   const ecoles = useMemo(
-    () => [ALL, ...Array.from(new Set(posts.map(p => p.ecole)))],
+    () => [ALL, ...Array.from(new Set(posts.flatMap(p => ecoleList(p.ecole))))],
     [posts]
   );
   const tags = useMemo(
@@ -25,7 +33,7 @@ export default function ActualitesGrid({ posts }: Props) {
 
   const filtered = posts.filter(
     p =>
-      (ecoleFilter === ALL || p.ecole === ecoleFilter) &&
+      (ecoleFilter === ALL || ecoleList(p.ecole).includes(ecoleFilter)) &&
       (tagFilter === ALL || p.tag === tagFilter)
   );
 
@@ -120,7 +128,7 @@ export default function ActualitesGrid({ posts }: Props) {
                       borderRadius: '3px',
                     }}
                   >
-                    {post.ecole}
+                    {ecoleBadge(post.ecole)}
                   </span>
                   <span
                     style={{

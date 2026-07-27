@@ -31,7 +31,7 @@ export default async function ArticlePage({ params }: Props) {
       </Link>
 
       <p className={styles.kicker}>
-        {post.ecole} · {post.tag}
+        {Array.isArray(post.ecole) ? 'Réseau' : post.ecole} · {post.tag}
       </p>
       <h1 className={styles.title}>{post.title}</h1>
       <p className={styles.date}>{post.date}</p>
