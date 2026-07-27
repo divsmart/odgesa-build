@@ -1,9 +1,4 @@
 .
-├── barlow-300.woff2
-├── barlow-400.woff2
-├── barlow-500.woff2
-├── barlow-600.woff2
-├── components
 ├── eslint.config.mjs
 ├── next.config.ts
 ├── next-env.d.ts
@@ -22271,29 +22266,77 @@
 │           ├── index.js.map
 │           ├── index.mjs
 │           └── index.mjs.map
+├── odgesa-build-tree.txt
 ├── ODGESA-Dev-Reference .md
 ├── odgesa-tree.txt
 ├── package.json
 ├── package-lock.json
 ├── public
+│   ├── documents
+│   │   ├── baillif
+│   │   │   ├── convention-reglement-financier-baillif-2026-2027.pdf
+│   │   │   ├── fiche-inscription-baillif-2026-2027.pdf
+│   │   │   ├── fiche-urgence-droit-image-baillif-2026-2027.pdf
+│   │   │   └── reglement-interieur-baillif-2026-2027.pdf
+│   │   ├── duportail
+│   │   │   ├── fournitures-duportail-ce1.pdf
+│   │   │   ├── fournitures-duportail-ce2.pdf
+│   │   │   ├── fournitures-duportail-cm1.pdf
+│   │   │   ├── fournitures-duportail-cm2.pdf
+│   │   │   ├── fournitures-duportail-cp.pdf
+│   │   │   ├── fournitures-duportail-gs.pdf
+│   │   │   ├── fournitures-duportail-montessori.pdf
+│   │   │   └── fournitures-duportail-tps-ps-ms.pdf
+│   │   └── marie-galante
+│   │       ├── fiche-inscription-marie-galante-2026-2027.pdf
+│   │       ├── fournitures-marie-galante-ce1.pdf
+│   │       ├── fournitures-marie-galante-ce2.pdf
+│   │       ├── fournitures-marie-galante-cm1.pdf
+│   │       ├── fournitures-marie-galante-cm2.pdf
+│   │       ├── fournitures-marie-galante-cp.pdf
+│   │       ├── fournitures-marie-galante-gs.pdf
+│   │       ├── fournitures-marie-galante-ms.pdf
+│   │       └── fournitures-marie-galante-ps.pdf
 │   ├── file.svg
 │   ├── globe.svg
 │   ├── images
 │   │   ├── abymes
+│   │   ├── actualites
+│   │   │   ├── actualite-reseau-choisir-perseverance-valeurs.jpg
+│   │   │   ├── actualite-reseau-familles-heritage.jpg
+│   │   │   ├── actualite-reseau-pourquoi-choisir-infographie.jpg
+│   │   │   ├── actualite-reseau-psychologue-referent-2026.jpg
+│   │   │   ├── actualite-reseau-savoirs-valeurs-1.jpg
+│   │   │   ├── actualite-reseau-savoirs-valeurs-2.jpg
+│   │   │   └── actualite-reseau-vue-ensemble-infographie.jpg
 │   │   ├── baillif
 │   │   │   ├── actualite-baillif-ateliers.jpg
 │   │   │   ├── actualite-baillif-direction.jpg
 │   │   │   ├── actualite-baillif-nutrition.jpg
-│   │   │   └── baillif-ecole.jpg
+│   │   │   ├── baillif-ecole.jpg
+│   │   │   ├── ecole-baillif-classe.jpg
+│   │   │   ├── ecole-baillif-exterieur.jpg
+│   │   │   ├── hero-left.jpg
+│   │   │   └── hero-right.jpg
+│   │   ├── bigord
+│   │   │   └── hero-graduation.jpg
 │   │   ├── bureau
 │   │   │   ├── hugues-placide.jpg
 │   │   │   ├── organigramme-odgesa.png
 │   │   │   └── ruth-nanette.jpg
 │   │   ├── duportail
-│   │   │   └── duportail-ecole.jpg
+│   │   │   ├── duportail-ecole.jpg
+│   │   │   ├── hero-left.jpg
+│   │   │   └── hero-right.jpg
 │   │   ├── marie-galante
+│   │   │   ├── bibliotheque-marie-galante-1.jpg
+│   │   │   ├── bibliotheque-marie-galante-2.jpg
+│   │   │   ├── hero-left.jpg
+│   │   │   ├── hero-right.jpg
+│   │   │   └── journee-sportive-marie-galante.jpg
 │   │   ├── shared
 │   │   │   ├── admin-gouvernance-infographique.jpeg
+│   │   │   ├── odgesa-logo-icon.png
 │   │   │   ├── stats-gpe.png
 │   │   │   ├── stats-monde.png
 │   │   │   └── stats-uagf.png
@@ -22309,7 +22352,12 @@
 ├── src
 │   ├── app
 │   │   ├── actualites
-│   │   │   └── page.tsx
+│   │   │   ├── ActualitesGrid.tsx
+│   │   │   ├── ArticleSticky.module.css
+│   │   │   ├── page.tsx
+│   │   │   ├── posts.ts
+│   │   │   └── [slug]
+│   │   │       └── page.tsx
 │   │   ├── api
 │   │   │   ├── auth
 │   │   │   │   └── route.ts
@@ -22319,8 +22367,6 @@
 │   │   │   ├── administration-et-gouvernance
 │   │   │   │   └── page.tsx
 │   │   │   ├── histoire
-│   │   │   │   └── page.tsx
-│   │   │   ├── notre-reseau
 │   │   │   │   └── page.tsx
 │   │   │   └── qui-sommes-nous
 │   │   │       └── page.tsx
@@ -22335,13 +22381,16 @@
 │   │   │   └── page.tsx
 │   │   ├── nos-ecoles
 │   │   │   ├── baillif
-│   │   │   │   └── page.tsx
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── StickyMedia.module.css
 │   │   │   ├── duportail
-│   │   │   │   └── page.tsx
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── StickyMedia.module.css
 │   │   │   ├── les-abymes
 │   │   │   │   └── page.tsx
 │   │   │   ├── marie-galante
-│   │   │   │   └── page.tsx
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── StickyMedia.module.css
 │   │   │   ├── nos-ecoles.module.css
 │   │   │   └── page.tsx
 │   │   ├── notre-eglise
@@ -22354,6 +22403,8 @@
 │   │   │   ├── charte-educative-commune
 │   │   │   │   └── page.tsx
 │   │   │   ├── notre-identite-educative
+│   │   │   │   └── page.tsx
+│   │   │   ├── notre-reseau
 │   │   │   │   └── page.tsx
 │   │   │   └── page.tsx
 │   │   └── ressources
@@ -22373,4 +22424,4 @@
 │   └── types
 └── tsconfig.json
 
-1942 directories, 20432 files
+1948 directories, 20477 files
