@@ -51,10 +51,11 @@ export default function Page() {
               style={{
                 position: 'absolute',
                 top: '24.5%',
-                height: '28.5%',
+                height: '38.5%',
                 left: `${idx * 25}%`,
                 width: '25%',
                 display: 'block',
+                cursor: 'pointer',
               }}
             />
           ) : (
@@ -65,14 +66,54 @@ export default function Page() {
               style={{
                 position: 'absolute',
                 top: '24.5%',
-                height: '28.5%',
+                height: '38.5%',
                 left: `${idx * 25}%`,
                 width: '25%',
                 display: 'block',
+                cursor: 'pointer',
               }}
             />
           )
         ))}
+      </div>
+
+      {/* Visible text links below the image — the photo hotspots above aren't
+          an obvious click affordance for every visitor, so this row gives an
+          explicit, unambiguous link per school as well. */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '0.75rem',
+        marginTop: '1rem',
+      }}>
+        {hotspots.map((h, idx) => {
+          const linkStyle = {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.4rem',
+            padding: '0.75rem 0.5rem',
+            background: '#f7fafb',
+            border: '1px solid #dceaee',
+            borderRadius: '8px',
+            color: 'var(--color-teal)',
+            fontFamily: 'var(--font-condensed)',
+            fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)',
+            fontWeight: 700,
+            letterSpacing: '0.02em',
+            textDecoration: 'none',
+            textAlign: 'center' as const,
+          };
+          return h.external ? (
+            <a key={idx} href={h.href} target="_blank" rel="noopener noreferrer" style={linkStyle}>
+              {h.label.replace('École Henri Beauregard – Les Abymes', 'Henri Beauregard')} ↗
+            </a>
+          ) : (
+            <Link key={idx} href={h.href} style={linkStyle}>
+              {h.label.replace('École La Persévérance ', '')} →
+            </Link>
+          );
+        })}
       </div>
     </main>
   );

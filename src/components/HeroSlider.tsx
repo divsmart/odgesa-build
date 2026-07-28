@@ -242,7 +242,7 @@ export default function HeroSlider() {
                   left: flyerRect.left + idx * (flyerRect.width / 4),
                   top: flyerRect.top + flyerRect.height * 0.245,
                   width: flyerRect.width / 4,
-                  height: flyerRect.height * 0.285,
+                  height: flyerRect.height * 0.385,
                 };
                 return h.external ? (
                   <a
@@ -316,6 +316,26 @@ export default function HeroSlider() {
     )}
     </div>
     </div>
+    )}
+
+    {/* Visible text links for the flyer slide — the photo hotspots aren't an
+        obvious click affordance for every visitor, so this bar gives an
+        explicit, unambiguous link per school as well. Only rendered while
+        the flyer slide is active. */}
+    {slide.isFlyer && slide.flyerHotspots && (
+      <div className={styles.flyerLinksBar}>
+        {slide.flyerHotspots.map((h, idx) => (
+          h.external ? (
+            <a key={idx} href={h.href} target="_blank" rel="noopener noreferrer" className={styles.flyerLinkItem}>
+              {h.label.replace('École Henri Beauregard – Les Abymes', 'Henri Beauregard')} ↗
+            </a>
+          ) : (
+            <Link key={idx} href={h.href} className={styles.flyerLinkItem}>
+              {h.label.replace('École La Persévérance ', '')} →
+            </Link>
+          )
+        ))}
+      </div>
     )}
 
     <button className={`${styles.arrow} ${styles.arrowPrev}`} onClick={prev} aria-label="Diapositive précédente">
