@@ -73,7 +73,57 @@
   100%     { opacity: 0; }
 }
 
+/* ─── Flyer slide (letterboxed poster with clickable school hotspots) ────── */
+/* Deliberately NOT background-size:cover — the four hotspots below need to
+   stay pixel-aligned with the four school photos in the source graphic at
+   every viewport width, which cover-cropping can't guarantee. Instead the
+   image keeps its exact aspect ratio and is centered, with .flyerWrap's
+   background filling any leftover space on unusually wide/narrow viewports. */
+
+.flyerWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f5ef;
+}
+
+.flyerFrame {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  line-height: 0;
+}
+
+.flyerImage {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Invisible click/keyboard targets over each of the four school photos.
+   top/height are fixed % of the flyer graphic's own photo row; left/width
+   are set inline per-hotspot (4 equal columns) in HeroSlider.tsx. */
+.flyerHotspot {
+  position: absolute;
+  top: 24.5%;
+  height: 28.5%;
+  display: block;
+  cursor: pointer;
+}
+
+.flyerHotspot:focus-visible {
+  outline: 3px solid var(--color-orange);
+  outline-offset: -3px;
+}
+
 .ctaDonate { background: var(--color-orange); }
+
+
 
 .overlay {
   position: absolute;

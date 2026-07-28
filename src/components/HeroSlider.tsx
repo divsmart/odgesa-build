@@ -12,7 +12,34 @@ type SlideImages =
   | { mode: 'single'; src: string }
   | { mode: 'gradient' };
 
+type FlyerHotspot = { label: string; href: string; external?: boolean };
+
 const slides = [
+  {
+    id: 0,
+    key: 'annonce',
+    // Launch-announcement flyer — full graphic carries its own headline/date/
+    // stats, so the standard eyebrow/heading/body/CTA content block and the
+    // dark overlay scrim are both suppressed for this slide (see render logic
+    // below). Rendered "letterboxed" (exact aspect ratio preserved, centered)
+    // rather than cover-cropped, so the four hotspots below stay pixel-aligned
+    // with the four school photos at every viewport width.
+    eyebrow: '',
+    heading: '',
+    body: '',
+    cta: { label: '', href: '' },
+    ctaSecondary: { label: '', href: '' },
+    images: { mode: 'single', src: '/images/shared/annonce-lancement-site.jpg' } as SlideImages,
+    external: false,
+    isFlyer: true,
+    // Left-to-right, matching the flyer's own ①②③④ numbering.
+    flyerHotspots: [
+      { label: 'École La Persévérance Duportail',     href: '/nos-ecoles/duportail' },
+      { label: 'École La Persévérance Marie-Galante', href: '/nos-ecoles/marie-galante' },
+      { label: 'École Henri Beauregard',               href: 'https://www.laperseverance.fr/', external: true },
+      { label: 'École La Persévérance Baillif',        href: '/nos-ecoles/baillif' },
+    ] as FlyerHotspot[],
+  },
   {
     id: 1,
     key: 'marie-galante',
@@ -145,22 +172,55 @@ export default function HeroSlider() {
     >
     {slides.map((s, i) => (
       <div key={s.id} className={`${styles.slide} ${i === current ? styles.active : ''}`} aria-hidden={i !== current}>
-        {s.images.mode === 'split' && (
+        {s.isFlyer && s.images.mode === 'single' && (
+          <div className={styles.flyerWrap}>
+            <div className={styles.flyerFrame}>
+              <img
+                src={s.images.src}
+                alt="Annonce — ouverture officielle du site des Écoles La Persévérance, 30 juillet 2026"
+                className={styles.flyerImage}
+              />
+              {i === current && s.flyerHotspots?.map((h, idx) => (
+                h.external ? (
+                  <a
+                    key={idx}
+                    href={h.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.flyerHotspot}
+                    style={{ left: `${idx * 25}%`, width: '25%' }}
+                    aria-label={h.label}
+                  />
+                ) : (
+                  <Link
+                    key={idx}
+                    href={h.href}
+                    className={styles.flyerHotspot}
+                    style={{ left: `${idx * 25}%`, width: '25%' }}
+                    aria-label={h.label}
+                  />
+                )
+              ))}
+            </div>
+          </div>
+        )}
+        {!s.isFlyer && s.images.mode === 'split' && (
           <>
             <div className={`${styles.slideImage} ${styles.slideImageLeft}`} style={{ backgroundImage: `url(${s.images.left})` }} />
             <div className={`${styles.slideImage} ${styles.slideImageRight}`} style={{ backgroundImage: `url(${s.images.right})` }} />
           </>
         )}
-        {s.images.mode === 'single' && (
+        {!s.isFlyer && s.images.mode === 'single' && (
           <div className={`${styles.slideImage} ${styles.slideImageSingle}`} style={{ backgroundImage: `url(${s.images.src})` }} />
         )}
-        {s.images.mode === 'gradient' && (
+        {!s.isFlyer && s.images.mode === 'gradient' && (
           <div className={styles.slideGradient} />
         )}
-      <div className={styles.overlay} />
+      {!s.isFlyer && <div className={styles.overlay} />}
       </div>
     ))}
 
+    {!slide.isFlyer && (
     <div className={styles.content}>
     <p className={styles.eyebrow}>{slide.eyebrow}</p>
     <h1 className={styles.heading}>
@@ -193,6 +253,7 @@ export default function HeroSlider() {
     )}
     </div>
     </div>
+    )}
 
     <button className={`${styles.arrow} ${styles.arrowPrev}`} onClick={prev} aria-label="Diapositive précédente">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -207,6 +268,7 @@ export default function HeroSlider() {
     ))}
     </div>
 
+    {!slide.isFlyer && (
     <div className={styles.statsBar}>
     {[
       { value: '+80',  label: "ans d'éducation adventiste" },
@@ -220,6 +282,7 @@ export default function HeroSlider() {
       </div>
     ))}
     </div>
+    )}
     </section>
   );
 }
