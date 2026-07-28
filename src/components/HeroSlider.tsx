@@ -139,6 +139,39 @@ export default function HeroSlider() {
   const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // The flyer image is displayed via object-fit:contain (letterboxed within
+  // the full-bleed hero section). object-fit only affects how the image
+  // paints — it does NOT resize the <img> element's own box, so CSS percentage
+  // positioning for the hotspots would be relative to the wrong (full-size)
+  // box. Instead, measure the actual rendered/letterboxed image rect in JS
+  // (same math the browser uses for object-fit:contain) and position hotspots
+  // against real pixel coordinates.
+  const flyerImgRef = useRef<HTMLImageElement>(null);
+  const [flyerRect, setFlyerRect] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
+
+  useEffect(() => {
+    const img = flyerImgRef.current;
+    if (!img) return;
+
+    function computeRect() {
+      if (!img || !img.naturalWidth || !img.naturalHeight) return;
+      const cw = img.clientWidth;
+      const ch = img.clientHeight;
+      const scale = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+      const dw = img.naturalWidth * scale;
+      const dh = img.naturalHeight * scale;
+      setFlyerRect({ left: (cw - dw) / 2, top: (ch - dh) / 2, width: dw, height: dh });
+    }
+
+    if (img.complete) computeRect();
+    img.addEventListener('load', computeRect);
+    window.addEventListener('resize', computeRect);
+    return () => {
+      img.removeEventListener('load', computeRect);
+      window.removeEventListener('resize', computeRect);
+    };
+  }, []);
+
   // The flyer slide is a letterboxed "poster" (exact aspect ratio preserved)
   // so its four clickable hotspots stay pixel-aligned on desktop. On a narrow
   // mobile viewport that produces a thin strip with large empty margins top
@@ -199,19 +232,26 @@ export default function HeroSlider() {
           <div className={styles.flyerWrap}>
             <div className={styles.flyerFrame}>
               <img
+                ref={flyerImgRef}
                 src={s.images.src}
                 alt="Annonce — ouverture officielle du site des Écoles La Persévérance, 30 juillet 2026"
                 className={styles.flyerImage}
               />
-              {i === current && s.flyerHotspots?.map((h, idx) => (
-                h.external ? (
+              {i === current && flyerRect && s.flyerHotspots?.map((h, idx) => {
+                const hotspotStyle = {
+                  left: flyerRect.left + idx * (flyerRect.width / 4),
+                  top: flyerRect.top + flyerRect.height * 0.245,
+                  width: flyerRect.width / 4,
+                  height: flyerRect.height * 0.285,
+                };
+                return h.external ? (
                   <a
                     key={idx}
                     href={h.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.flyerHotspot}
-                    style={{ left: `${idx * 25}%`, width: '25%' }}
+                    style={hotspotStyle}
                     aria-label={h.label}
                   />
                 ) : (
@@ -219,11 +259,11 @@ export default function HeroSlider() {
                     key={idx}
                     href={h.href}
                     className={styles.flyerHotspot}
-                    style={{ left: `${idx * 25}%`, width: '25%' }}
+                    style={hotspotStyle}
                     aria-label={h.label}
                   />
-                )
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
