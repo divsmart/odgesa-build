@@ -54,10 +54,9 @@ export default function Footer() {
     <h3 className={styles.colTitle}>Réseau</h3>
     <ul className={styles.colLinks}>
     <li>
-    {/* TODO: confirm URL for UAGF Mondiale */}
-    <a href="#" target="_blank" rel="noreferrer">
-    UAGF Mondiale
-    </a>
+    <Link href="/projet-educatif/notre-reseau#monde">
+    Réseau Mondial
+    </Link>
     </li>
     <li>
     <a href="https://uagf.org" target="_blank" rel="noreferrer">
@@ -65,7 +64,7 @@ export default function Footer() {
     </a>
     </li>
     <li>
-    <Link href="/projet-educatif/notre-reseau">
+    <Link href="/projet-educatif/notre-reseau#guadeloupe">
     La Persévérance — Guadeloupe
     </Link>
     </li>
@@ -75,9 +74,8 @@ export default function Footer() {
     </a>
     </li>
     <li>
-    <a href="https://www.instagram.com/ecoles_perseverance_971/"
-    target="_blank" rel="noreferrer">
-    Instagram
+    <a href="https://laperseveranceguyane.com/" target="_blank" rel="noreferrer">
+    La Persévérance — Guyane
     </a>
     </li>
     </ul>
