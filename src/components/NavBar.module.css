@@ -138,6 +138,19 @@
   z-index: 200;
 }
 
+/* Invisible strip covering the gap between the nav button and the dropdown.
+   Without this, moving the mouse straight down from the button crosses empty
+   space that belongs to neither element, firing mouseleave on the wrapping
+   <li> and closing the menu before the pointer ever reaches it. */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.6rem;
+  left: 0;
+  right: 0;
+  height: 0.6rem;
+}
+
 .dropdownAll {
   display: block;
   padding: 0.55rem 1.25rem;

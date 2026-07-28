@@ -17,7 +17,7 @@ const nosEcolesList: { name: string; slug: string; href?: string; external?: boo
   { name: 'La Persévérance Baillif',       slug: 'baillif' },
   { name: 'La Persévérance Duportail',     slug: 'duportail' },
   { name: 'La Persévérance Marie-Galante', slug: 'marie-galante' },
-  { name: 'École Henri Beauregard',        slug: 'henri-beauregard', href: 'https://www.laperseverance.fr/', external: true },
+  { name: 'École Henri Beauregard – Les Abymes', slug: 'henri-beauregard', href: 'https://www.laperseverance.fr/', external: true },
 ];
 
 // Fournitures ▸ École ▸ Classe — per-school, per-class supply-list PDFs.
