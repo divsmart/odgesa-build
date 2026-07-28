@@ -136,11 +136,34 @@ export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [paused,  setPaused]  = useState(false);
   const [touchX,  setTouchX]  = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const go = useCallback((idx: number) => {
-    setCurrent((idx + slides.length) % slides.length);
+  // The flyer slide is a letterboxed "poster" (exact aspect ratio preserved)
+  // so its four clickable hotspots stay pixel-aligned on desktop. On a narrow
+  // mobile viewport that produces a thin strip with large empty margins top
+  // and bottom, which looks broken rather than intentional — so it's skipped
+  // from the rotation on mobile entirely, same breakpoint as the existing
+  // split-slide crossfade behavior (768px).
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
   }, []);
+
+  const displaySlides = isMobile ? slides.filter(s => !s.isFlyer) : slides;
+
+  // Keep `current` in bounds if the slide list length changes (e.g. resizing
+  // across the mobile breakpoint mid-session).
+  useEffect(() => {
+    if (current >= displaySlides.length) setCurrent(0);
+  }, [displaySlides.length, current]);
+
+  const go = useCallback((idx: number) => {
+    setCurrent((idx + displaySlides.length) % displaySlides.length);
+  }, [displaySlides.length]);
 
   const next = useCallback(() => go(current + 1), [current, go]);
   const prev = useCallback(() => go(current - 1), [current, go]);
@@ -159,7 +182,7 @@ export default function HeroSlider() {
     setTouchX(null);
   }
 
-  const slide = slides[current];
+  const slide = displaySlides[current];
 
   return (
     <section
@@ -170,7 +193,7 @@ export default function HeroSlider() {
     onTouchEnd={onTouchEnd}
     aria-label="Diaporama principal"
     >
-    {slides.map((s, i) => (
+    {displaySlides.map((s, i) => (
       <div key={s.id} className={`${styles.slide} ${i === current ? styles.active : ''}`} aria-hidden={i !== current}>
         {s.isFlyer && s.images.mode === 'single' && (
           <div className={styles.flyerWrap}>
@@ -263,7 +286,7 @@ export default function HeroSlider() {
     </button>
 
     <div className={styles.dots} role="tablist" aria-label="Navigation diaporama">
-    {slides.map((s, i) => (
+    {displaySlides.map((s, i) => (
       <button key={s.id} className={`${styles.dot} ${i === current ? styles.dotActive : ''}`} onClick={() => go(i)} role="tab" aria-selected={i === current} aria-label={`Diapositive ${i + 1}`} />
     ))}
     </div>
