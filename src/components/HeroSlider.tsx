@@ -18,27 +18,13 @@ const slides = [
   {
     id: 0,
     key: 'annonce',
-    // Launch-announcement flyer — full graphic carries its own headline/date/
-    // stats, so the standard eyebrow/heading/body/CTA content block and the
-    // dark overlay scrim are both suppressed for this slide (see render logic
-    // below). Rendered "letterboxed" (exact aspect ratio preserved, centered)
-    // rather than cover-cropped, so the four hotspots below stay pixel-aligned
-    // with the four school photos at every viewport width.
     eyebrow: '',
     heading: '',
     body: '',
     cta: { label: '', href: '' },
     ctaSecondary: { label: '', href: '' },
-    images: { mode: 'single', src: '/images/shared/annonce-lancement-site.jpg' } as SlideImages,
+    images: { mode: 'single', src: '/images/bigord/bigord-bts-padded.png' } as SlideImages,
     external: false,
-    isFlyer: true,
-    // Left-to-right, matching the flyer's own ①②③④ numbering.
-    flyerHotspots: [
-      { label: 'École La Persévérance Duportail',     href: '/nos-ecoles/duportail' },
-      { label: 'École La Persévérance Marie-Galante', href: '/nos-ecoles/marie-galante' },
-      { label: 'École Henri Beauregard',               href: 'https://www.laperseverance.fr/', external: true },
-      { label: 'École La Persévérance Baillif',        href: '/nos-ecoles/baillif' },
-    ] as FlyerHotspot[],
   },
   {
     id: 1,
@@ -262,11 +248,11 @@ export default function HeroSlider() {
         {!s.isFlyer && s.images.mode === 'gradient' && (
           <div className={styles.slideGradient} />
         )}
-      {!s.isFlyer && s.key !== 'famille' && <div className={styles.overlay} />}
+      {!s.isFlyer && s.key !== 'famille' && s.key !== 'annonce' && <div className={styles.overlay} />}
       </div>
     ))}
 
-    {!slide.isFlyer && slide.key !== 'famille' && (
+    {!slide.isFlyer && slide.key !== 'famille' && slide.key !== 'annonce' && (
     <div className={styles.content}>
     <p className={styles.eyebrow}>{slide.eyebrow}</p>
     <h1 className={styles.heading}>
