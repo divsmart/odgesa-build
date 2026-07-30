@@ -95,6 +95,28 @@ export default function Page() {
           Statistiques de l&apos;Église Adventiste
         </a>
       </div>
+
+      <div style={{ marginTop: '3.5rem' }}>
+        <p style={{
+          fontFamily: 'var(--font-condensed)',
+          fontSize: '0.85rem',
+          fontWeight: 700,
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+          color: 'var(--color-orange)',
+          marginBottom: '0.75rem',
+        }}>
+          Gouvernance
+        </p>
+        <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(13, 77, 98, 0.15)' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/shared/admin-gouvernance-infographique.jpg"
+            alt="Organigramme simplifié du réseau scolaire adventiste, de l'établissement local à l'organisation mondiale"
+            style={{ display: 'block', width: '100%', height: 'auto' }}
+          />
+        </div>
+      </div>
     </section>
   );
 }

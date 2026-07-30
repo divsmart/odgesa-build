@@ -17,12 +17,6 @@ const sections: {
     alt: 'Union des Antilles et Guyane Françaises — 14 établissements, 3 842 élèves, 212 enseignants',
   },
   {
-    key: 'gouvernance',
-    label: 'Gouvernance',
-    src: '/images/shared/admin-gouvernance-infographique.jpg',
-    alt: "Organigramme simplifié du réseau scolaire adventiste, de l'établissement local à l'organisation mondiale",
-  },
-  {
     key: 'guadeloupe',
     label: 'Réseau local',
     src: '/images/shared/stats-gpe.png',
