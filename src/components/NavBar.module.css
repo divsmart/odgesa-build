@@ -191,6 +191,15 @@
   position: relative;
 }
 
+.subDropdownWrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 0.4rem;
+  height: 100%;
+}
+
 .subDropdownToggle {
   display: flex;
   align-items: center;
