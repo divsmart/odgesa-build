@@ -20,7 +20,7 @@ export default function Footer() {
 
     {/* À propos */}
     <div className={styles.col}>
-    <h3 className={styles.colTitle}>À propos</h3>
+    <h3 className={styles.colTitle}>À PROPOS DE L'ODGESA</h3>
     <ul className={styles.colLinks}>
     <li><Link href="/a-propos/qui-sommes-nous">Qui sommes-nous ?</Link></li>
     <li><Link href="/a-propos/histoire">Histoire</Link></li>

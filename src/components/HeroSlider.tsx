@@ -114,19 +114,14 @@ const slides = [
   },
   {
     id: 7,
-    key: 'bigord',
-    // DRAFT COPY — not yet confirmed by Michael/Patricia. Graduation photo is
-    // real (slide3.jpg from 23 July); this is a single-image slide since we
-    // don't have a second Bigord photo yet (the low-res courtyard shot was
-    // parked as unusable).
-    eyebrow: 'Cité Scolaire La Persévérance — J. Bigord, Les Abymes',
-    heading: "L'excellence académique,\nde la 6ème au BTS",
-    body: "1ère place Académie de Guadeloupe (2021–2022) et Académie de Martinique (2022–2023) — nos élèves de Bigord se distinguent d'année en année.",
-    cta: { label: "Découvrir Bigord", href: 'https://www.laperseverance.fr/' },
-    ctaSecondary: { label: 'Nous contacter', href: '/contact' },
-    images: { mode: 'single', src: '/images/bigord/hero-graduation.jpg' } as SlideImages,
-    external: true,
-    externalSecondary: false,
+    key: 'famille',
+    eyebrow: 'Le réseau La Persévérance — Guadeloupe',
+    heading: "Rejoignez la famille\ndes écoles La Persévérance",
+    body: "Au sein du réseau La Persévérance, chaque enfant est accueilli, accompagné et encouragé à développer pleinement ses talents, dans un environnement d'excellence, de bienveillance et de valeurs durables.",
+    cta: { label: 'Découvrir nos écoles', href: '/nos-ecoles' },
+    ctaSecondary: { label: 'Notre projet éducatif', href: '/projet-educatif' },
+    images: { mode: 'single', src: '/images/shared/reseau-constellation.png' } as SlideImages,
+    external: false,
   },
 ];
 

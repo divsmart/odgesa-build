@@ -162,7 +162,7 @@ export default function Page() {
         </tbody>
       </table>
 
-      <h3 style={h3Style}>L'Association des Parents d'Élèves (APE)</h3>
+      <h3 id="ape" style={h3Style}>L'Association des Parents d'Élèves (APE)</h3>
       <p style={p}>
         L'APE joue un rôle central dans la vie de chaque établissement. Elle constitue le lien
         institutionnel entre les familles et la direction, et participe à la réflexion sur la vie scolaire.
