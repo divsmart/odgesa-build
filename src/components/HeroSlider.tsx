@@ -115,9 +115,9 @@ const slides = [
   {
     id: 7,
     key: 'famille',
-    eyebrow: 'Le réseau La Persévérance — Guadeloupe',
-    heading: "Rejoignez la famille\ndes écoles La Persévérance",
-    body: "Au sein du réseau La Persévérance, chaque enfant est accueilli, accompagné et encouragé à développer pleinement ses talents, dans un environnement d'excellence, de bienveillance et de valeurs durables.",
+    eyebrow: 'ODGESA',
+    heading: "Une vision,\nquatre territoires",
+    body: "Un réseau uni autour d'une même mission éducative en Guadeloupe.",
     cta: { label: 'Découvrir nos écoles', href: '/nos-ecoles' },
     ctaSecondary: { label: 'Notre projet éducatif', href: '/projet-educatif' },
     images: { mode: 'single', src: '/images/shared/reseau-constellation.png' } as SlideImages,
