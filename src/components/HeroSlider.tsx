@@ -9,7 +9,7 @@ import styles from './HeroSlider.module.css';
 //  - a gradient slide: no images at all (background is a CSS gradient)
 type SlideImages =
   | { mode: 'split'; left: string; right: string }
-  | { mode: 'single'; src: string }
+  | { mode: 'single'; src: string; mobileSrc?: string }
   | { mode: 'gradient' };
 
 type FlyerHotspot = { label: string; href: string; external?: boolean };
@@ -43,7 +43,7 @@ const slides = [
   {
     id: 1,
     key: 'marie-galante',
-    eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
+    eyebrow: 'ÉCOLE LA PERSÉVÉRANCE - MARIE-GALANTE',
     heading: "Des écoles chrétiennes ouvertes,\nbienveillantes, au service\nde chaque enfant",
     body: "Quatre établissements chrétiens adventistes en Guadeloupe — unis autour d'une pédagogie chrétienne intégrale, une alimentation saine et le plein épanouissement de l'enfant.",
     cta: { label: 'Découvrir le réseau', href: '/nos-ecoles' },
@@ -90,17 +90,6 @@ const slides = [
     external: false,
   },
   {
-    id: 5,
-    key: 'reseau',
-    // Unchanged — Michael flagged this slide for new instructions later.
-    eyebrow: 'Réseau scolaire adventiste — Guadeloupe',
-    heading: "Un réseau, des écoles chrétiennes\nà taille humaine, enracinées\nen Guadeloupe",
-    body: "Pour former des enfants épanouis, équilibrés, cultivés et ouverts au monde.",
-    cta: { label: 'Qui sommes-nous', href: '/a-propos/qui-sommes-nous' },
-    ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
-    images: { mode: 'gradient' } as SlideImages,
-    external: false,
-  },
   {
     id: 6,
     key: 'famille',
@@ -109,7 +98,7 @@ const slides = [
     body: "Un réseau uni autour d'une même mission éducative en Guadeloupe.",
     cta: { label: 'Découvrir nos écoles', href: '/nos-ecoles' },
     ctaSecondary: { label: 'Notre projet éducatif', href: '/projet-educatif' },
-    images: { mode: 'single', src: '/images/shared/reseau-constellation.png', mobileSrc: '/images/shared/reseau-constellation-mobile.png' } as SlideImages,
+    images: { mode: 'single', src: '/images/shared/reseau-constellation-padded.png', mobileSrc: '/images/shared/reseau-constellation-mobile.png' } as SlideImages,
     external: false,
   },
   {
@@ -269,16 +258,16 @@ export default function HeroSlider() {
           </>
         )}
         {!s.isFlyer && s.images.mode === 'single' && (
-          <div className={`${styles.slideImage} ${styles.slideImageSingle}`} style={{ backgroundImage: `url(${s.images.src})` }} />
+          <div className={`${styles.slideImage} ${styles.slideImageSingle}`} style={{ backgroundImage: `url(${isMobile && s.images.mobileSrc ? s.images.mobileSrc : s.images.src})` }} />
         )}
         {!s.isFlyer && s.images.mode === 'gradient' && (
           <div className={styles.slideGradient} />
         )}
-      {!s.isFlyer && <div className={styles.overlay} />}
+      {!s.isFlyer && s.key !== 'famille' && <div className={styles.overlay} />}
       </div>
     ))}
 
-    {!slide.isFlyer && (
+    {!slide.isFlyer && slide.key !== 'famille' && (
     <div className={styles.content}>
     <p className={styles.eyebrow}>{slide.eyebrow}</p>
     <h1 className={styles.heading}>
