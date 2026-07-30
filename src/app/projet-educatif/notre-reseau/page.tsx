@@ -53,7 +53,7 @@ export default function Page() {
         marginBottom: '1rem',
         lineHeight: 1.1,
       }}>
-        Notre Réseau La Persévérance
+        Notre Réseau
       </h1>
       <p style={{ lineHeight: 1.8, maxWidth: '720px', color: 'var(--color-text-muted)', marginBottom: '3rem' }}>
         Du réseau adventiste mondial jusqu&apos;aux quatre écoles de Guadeloupe, chaque niveau

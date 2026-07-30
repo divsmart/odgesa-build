@@ -86,7 +86,7 @@ const slides = [
     body: "Chant choral, musique, théâtre, langues, jardinage… pour former le corps, l'esprit et le cœur.",
     cta: { label: 'Notre projet éducatif', href: '/projet-educatif' },
     ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
-    images: { mode: 'split', left: '/images/marie-galante/journee-sportive-marie-galante.jpg', right: '/images/marie-galante/bibliotheque-marie-galante-1.jpg' } as SlideImages,
+    images: { mode: 'split', left: '/images/marie-galante/bibliotheque-marie-galante-1.jpg', right: '/images/marie-galante/journee-sportive-marie-galante.jpg' } as SlideImages,
     external: false,
   },
   {
