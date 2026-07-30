@@ -90,7 +90,6 @@ const slides = [
     external: false,
   },
   {
-  {
     id: 6,
     key: 'famille',
     eyebrow: 'ODGESA',
