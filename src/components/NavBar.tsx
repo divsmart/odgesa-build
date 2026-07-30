@@ -283,9 +283,9 @@ export default function NavBar() {
           </li>
 
           <li>
-            <a href="https://www.ecoledirecte.com/" target="_blank" rel="noopener noreferrer" className={styles.navLink} onClick={closeAll}>
+            <Link href="/parents" className={styles.navLink} onClick={closeAll}>
               Parents
-            </a>
+            </Link>
           </li>
           <li>
             <Link href="/actualites" className={styles.navLink} onClick={closeAll}>
