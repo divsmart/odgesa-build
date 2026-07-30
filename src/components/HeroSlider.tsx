@@ -103,17 +103,6 @@ const slides = [
   },
   {
     id: 6,
-    key: 'inscriptions',
-    eyebrow: 'Inscriptions ouvertes — janvier 2026',
-    heading: "Rejoignez la famille\ndes Écoles Persévérance",
-    body: "Trois sites en Guadeloupe — Baillif, Duportail (Sainte-Rose) et Marie-Galante. Écolage : 2 000 à 2 400 € / an. Transport scolaire disponible.",
-    cta: { label: "Demande d'inscription", href: '/nos-ecoles/baillif#inscription' },
-    ctaSecondary: { label: 'Nous contacter', href: '/contact' },
-    images: { mode: 'gradient' } as SlideImages,
-    external: false,
-  },
-  {
-    id: 7,
     key: 'famille',
     eyebrow: 'ODGESA',
     heading: "Une vision,\nquatre territoires",
@@ -122,6 +111,17 @@ const slides = [
     ctaSecondary: { label: 'Notre projet éducatif', href: '/projet-educatif' },
     images: { mode: 'gradient' } as SlideImages,
     external: false,
+  },
+  {
+    id: 7,
+    key: 'bigord',
+    eyebrow: 'Cité Scolaire La Persévérance — J. Bigord, Les Abymes',
+    heading: "L'excellence académique,\nde la 6ème au BTS",
+    body: "1ère place Académie de Guadeloupe (2021–2022) et Académie de Martinique (2022–2023) — nos élèves de Bigord se distinguent d'année en année.",
+    cta: { label: "Découvrir Bigord", href: 'https://www.laperseverance.fr/' },
+    ctaSecondary: { label: 'Nous contacter', href: '/contact' },
+    images: { mode: 'single', src: '/images/bigord/hero-graduation.jpg' } as SlideImages,
+    external: true,
   },
 ];
 
