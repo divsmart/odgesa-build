@@ -7,7 +7,7 @@ const sections: {
 }[] = [
   {
     key: 'monde',
-    label: 'Niveau mondial',
+    label: 'Réseau Mondial',
     src: '/images/shared/stats-monde.png',
     mobileSrc: '/images/shared/stats-monde-mobile.png',
     alt: 'Réseau adventiste mondial — 9 000+ établissements dans 145 pays',
