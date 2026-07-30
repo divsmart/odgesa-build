@@ -155,7 +155,7 @@ export default function HeroSlider() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const displaySlides = isMobile ? slides.filter(s => !s.isFlyer) : slides;
+  const displaySlides = isMobile ? slides.filter(s => !('isFlyer' in s && s.isFlyer)) : slides;
 
   // Keep `current` in bounds if the slide list length changes (e.g. resizing
   // across the mobile breakpoint mid-session).
