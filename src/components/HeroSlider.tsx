@@ -109,7 +109,7 @@ const slides = [
     body: "Un réseau uni autour d'une même mission éducative en Guadeloupe.",
     cta: { label: 'Découvrir nos écoles', href: '/nos-ecoles' },
     ctaSecondary: { label: 'Notre projet éducatif', href: '/projet-educatif' },
-    images: { mode: 'gradient' } as SlideImages,
+    images: { mode: 'single', src: '/images/shared/reseau-constellation.png', mobileSrc: '/images/shared/reseau-constellation-mobile.png' } as SlideImages,
     external: false,
   },
   {
