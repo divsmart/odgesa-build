@@ -2,24 +2,28 @@ const sections: {
   key: string;
   label: string;
   src: string;
+  mobileSrc: string;
   alt: string;
 }[] = [
   {
     key: 'monde',
     label: 'Niveau mondial',
     src: '/images/shared/stats-monde.png',
+    mobileSrc: '/images/shared/stats-monde-mobile.png',
     alt: 'Réseau adventiste mondial — 9 000+ établissements dans 145 pays',
   },
   {
     key: 'uagf',
     label: 'Antilles · Guyane',
     src: '/images/shared/stats-uagf.png',
+    mobileSrc: '/images/shared/stats-uagf-mobile.png',
     alt: 'Union des Antilles et Guyane Françaises — 14 établissements, 3 842 élèves, 212 enseignants',
   },
   {
     key: 'guadeloupe',
     label: 'Réseau local',
     src: '/images/shared/stats-gpe.png',
+    mobileSrc: '/images/shared/stats-gpe-mobile.png',
     alt: 'Réseau des écoles adventistes de Guadeloupe — 4 établissements depuis 1943',
   },
 ];
@@ -72,8 +76,14 @@ export default function Page() {
                 {String(i + 1).padStart(2, '0')} · {s.label}
               </span>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={s.src} alt={s.alt} style={{ display: 'block', width: '100%', height: 'auto' }} />
+            {/* Mobile gets its own portrait crop instead of a shrunk landscape image —
+                the 768px breakpoint matches the convention used elsewhere on the site
+                (navbar dropdowns, hero slider). */}
+            <picture>
+              <source media="(max-width: 768px)" srcSet={s.mobileSrc} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={s.src} alt={s.alt} style={{ display: 'block', width: '100%', height: 'auto' }} />
+            </picture>
           </div>
         ))}
       </div>
