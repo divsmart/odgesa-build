@@ -38,8 +38,15 @@ const slides: Slide[] = [
     body: '',
     cta: { label: '', href: '' },
     ctaSecondary: { label: '', href: '' },
-    images: { mode: 'single', src: '/images/bigord/bigord-bts-padded.png' } as SlideImages,
+    images: { mode: 'single', src: '/images/shared/annonce-lancement-site.jpg' } as SlideImages,
     external: false,
+    isFlyer: true,
+    flyerHotspots: [
+      { label: 'École La Persévérance Duportail',     href: '/nos-ecoles/duportail' },
+      { label: 'École La Persévérance Marie-Galante', href: '/nos-ecoles/marie-galante' },
+      { label: 'École Henri Beauregard',               href: 'https://www.laperseverance.fr/', external: true },
+      { label: 'École La Persévérance Baillif',        href: '/nos-ecoles/baillif' },
+    ] as FlyerHotspot[],
   },
   {
     id: 1,
@@ -88,6 +95,17 @@ const slides: Slide[] = [
     cta: { label: 'Notre projet éducatif', href: '/projet-educatif' },
     ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
     images: { mode: 'split', left: '/images/marie-galante/bibliotheque-marie-galante-1.jpg', right: '/images/marie-galante/journee-sportive-marie-galante.jpg' } as SlideImages,
+    external: false,
+  },
+  {
+    id: 5,
+    key: 'jbigord-bts-3-etudiants',
+    eyebrow: '',
+    heading: '',
+    body: '',
+    cta: { label: '', href: '' },
+    ctaSecondary: { label: '', href: '' },
+    images: { mode: 'single', src: '/images/bigord/bigord-bts-padded.png' } as SlideImages,
     external: false,
   },
   {
@@ -263,11 +281,11 @@ export default function HeroSlider() {
         {!s.isFlyer && s.images.mode === 'gradient' && (
           <div className={styles.slideGradient} />
         )}
-      {!s.isFlyer && s.key !== 'famille' && s.key !== 'annonce' && <div className={styles.overlay} />}
+      {!s.isFlyer && s.key !== 'famille' && s.key !== 'annonce' && s.key !== 'jbigord-bts-3-etudiants' && <div className={styles.overlay} />}
       </div>
     ))}
 
-    {!slide.isFlyer && slide.key !== 'famille' && slide.key !== 'annonce' && (
+    {!slide.isFlyer && slide.key !== 'famille' && slide.key !== 'annonce' && slide.key !== 'jbigord-bts-3-etudiants' && (
     <div className={styles.content}>
     <p className={styles.eyebrow}>{slide.eyebrow}</p>
     <h1 className={styles.heading}>
