@@ -14,7 +14,22 @@ type SlideImages =
 
 type FlyerHotspot = { label: string; href: string; external?: boolean };
 
-const slides = [
+type Slide = {
+  id: number;
+  key: string;
+  eyebrow: string;
+  heading: string;
+  body: string;
+  cta: { label: string; href: string };
+  ctaSecondary: { label: string; href: string };
+  images: SlideImages;
+  external: boolean;
+  externalSecondary?: boolean;
+  isFlyer?: boolean;
+  flyerHotspots?: FlyerHotspot[];
+};
+
+const slides: Slide[] = [
   {
     id: 0,
     key: 'annonce',
