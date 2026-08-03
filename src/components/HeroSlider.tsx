@@ -38,7 +38,7 @@ const slides: Slide[] = [
     body: '',
     cta: { label: '', href: '' },
     ctaSecondary: { label: '', href: '' },
-    images: { mode: 'single', src: '/images/shared/annonce-lancement-site.jpg' } as SlideImages,
+    images: { mode: 'single', src: '/images/shared/annonce-lancement-site.jpg', mobileSrc: '/images/shared/annonce-lancement-site-mobile.jpg' } as SlideImages,
     external: false,
     isFlyer: true,
     flyerHotspots: [
@@ -188,7 +188,7 @@ export default function HeroSlider() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const displaySlides = isMobile ? slides.filter(s => !('isFlyer' in s && s.isFlyer)) : slides;
+  const displaySlides = slides;
 
   // Keep `current` in bounds if the slide list length changes (e.g. resizing
   // across the mobile breakpoint mid-session).
@@ -239,7 +239,7 @@ export default function HeroSlider() {
                 alt="Annonce — ouverture officielle du site des Écoles La Persévérance, 30 juillet 2026"
                 className={styles.flyerImage}
               />
-              {i === current && flyerRect && s.flyerHotspots?.map((h, idx) => {
+              {i === current && flyerRect && !isMobile && s.flyerHotspots?.map((h, idx) => {
                 const hotspotStyle = {
                   left: flyerRect.left + idx * (flyerRect.width / 4),
                   top: flyerRect.top + flyerRect.height * 0.245,
