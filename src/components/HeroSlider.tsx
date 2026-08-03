@@ -105,7 +105,7 @@ const slides: Slide[] = [
     body: '',
     cta: { label: '', href: '' },
     ctaSecondary: { label: '', href: '' },
-    images: { mode: 'single', src: '/images/bigord/bigord-bts-padded.png' } as SlideImages,
+    images: { mode: 'single', src: '/images/bigord/bigord-bts-padded.png', mobileSrc: '/images/bigord/bigord-bts-mobile.jpg' } as SlideImages,
     external: false,
   },
   {
