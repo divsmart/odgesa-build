@@ -37,6 +37,17 @@
 /* Single-image slides (e.g. Bigord graduation) — full-bleed on every viewport. */
 .slideImageSingle { left: 0; width: 100%; }
 
+/* Graphic/infographic single-image slides (constellation, BTS graphic) must
+   never crop — cropping cuts into readable text/nodes at the edges. Container
+   aspect ratio varies a lot across desktop sizes (narrow laptop to ultrawide
+   monitor), so background-size: cover is unsafe here. contain guarantees the
+   full graphic is always visible, at the cost of neutral padding bars on the
+   narrower axis when the container ratio doesn't match. */
+.slideImageContain {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 /* Gradient slides (no photo at all — e.g. the tagline slide) */
 .slideGradient {
   position: absolute;

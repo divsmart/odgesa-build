@@ -276,7 +276,7 @@ export default function HeroSlider() {
           </>
         )}
         {!s.isFlyer && s.images.mode === 'single' && (
-          <div className={`${styles.slideImage} ${styles.slideImageSingle}`} style={{ backgroundImage: `url(${isMobile && s.images.mobileSrc ? s.images.mobileSrc : s.images.src})` }} />
+          <div className={`${styles.slideImage} ${styles.slideImageSingle} ${["famille", "jbigord-bts-3-etudiants"].includes(s.key) ? styles.slideImageContain : ""}`} style={{ backgroundImage: `url(${isMobile && s.images.mobileSrc ? s.images.mobileSrc : s.images.src})` }} />
         )}
         {!s.isFlyer && s.images.mode === 'gradient' && (
           <div className={styles.slideGradient} />
