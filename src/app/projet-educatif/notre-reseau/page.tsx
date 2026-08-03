@@ -8,22 +8,22 @@ const sections: {
   {
     key: 'monde',
     label: 'Réseau Mondial',
-    src: '/images/shared/stats-monde.png',
-    mobileSrc: '/images/shared/stats-monde-mobile.png',
+    src: '/images/shared/stats-monde.jpg',
+    mobileSrc: '/images/shared/stats-monde-mobile.jpg',
     alt: 'Réseau adventiste mondial — 9 000+ établissements dans 145 pays',
   },
   {
     key: 'uagf',
     label: 'Antilles · Guyane',
-    src: '/images/shared/stats-uagf.png',
-    mobileSrc: '/images/shared/stats-uagf-mobile.png',
+    src: '/images/shared/stats-uagf.jpg',
+    mobileSrc: '/images/shared/stats-uagf-mobile.jpg',
     alt: 'Union des Antilles et Guyane Françaises — 14 établissements, 3 842 élèves, 212 enseignants',
   },
   {
     key: 'guadeloupe',
     label: 'Réseau local',
-    src: '/images/shared/stats-gpe.png',
-    mobileSrc: '/images/shared/stats-gpe-mobile.png',
+    src: '/images/shared/stats-gpe.jpg',
+    mobileSrc: '/images/shared/stats-gpe-mobile.jpg',
     alt: 'Réseau des écoles adventistes de Guadeloupe — 4 établissements depuis 1943',
   },
 ];
