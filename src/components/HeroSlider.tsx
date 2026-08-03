@@ -235,7 +235,7 @@ export default function HeroSlider() {
             <div className={styles.flyerFrame}>
               <img
                 ref={flyerImgRef}
-                src={s.images.src}
+                src={isMobile && s.images.mobileSrc ? s.images.mobileSrc : s.images.src}
                 alt="Annonce — ouverture officielle du site des Écoles La Persévérance, 30 juillet 2026"
                 className={styles.flyerImage}
               />
