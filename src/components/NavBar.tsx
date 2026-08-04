@@ -61,25 +61,17 @@ const fournituresData: {
   },
 ];
 
-const projetLinks = [
-  { name: 'Notre identité éducative',        href: '/projet-educatif/notre-identite-educative' },
-  { name: 'Charte éducative commune',        href: '/projet-educatif/charte-educative-commune' },
-  { name: 'Cadre de vie des établissements', href: '/projet-educatif/cadre-de-vie' },
-];
-
 const langs = ['FR', 'EN', 'ES'] as const;
 type Lang = typeof langs[number];
 
 export default function NavBar() {
   const [mobileOpen,   setMobileOpen]   = useState(false);
-  const [projetOpen,   setProjetOpen]   = useState(false);
   const [ecolesOpen,   setEcolesOpen]   = useState(false);
   const [inscrireOpen, setInscrireOpen] = useState(false);
   const [fournOpen,       setFournOpen]       = useState(false);
   const [fournSchoolOpen, setFournSchoolOpen] = useState<string | null>(null);
   const [lang,         setLang]         = useState<Lang>('FR');
 
-  const projetRef   = useRef<HTMLLIElement>(null);
   const ecolesRef   = useRef<HTMLLIElement>(null);
   const inscrireRef = useRef<HTMLDivElement>(null);
   const fournRef    = useRef<HTMLLIElement>(null);
@@ -87,8 +79,6 @@ export default function NavBar() {
   // Close all dropdowns on outside click
   useEffect(() => {
     function handle(e: MouseEvent) {
-      if (projetRef.current  && !projetRef.current.contains(e.target as Node))
-        setProjetOpen(false);
       if (ecolesRef.current  && !ecolesRef.current.contains(e.target as Node))
         setEcolesOpen(false);
       if (inscrireRef.current && !inscrireRef.current.contains(e.target as Node))
@@ -110,7 +100,6 @@ export default function NavBar() {
   }, []);
 
   function closeAll() {
-    setProjetOpen(false);
     setEcolesOpen(false);
     setInscrireOpen(false);
     setFournOpen(false);
@@ -147,34 +136,6 @@ export default function NavBar() {
 
         {/* ── Nav links ─────────────────────────────────────────────── */}
         <ul className={`${styles.navLinks} ${mobileOpen ? styles.open : ''}`}>
-
-          {/* Projet éducatif dropdown */}
-          <li
-            ref={projetRef}
-            className={styles.dropdownWrap}
-            onMouseEnter={() => setProjetOpen(true)}
-            onMouseLeave={() => setProjetOpen(false)}
-          >
-            <button
-              className={`${styles.navLink} ${styles.dropdownToggle}`}
-              onClick={() => setProjetOpen(p => !p)}
-              aria-expanded={projetOpen}
-            >
-              Projet éducatif
-              {chevron(projetOpen)}
-            </button>
-            {projetOpen && (
-              <ul className={styles.dropdown}>
-                {projetLinks.map(l => (
-                  <li key={l.href}>
-                    <Link href={l.href} className={styles.dropdownLink} onClick={closeAll}>
-                      {l.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
 
           {/* Nos écoles dropdown */}
           <li
