@@ -31,9 +31,9 @@
 }
 
 .tagline {
-  font-size: clamp(0.72rem, 1.05vw, 0.82rem);
+  font-size: clamp(0.8rem, 1.15vw, 0.9rem);
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.5);
   margin: 0;
 }
 
@@ -52,7 +52,7 @@
 
 .colTitle {
   font-family: var(--font-condensed, 'Barlow Condensed', sans-serif);
-  font-size: clamp(0.65rem, 0.95vw, 0.75rem);
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -70,10 +70,10 @@
 }
 
 .colLinks a {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.62);
   text-decoration: none;
-  font-size: clamp(0.72rem, 1.05vw, 0.82rem);
-  line-height: 1.45;
+  font-size: clamp(0.82rem, 1.15vw, 0.92rem);
+  line-height: 1.5;
   transition: color 0.2s ease;
 }
 
@@ -92,8 +92,8 @@
 .bottom p {
   max-width: 1440px;
   margin: 0 auto;
-  font-size: clamp(0.6rem, 0.85vw, 0.7rem);
-  color: rgba(255, 255, 255, 0.25);
+  font-size: clamp(0.68rem, 0.9vw, 0.76rem);
+  color: rgba(255, 255, 255, 0.3);
   text-align: center;
   letter-spacing: 0.02em;
 }
@@ -102,8 +102,8 @@
   background: rgba(0, 0, 0, 0.25);
   text-align: center;
   padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.04em;
 }
 
@@ -118,9 +118,30 @@
   .brand {
     grid-column: 1 / -1;
   }
+
+  /* Two columns leaves room to size text up for legibility instead of
+     stacking everything into one narrow, tiny-print column. */
+  .colTitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .colLinks {
+    gap: 0.75rem;
+  }
+
+  .colLinks a {
+    font-size: 1.05rem;
+  }
+
+  .tagline {
+    font-size: 0.98rem;
+  }
 }
 
-@media (max-width: 560px) {
+/* Only collapse to a single column on genuinely narrow screens — most
+   phones (6.1in and up) have room for two columns at a readable size. */
+@media (max-width: 380px) {
   .inner {
     grid-template-columns: 1fr;
   }
