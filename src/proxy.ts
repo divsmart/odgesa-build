@@ -19,7 +19,21 @@ export function proxy(request: NextRequest) {
   //   return NextResponse.redirect(loginUrl);
   // }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+
+  // Only dev.ecolesperseverance-gp.fr should stay out of search engines.
+  // Production (www + bare domain) currently shares this same build (see
+  // memory note on the www stopgap deploy, 4 Aug 2026), so we cannot rely
+  // on a build-time env var to tell them apart -- check the actual request
+  // Host header instead. If/when dev and production run as fully separate
+  // deployments again, this can be simplified back to a static robots meta
+  // tag in layout.tsx.
+  const host = request.headers.get('host') || '';
+  if (host.startsWith('dev.')) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+
+  return response;
 }
 
 export const config = {
