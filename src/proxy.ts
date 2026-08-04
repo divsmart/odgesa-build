@@ -11,12 +11,13 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const cookie = request.cookies.get(COOKIE_NAME);
-  if (!cookie || cookie.value !== 'granted') {
-    const loginUrl = request.nextUrl.clone();
-    loginUrl.pathname = LOGIN_PATH;
-    return NextResponse.redirect(loginUrl);
-  }
+  // TEMP: preview gate disabled for public launch 3 Aug 2026 — REVERT by uncommenting below
+  // const cookie = request.cookies.get(COOKIE_NAME);
+  // if (!cookie || cookie.value !== 'granted') {
+  //   const loginUrl = request.nextUrl.clone();
+  //   loginUrl.pathname = LOGIN_PATH;
+  //   return NextResponse.redirect(loginUrl);
+  // }
 
   return NextResponse.next();
 }
