@@ -52,14 +52,6 @@
   white-space: nowrap;
 }
 
-@media (max-width: 480px) {
-  .logoTitle {
-    font-size: 0.7rem;
-  }
-  .logoSub {
-    font-size: 0.6rem;
-  }
-}
 .logo {
   height: clamp(32px, 4.5vw, 48px) !important;
   width: auto !important;
@@ -395,6 +387,29 @@
 @media (max-width: 960px) {
   .hamburger { display: flex; }
 
+  /* Taller bar + bigger logo lockup on mobile, matching the reference site's
+     more prominent mobile header instead of squeezing everything down. */
+  .nav {
+    height: 84px;
+  }
+
+  .logo {
+    height: 54px !important;
+  }
+
+  .logoTitle {
+    font-size: 1.1rem;
+  }
+
+  .logoSub {
+    font-size: 0.8rem;
+  }
+
+  .hamburger span {
+    width: 26px;
+    height: 2.5px;
+  }
+
   .navLinks {
     display: none;
     position: absolute;
@@ -463,14 +478,48 @@
     padding: 0.15rem 0;
   }
 
-  /* Mobile — inscrire dropdown anchors right of button */
+  /* Mobile — S'inscrire becomes a floating button pinned to the bottom of
+     the screen instead of competing for space in the header. The dropdown
+     opens upward since the button is anchored to the bottom edge. */
+  .inscrireWrap {
+    position: fixed;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    right: 1rem;
+    z-index: 150;
+  }
+
+  .inscrireWrapHidden {
+    display: none;
+  }
+
+  .cta {
+    font-size: 0.85rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
   .inscrireDropdown {
-    right: auto;
-    left: 0;
+    top: auto;
+    bottom: calc(100% + 0.6rem);
+    right: 0;
+    left: auto;
     min-width: 240px;
   }
 }
 
 @media (max-width: 560px) {
   .langSwitcher { display: none; }
+}
+
+@media (max-width: 380px) {
+  .logo {
+    height: 44px !important;
+  }
+  .logoTitle {
+    font-size: 0.92rem;
+  }
+  .logoSub {
+    font-size: 0.68rem;
+  }
 }

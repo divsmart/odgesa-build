@@ -286,7 +286,10 @@ export default function NavBar() {
           </div>
 
           {/* S'inscrire — opens school picker dropdown, hors contrat schools only */}
-          <div ref={inscrireRef} className={styles.inscrireWrap}>
+          <div
+            ref={inscrireRef}
+            className={`${styles.inscrireWrap} ${mobileOpen ? styles.inscrireWrapHidden : ''}`}
+          >
             <button
               className={styles.cta}
               onClick={() => setInscrireOpen(p => !p)}

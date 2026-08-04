@@ -14,6 +14,20 @@ export const metadata: Metadata = {
   'Marie-Galante et la Cité Scolaire J.Bigord Les Abymes. ' +
   'Une pédagogie chrétienne intégrale, une alimentation saine, le plein épanouissement de l\'enfant.',
   robots: { index: false, follow: false },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/favicon/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/favicon/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/favicon/icon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/images/favicon/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/favicon/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/images/favicon/site.webmanifest',
 };
 
 export default function RootLayout({
