@@ -1,0 +1,52 @@
+.chevron {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 20;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(13, 77, 98, 0.6);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  animation: bounce 1.8s ease-in-out infinite;
+  backdrop-filter: blur(2px);
+}
+
+.chevron:hover,
+.chevron:focus-visible {
+  background: rgba(13, 77, 98, 0.85);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .chevron {
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+  }
+  .chevron svg {
+    width: 22px;
+    height: 22px;
+  }
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import AnnouncementBanner from '@/components/AnnouncementBanner';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
     <body>
+    <AnnouncementBanner />
     <NavBar />
     <main>{children}</main>
     <Footer />

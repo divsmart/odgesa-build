@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import ScrollChevron from '@/components/ScrollChevron';
 import styles from './HeroSlider.module.css';
 
 // Each slide can be:
@@ -368,6 +369,8 @@ export default function HeroSlider() {
     ))}
     </div>
     )}
+
+    <ScrollChevron />
     </section>
   );
 }

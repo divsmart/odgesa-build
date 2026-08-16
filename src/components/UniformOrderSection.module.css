@@ -1,0 +1,79 @@
+.section {
+  padding: 56px 20px;
+  background: #f7f7f5;
+  display: flex;
+  justify-content: center;
+  scroll-margin-top: 96px; /* keeps the section clear of a sticky navbar when scrolled to */
+}
+
+.card {
+  max-width: 720px;
+  width: 100%;
+  background: #0d4d62;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background: #fcca3f;
+  color: #081419;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 26px;
+  margin: 0 0 12px;
+}
+
+.text {
+  font-size: 15.5px;
+  line-height: 1.6;
+  opacity: 0.92;
+  margin: 0 0 24px;
+}
+
+.ctaDisabled,
+.cta {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.ctaDisabled {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: default;
+}
+
+.cta {
+  background: #fcca3f;
+  color: #081419;
+  text-decoration: none;
+}
+
+.cta:hover {
+  background: #e6b320;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 32px 20px;
+  }
+  .title {
+    font-size: 21px;
+  }
+  .text {
+    font-size: 14.5px;
+  }
+}
