@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './AnnouncementBanner.module.css';
 
-const STORAGE_KEY = 'odgesa-announcement-dismissed-at-v1';
+const STORAGE_KEY = 'odgesa-announcement-dismissed-at-v2';
 const TARGET_ID = 'uniform-order-announcement';
 const REAPPEAR_AFTER_DAYS = 3;
 const REAPPEAR_AFTER_MS = REAPPEAR_AFTER_DAYS * 24 * 60 * 60 * 1000;
@@ -85,7 +85,7 @@ export default function AnnouncementBanner() {
       aria-label="Voir l'annonce : achat des uniformes en ligne"
     >
       <span className={styles.text}>
-        Achat des uniformes en ligne — nouveau service bientôt disponible
+        Achat des uniformes en ligne — commandez dès maintenant
       </span>
       <button
         type="button"
