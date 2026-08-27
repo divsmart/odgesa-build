@@ -23,13 +23,6 @@
   filter: brightness(1.05);
 }
 
-.logo {
-  height: 30px;
-  width: auto;
-  flex-shrink: 0;
-  display: block;
-}
-
 .text {
   font-size: 14px;
   font-weight: 700;
@@ -83,9 +76,6 @@
   .banner {
     padding: 8px 42px 8px 12px;
     gap: 8px;
-  }
-  .logo {
-    height: 24px;
   }
   .text {
     font-size: 12px;
