@@ -85,6 +85,12 @@ export default function AnnouncementBanner() {
       }}
       aria-label="Voir l'annonce : achat des uniformes en ligne"
     >
+      <img
+        src="/images/shared/odgesa-logo-mark.png"
+        alt=""
+        aria-hidden="true"
+        className={styles.logo}
+      />
       <span className={styles.text}>
         Achat des uniformes en ligne — commandez dès maintenant
       </span>

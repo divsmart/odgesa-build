@@ -6,7 +6,7 @@
   justify-content: center;
   gap: 12px;
   width: 100%;
-  padding: 16px 46px 16px 16px;
+  padding: 8px 46px 8px 16px;
   background-color: #c81e1e;
   background-image:
     radial-gradient(120% 220% at 50% 50%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 55%),
@@ -21,6 +21,13 @@
 
 .banner:hover {
   filter: brightness(1.05);
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
 }
 
 .text {
@@ -74,8 +81,11 @@
 
 @media (max-width: 480px) {
   .banner {
-    padding: 13px 42px 13px 12px;
+    padding: 8px 42px 8px 12px;
     gap: 8px;
+  }
+  .logo {
+    height: 24px;
   }
   .text {
     font-size: 12px;
