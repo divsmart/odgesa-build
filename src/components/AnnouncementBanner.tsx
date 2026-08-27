@@ -5,22 +5,23 @@ import { usePathname, useRouter } from 'next/navigation';
 import styles from './AnnouncementBanner.module.css';
 
 const STORAGE_KEY = 'odgesa-announcement-dismissed-at-v2';
-const TARGET_ID = 'uniform-order-announcement';
+const TARGET_PATH = '/parents';
+const TARGET_ID = 'uniformes-commande';
 const REAPPEAR_AFTER_DAYS = 3;
 const REAPPEAR_AFTER_MS = REAPPEAR_AFTER_DAYS * 24 * 60 * 60 * 1000;
 
 /**
  * Sticky, pulsing announcement banner (no countdown).
- * Clicking anywhere on the banner scrolls to the #uniform-order-announcement
- * section on the homepage (navigating there first if the visitor is on
- * another page). The close button dismisses it, but only temporarily: a
- * dismissal timestamp is stored in localStorage, and the banner reappears
- * automatically once REAPPEAR_AFTER_DAYS has passed — many visitors close
- * banners as a reflex rather than a considered "never show me this again",
- * so a permanent dismissal would hide a live announcement from people who'd
- * still want to see it.
+ * Clicking anywhere on the banner takes the visitor to the uniform-ordering
+ * guide on the Parents page (#uniformes-commande), navigating there first
+ * if they're not already on it. The close button dismisses it, but only
+ * temporarily: a dismissal timestamp is stored in localStorage, and the
+ * banner reappears automatically once REAPPEAR_AFTER_DAYS has passed —
+ * many visitors close banners as a reflex rather than a considered "never
+ * show me this again", so a permanent dismissal would hide a live
+ * announcement from people who'd still want to see it.
  *
- * Bump STORAGE_KEY's version suffix (v1 -> v2) whenever you want a brand
+ * Bump STORAGE_KEY's version suffix (v2 -> v3) whenever you want a brand
  * new announcement to reappear immediately for everyone, regardless of
  * their last dismissal time.
  */
@@ -58,12 +59,12 @@ export default function AnnouncementBanner() {
   }, []);
 
   const handleClick = useCallback(() => {
-    if (pathname === '/') {
+    if (pathname === TARGET_PATH) {
       document
         .getElementById(TARGET_ID)
         ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      router.push(`/#${TARGET_ID}`);
+      router.push(`${TARGET_PATH}#${TARGET_ID}`);
     }
   }, [pathname, router]);
 

@@ -48,6 +48,78 @@ const instagramLink: React.CSSProperties = {
   textDecoration: 'none',
 };
 
+const uniformesIntro: React.CSSProperties = {
+  background: '#fdf3e2',
+  border: '1px solid #f0d9a8',
+  borderRadius: '6px',
+  padding: '1.25rem 1.5rem',
+  marginBottom: '1.5rem',
+};
+
+const uniformesLink: React.CSSProperties = {
+  color: 'var(--color-teal)',
+  fontWeight: 700,
+  textDecoration: 'underline',
+};
+
+const stepList: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.1rem',
+  marginBottom: '1.5rem',
+};
+
+const stepRow: React.CSSProperties = {
+  display: 'flex',
+  gap: '1rem',
+  alignItems: 'flex-start',
+};
+
+const stepNumber: React.CSSProperties = {
+  flexShrink: 0,
+  width: '2rem',
+  height: '2rem',
+  borderRadius: '50%',
+  background: 'var(--color-teal)',
+  color: '#fff',
+  fontWeight: 700,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+const stepTitle: React.CSSProperties = {
+  fontWeight: 700,
+  color: 'var(--color-teal)',
+  marginBottom: '0.3rem',
+};
+
+const stepNote: React.CSSProperties = {
+  color: '#b06a00',
+  fontWeight: 600,
+};
+
+const uniformCta: React.CSSProperties = {
+  display: 'inline-block',
+  background: '#d64545',
+  color: '#fff',
+  fontWeight: 700,
+  padding: '0.75rem 1.5rem',
+  borderRadius: '4px',
+  textDecoration: 'none',
+  marginBottom: '1.5rem',
+};
+
+const summaryBar: React.CSSProperties = {
+  fontWeight: 600,
+  color: 'var(--color-teal)',
+  textAlign: 'center',
+  padding: '0.9rem',
+  background: '#f2f7f8',
+  borderRadius: '4px',
+  marginBottom: '1.5rem',
+};
+
 export default function Page() {
   return (
     <section style={{
@@ -82,7 +154,9 @@ export default function Page() {
       <ul style={{ paddingLeft: '1.25rem', lineHeight: '2', marginBottom: '1.5rem' }}>
         <li style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.4rem' }}>
           <span style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem' }}>
-            <span>Acheter les uniformes en ligne</span>
+            <a href="#uniformes-commande" style={{ color: 'var(--color-teal)', fontWeight: 600 }}>
+              Acheter les uniformes en ligne
+            </a>
             <span style={nouveauteBadge}>Nouveauté</span>
           </span>
           <a
@@ -108,6 +182,117 @@ export default function Page() {
           </a>
         </li>
       </ul>
+
+      <h2 id="uniformes-commande" style={{ ...h2Style, scrollMarginTop: '6rem' }}>
+        Commander les uniformes en ligne
+      </h2>
+
+      <div style={uniformesIntro}>
+        <p style={{ margin: 0, fontWeight: 600 }}>
+          Votre commande se fait désormais en ligne, en quelques étapes simples :{' '}
+          <a
+            href="https://boutique.laperseverance.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={uniformesLink}
+          >
+            boutique.laperseverance.fr
+          </a>{' '}
+          — onglet « Uniformes ».
+        </p>
+        <p style={{ margin: '0.5rem 0 0', color: '#a33', fontWeight: 600 }}>
+          Aucune commande n&apos;est prise directement au sein de l&apos;établissement.
+        </p>
+      </div>
+
+      <div style={stepList}>
+        <div style={stepRow}>
+          <span style={stepNumber}>1</span>
+          <div>
+            <p style={stepTitle}>Je choisis mes articles</p>
+            <p style={{ ...p, marginBottom: '0.4rem' }}>
+              Rendez-vous sur le site de votre école, onglet « Uniformes », puis sélectionnez le
+              niveau de votre enfant et les articles souhaités. Pour chaque article, choisissez
+              impérativement la taille et la quantité, puis cliquez sur « Ajouter au panier ».
+            </p>
+            <p style={{ margin: 0 }}>
+              <span style={stepNote}>Conseil : </span>
+              en cas de doute sur la taille, faites essayer l&apos;uniforme chez SEBASTIANO, à Jarry,
+              avant de commander.
+            </p>
+          </div>
+        </div>
+
+        <div style={stepRow}>
+          <span style={stepNumber}>2</span>
+          <div>
+            <p style={stepTitle}>Je vérifie mon panier et mes informations</p>
+            <p style={{ margin: 0 }}>
+              Vérifiez attentivement les articles, les tailles et les quantités. Renseignez les
+              informations demandées et sélectionnez l&apos;établissement de votre enfant : c&apos;est
+              là que vous viendrez chercher votre bon de retrait.
+            </p>
+          </div>
+        </div>
+
+        <div style={stepRow}>
+          <span style={stepNumber}>3</span>
+          <div>
+            <p style={stepTitle}>Je paie ma commande</p>
+            <p style={{ ...p, marginBottom: '0.4rem' }}>
+              Réglez votre commande en ligne par carte bancaire. Une facture vous est envoyée après
+              validation du paiement.
+            </p>
+            <p style={{ margin: 0 }}>
+              <span style={stepNote}>À noter : </span>
+              les paiements sur place sont désormais exceptionnels. Les uniformes ne peuvent plus
+              être intégrés aux prélèvements de scolarité, ni faire l&apos;objet d&apos;un étalement
+              de paiement.
+            </p>
+          </div>
+        </div>
+
+        <div style={stepRow}>
+          <span style={stepNumber}>4</span>
+          <div>
+            <p style={stepTitle}>L&apos;école traite ma commande</p>
+            <p style={{ margin: 0 }}>
+              Après validation du paiement, l&apos;école reçoit votre commande et édite votre bon de
+              retrait. Vous n&apos;avez aucune démarche supplémentaire à effectuer à cette étape.
+            </p>
+          </div>
+        </div>
+
+        <div style={stepRow}>
+          <span style={stepNumber}>5</span>
+          <div>
+            <p style={stepTitle}>Je récupère mon bon de retrait, puis mes uniformes</p>
+            <p style={{ margin: 0 }}>
+              Votre établissement vous communiquera les jours et horaires prévus pour récupérer
+              votre bon. Munissez-vous ensuite de ce bon pour retirer vos uniformes auprès de
+              SEBASTIANO, à Jarry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p style={summaryBar}>
+        Commander → Payer → Bon de retrait → Retirer les uniformes
+      </p>
+
+      <a
+        href="https://boutique.laperseverance.fr/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={uniformCta}
+      >
+        Commander mes uniformes ↗
+      </a>
+
+      <p style={p}>
+        Une question sur la qualité ou la taille d&apos;un article ? Adressez-vous directement au
+        fournisseur par mail, en mettant la direction de votre établissement en copie.
+      </p>
 
       <img
         src="/images/duportail/refectoire-duportail.jpg"
