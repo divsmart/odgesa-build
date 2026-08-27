@@ -6,7 +6,7 @@
   justify-content: center;
   gap: 12px;
   width: 100%;
-  padding: 8px 46px 8px 16px;
+  padding: 6px 46px 6px 16px;
   background-color: #c81e1e;
   background-image:
     radial-gradient(120% 220% at 50% 50%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 55%),
@@ -74,7 +74,7 @@
 
 @media (max-width: 480px) {
   .banner {
-    padding: 8px 42px 8px 12px;
+    padding: 6px 42px 6px 12px;
     gap: 8px;
   }
   .text {
