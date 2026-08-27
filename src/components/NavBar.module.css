@@ -61,11 +61,11 @@
    logoSub text — which stays in `.logoWrap`, untouched — exactly where it
    was. Tune the margin-top if the overlap looks off once deployed. */
 .logo {
-  height: clamp(52px, 6.5vw, 72px) !important;
+  height: clamp(40px, 5vw, 56px) !important;
   width: auto !important;
   object-fit: contain;
   position: relative;
-  margin-top: -6px;
+  margin-top: -2px;
   z-index: 1;
 }
 
