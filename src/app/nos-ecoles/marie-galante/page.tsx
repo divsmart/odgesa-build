@@ -50,6 +50,39 @@ export default function Page() {
         ))}
       </div>
 
+      {/* Rentrée 2026-2027 */}
+      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
+        Rentrée scolaire 2026–2027
+      </h2>
+      <div style={{ overflowX: 'auto', marginBottom: '3rem' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+          <thead>
+            <tr style={{ background: 'var(--color-teal)', color: '#fff' }}>
+              <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontFamily: 'var(--font-condensed)', fontWeight: 700 }}>Date</th>
+              <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontFamily: 'var(--font-condensed)', fontWeight: 700 }}>Heure</th>
+              <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontFamily: 'var(--font-condensed)', fontWeight: 700 }}>Événement</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { date: 'Lundi 24 août', heure: '8h00', evenement: 'Rentrée du personnel — Réouverture des inscriptions de la maternelle au CM2' },
+              { date: 'Dimanche 30 août', heure: '18h30', evenement: "Réunion d'ouverture de l'année scolaire au gymnase de l'école" },
+              { date: 'Mardi 1er septembre', heure: '8h00 – 10h00', evenement: 'Rentrée des élèves des classes de MS, GS, CE1, CM1 et CM2' },
+              { date: 'Mardi 1er septembre', heure: '10h30 – 12h00', evenement: 'Rentrée des élèves des classes de PS, CP et CE2' },
+            ].map((row, i) => (
+              <tr key={`${row.date}-${row.heure}`} style={{ background: i % 2 === 0 ? '#f9fafb' : '#fff', borderBottom: '1px solid #e5e7eb' }}>
+                <td style={{ padding: '0.75rem 1rem', fontWeight: 600, color: 'var(--color-navy)', whiteSpace: 'nowrap' }}>{row.date}</td>
+                <td style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>{row.heure}</td>
+                <td style={{ padding: '0.75rem 1rem' }}>{row.evenement}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ lineHeight: 1.8, marginBottom: '3rem', color: 'var(--color-text-muted)' }}>
+        Toute l&apos;équipe de l&apos;école La Persévérance Antoine Moeson souhaite une bonne rentrée scolaire 2026–2027 à tous.
+      </p>
+
       {/* Présentation */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
         Notre mission
