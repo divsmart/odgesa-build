@@ -6,6 +6,17 @@ const galleryPhotos = [
   { src: '/images/duportail/hero-right.jpg', alt: 'Élèves de l\'École La Persévérance de Duportail' },
 ];
 
+const supplyLists = [
+  { level: 'TPS / PS / MS', file: 'fournitures-duportail-tps-ps-ms.pdf' },
+  { level: 'GS', file: 'fournitures-duportail-gs.pdf' },
+  { level: 'CP', file: 'fournitures-duportail-cp.pdf' },
+  { level: 'CE1', file: 'fournitures-duportail-ce1.pdf' },
+  { level: 'CE2', file: 'fournitures-duportail-ce2.pdf' },
+  { level: 'CM1', file: 'fournitures-duportail-cm1.pdf' },
+  { level: 'CM2', file: 'fournitures-duportail-cm2.pdf' },
+  { level: 'Montessori (PS–GS)', file: 'fournitures-duportail-montessori.pdf' },
+];
+
 export default function Page() {
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)' }}>
@@ -40,6 +51,20 @@ export default function Page() {
         ))}
       </div>
 
+      {/* Notre mission */}
+      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
+        Notre mission
+      </h2>
+      <p style={{ fontStyle: 'italic', color: 'var(--color-orange)', fontWeight: 600, marginBottom: '1rem' }}>
+        Accompagner chaque enfant vers sa réussite
+      </p>
+      <p style={{ lineHeight: 1.8, marginBottom: '3rem' }}>
+        Notre projet éducatif s&apos;inspire des valeurs de l&apos;Éducation adventiste et place l&apos;enfant au
+        cœur de ses apprentissages. Dans un climat de bienveillance, de respect et d&apos;écoute, nous
+        encourageons chaque élève à développer ses connaissances, ses talents et son sens des
+        responsabilités.
+      </p>
+
       {/* Notre histoire */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
         Notre histoire
@@ -65,19 +90,34 @@ export default function Page() {
         identité et son esprit de famille.
       </p>
 
-      {/* Notre projet éducatif */}
-      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
-        Notre projet éducatif
+      {/* Direction et équipe éducative */}
+      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
+        Direction et équipe éducative
       </h2>
-      <p style={{ fontStyle: 'italic', color: 'var(--color-orange)', fontWeight: 600, marginBottom: '1rem' }}>
-        Accompagner chaque enfant vers sa réussite
-      </p>
-      <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
-        Notre projet éducatif s&apos;inspire des valeurs de l&apos;Éducation adventiste et place l&apos;enfant au
-        cœur de ses apprentissages. Dans un climat de bienveillance, de respect et d&apos;écoute, nous
-        encourageons chaque élève à développer ses connaissances, ses talents et son sens des
-        responsabilités.
-      </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '3rem' }}>
+        {[
+          { role: 'Direction', noms: ['Stella Nomed Jean-Baptiste'] },
+          { role: 'Secrétariat', noms: ['Danidza Lusine'] },
+          { role: 'Équipe enseignante', noms: ['Béatrice Phibel', 'Anne-Flore Mondelice', 'Maria Gautier', 'Mireille Alphonso', 'Sandrine Retel', 'Jhade Goffin', 'Fernande Soliveau', 'Stella Nomed Jean-Baptiste'] },
+          { role: 'ATSEM', noms: ['Isis Noble', 'Guernina Hanany', 'Chrystèle Kanga'] },
+          { role: 'Restauration', noms: ['Mariana Cideron', 'José Lautric', 'Sylvia Moulin'] },
+          { role: 'Personnel polyvalent', noms: ['Harry Roselia'] },
+        ].map(group => (
+          <div key={group.role} style={{ background: '#f0f7f9', borderRadius: '8px', padding: '1rem', borderTop: '3px solid var(--color-teal)' }}>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
+              {group.role}
+            </p>
+            {group.noms.map(nom => (
+              <p key={nom} style={{ fontWeight: 600, color: 'var(--color-navy)', fontSize: '0.9rem', lineHeight: 1.6 }}>{nom}</p>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* Projet pédagogique */}
+      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
+        Projet pédagogique
+      </h2>
 
       <div style={{ background: '#f0f7f9', borderLeft: '3px solid var(--color-orange)', borderRadius: '8px', padding: '1.25rem 1.5rem', marginBottom: '1.5rem' }}>
         <p style={{ fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>
@@ -105,33 +145,9 @@ export default function Page() {
         classe et développent la curiosité, l&apos;autonomie et le sens des responsabilités.
       </p>
 
-      {/* Équipe */}
-      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
-        Une équipe au service de chaque enfant
-      </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '3rem' }}>
-        {[
-          { role: 'Direction', noms: ['Stella Nomed Jean-Baptiste'] },
-          { role: 'Secrétariat', noms: ['Danidza Lusine'] },
-          { role: 'Équipe enseignante', noms: ['Béatrice Phibel', 'Anne-Flore Mondelice', 'Maria Gautier', 'Mireille Alphonso', 'Sandrine Retel', 'Jhade Goffin', 'Fernande Soliveau', 'Stella Nomed Jean-Baptiste'] },
-          { role: 'ATSEM', noms: ['Isis Noble', 'Guernina Hanany', 'Chrystèle Kanga'] },
-          { role: 'Restauration', noms: ['Mariana Cideron', 'José Lautric', 'Sylvia Moulin'] },
-          { role: 'Personnel polyvalent', noms: ['Harry Roselia'] },
-        ].map(group => (
-          <div key={group.role} style={{ background: '#f0f7f9', borderRadius: '8px', padding: '1rem', borderTop: '3px solid var(--color-teal)' }}>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
-              {group.role}
-            </p>
-            {group.noms.map(nom => (
-              <p key={nom} style={{ fontWeight: 600, color: 'var(--color-navy)', fontSize: '0.9rem', lineHeight: 1.6 }}>{nom}</p>
-            ))}
-          </div>
-        ))}
-      </div>
-
       {/* Vie scolaire et spirituelle — sticky image, scrolling text */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
-        Vie scolaire et pastorale
+        Vie scolaire et spirituelle
       </h2>
       <div className={styles.wrapper}>
         <div className={styles.imageCol}>
@@ -209,7 +225,7 @@ export default function Page() {
 
       {/* Tarifs */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
-        Tarifs 2026–2027
+        Tarifs et modalités de paiement
       </h2>
       <div style={{ overflowX: 'auto', marginBottom: '1rem' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
@@ -250,39 +266,37 @@ export default function Page() {
         déposé avec les pièces justificatives demandées. Pour toute demande de renseignements ou pour
         prendre rendez-vous, notre équipe se tient à votre disposition.
       </p>
+      {/* NOTE (Michael): unlike Baillif/Marie-Galante, there's no fiche-inscription PDF
+          on file for Duportail yet, so no download button here — add one once a file
+          exists, following the same pattern:
+          <a href="/documents/duportail/fiche-inscription-duportail-2026-2027.pdf" download>...</a> */}
 
       {/* Fournitures scolaires */}
       <h2 id="fournitures" style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem', scrollMarginTop: '100px' }}>
-        Fournitures scolaires 2026–2027
+        Listes de fournitures scolaires 2026–2027
       </h2>
       <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
-        Téléchargez la liste correspondant à la classe de votre enfant.
+        Choisissez la classe de votre enfant pour télécharger uniquement la liste qui le concerne.
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '0.75rem', marginBottom: '3rem' }}>
-        {[
-          { label: 'TPS / PS / MS', file: 'fournitures-duportail-tps-ps-ms.pdf' },
-          { label: 'GS', file: 'fournitures-duportail-gs.pdf' },
-          { label: 'CP', file: 'fournitures-duportail-cp.pdf' },
-          { label: 'CE1', file: 'fournitures-duportail-ce1.pdf' },
-          { label: 'CE2', file: 'fournitures-duportail-ce2.pdf' },
-          { label: 'CM1', file: 'fournitures-duportail-cm1.pdf' },
-          { label: 'CM2', file: 'fournitures-duportail-cm2.pdf' },
-          { label: 'Montessori (PS–GS)', file: 'fournitures-duportail-montessori.pdf' },
-        ].map(item => (
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '0.75rem', marginBottom: '3rem' }}>
+        {supplyLists.map(item => (
           <a
             key={item.file}
             href={`/documents/duportail/${item.file}`}
             download
             style={{
-              display: 'flex', alignItems: 'center', gap: '0.5rem',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              gap: '0.35rem', textAlign: 'center',
               background: '#f0f7f9', border: '1px solid #dceaee', borderRadius: '8px',
-              padding: '0.75rem 0.9rem', textDecoration: 'none',
-              borderLeft: '3px solid var(--color-orange)',
+              padding: '1rem 0.75rem', textDecoration: 'none',
+              borderTop: '3px solid var(--color-teal)',
             }}
           >
-            <span style={{ fontSize: '1rem', lineHeight: 1 }}>📄</span>
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-navy)' }}>
-              {item.label}
+            <span style={{ fontFamily: 'var(--font-condensed)', fontWeight: 700, color: 'var(--color-navy)', fontSize: '1rem' }}>
+              {item.level}
+            </span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--color-teal)', fontWeight: 600 }}>
+              Télécharger PDF
             </span>
           </a>
         ))}
@@ -307,13 +321,13 @@ export default function Page() {
 
       {/* Contact */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
-        Contact
+        Contact et accès
       </h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
         <div>
           <p style={{ fontWeight: 700, color: 'var(--color-navy)', marginBottom: '0.5rem' }}>Adresse</p>
           <p style={{ lineHeight: 1.8, color: 'var(--color-text-muted)' }}>
-            Duportail<br />
+            Chemin de Grande Rivière à Goyaves<br />
             97115 Sainte-Rose<br />
             Guadeloupe
           </p>
@@ -326,6 +340,20 @@ export default function Page() {
             <a href="mailto:laperseverance97115@wanadoo.fr" style={{ color: 'var(--color-teal)', textDecoration: 'none' }}>laperseverance97115@wanadoo.fr</a>
           </p>
         </div>
+      </div>
+
+      {/* Google Maps */}
+      <div style={{ borderRadius: '8px', overflow: 'hidden', marginBottom: '3rem' }}>
+        <iframe
+          src="https://www.google.com/maps?q=16.2596898,-61.7002293&output=embed"
+          width="100%"
+          height="400"
+          style={{ border: 0, display: 'block' }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Carte — École La Persévérance de Duportail"
+        />
       </div>
 
     </main>

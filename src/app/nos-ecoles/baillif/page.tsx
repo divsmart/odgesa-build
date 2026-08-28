@@ -6,6 +6,13 @@ const galleryPhotos = [
   { src: '/images/baillif/ecole-baillif-classe.jpg', alt: 'Salle de classe — École La Persévérance de Baillif' },
 ];
 
+const supplyLists = [
+  { level: 'TPS', file: 'fournitures-baillif-tps.pdf' },
+  { level: 'GS',  file: 'fournitures-baillif-gs.pdf'  },
+  { level: 'CP',  file: 'fournitures-baillif-cp.pdf'  },
+  { level: 'CE1', file: 'fournitures-baillif-ce1.pdf' },
+];
+
 export default function Page() {
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)' }}>
@@ -38,7 +45,41 @@ export default function Page() {
         ))}
       </div>
 
-      {/* Mission & Vision */}
+      {/* Rentrée 2026-2027 */}
+      <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
+        Rentrée scolaire 2026–2027
+      </h2>
+      <div style={{ overflowX: 'auto', marginBottom: '3rem' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+          <thead>
+            <tr style={{ background: 'var(--color-teal)', color: '#fff' }}>
+              <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontFamily: 'var(--font-condensed)', fontWeight: 700 }}>Date</th>
+              <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontFamily: 'var(--font-condensed)', fontWeight: 700 }}>Heure</th>
+              <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontFamily: 'var(--font-condensed)', fontWeight: 700 }}>Événement</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { date: 'Jeudi 20 août', heure: '8h00 – 14h00', evenement: 'Réouverture des inscriptions — Rentrée du personnel non enseignant' },
+              { date: 'Mardi 25 août', heure: '8h00 – 14h00', evenement: 'Rentrée du personnel enseignant' },
+              { date: 'Dimanche 30 août', heure: '18h30', evenement: "Réunion d'ouverture de l'année scolaire 2026–2027 à l'église adventiste de Baillif. Votre présence est vivement souhaitée." },
+              { date: 'Mardi 1er septembre', heure: '8h00', evenement: 'Rentrée des élèves des classes élémentaires (du CP au CM2)' },
+              { date: 'Jeudi 3 septembre', heure: '8h00', evenement: 'Rentrée des élèves des classes maternelles (TPS, PS, MS et GS)' },
+            ].map((row, i) => (
+              <tr key={`${row.date}-${row.heure}`} style={{ background: i % 2 === 0 ? '#f9fafb' : '#fff', borderBottom: '1px solid #e5e7eb' }}>
+                <td style={{ padding: '0.75rem 1rem', fontWeight: 600, color: 'var(--color-navy)', whiteSpace: 'nowrap' }}>{row.date}</td>
+                <td style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>{row.heure}</td>
+                <td style={{ padding: '0.75rem 1rem' }}>{row.evenement}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ lineHeight: 1.8, marginBottom: '3rem', color: 'var(--color-text-muted)' }}>
+        En attendant la rentrée scolaire, nous vous souhaitons de bonnes vacances.
+      </p>
+
+      {/* Notre mission */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>
         Notre mission
       </h2>
@@ -49,9 +90,9 @@ export default function Page() {
         Offrir une formation holistique, s&apos;appuyant sur les valeurs chrétiennes, afin de préparer les élèves à devenir les leaders de demain et des citoyens engagés et conscients de leur environnement.
       </p>
 
-      {/* Direction */}
+      {/* Direction et équipe éducative */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
-        Direction
+        Direction et équipe éducative
       </h2>
       <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
         L&apos;établissement est placé sous la direction de Mme Vanessa Hatchi pour l&apos;année scolaire 2026–2027.
@@ -67,7 +108,7 @@ export default function Page() {
         ))}
       </div>
 
-      {/* Vie scolaire & spirituelle — sticky image, scrolling text */}
+      {/* Vie scolaire et spirituelle — sticky image, scrolling text */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
         Vie scolaire et spirituelle
       </h2>
@@ -153,7 +194,7 @@ export default function Page() {
       </div>
 
       <p style={{ lineHeight: 1.8, marginBottom: '0.75rem', fontWeight: 600, color: 'var(--color-navy)' }}>
-        Demi-pension — selon le revenu fiscal de référence
+        Restauration scolaire — selon quotient familial
       </p>
       <div style={{ overflowX: 'auto', marginBottom: '1.5rem' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
@@ -161,7 +202,7 @@ export default function Page() {
             <tr style={{ background: 'var(--color-teal)', color: '#fff' }}>
               <th style={{ padding: '0.75rem 1rem', textAlign: 'left', fontFamily: 'var(--font-condensed)', fontWeight: 700 }}>Tarif</th>
               <th style={{ padding: '0.75rem 1rem', textAlign: 'center' }}>Montant annuel</th>
-              <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Tranche de revenu fiscal de référence</th>
+              <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Tranche de quotient familial</th>
             </tr>
           </thead>
           <tbody>
@@ -208,13 +249,36 @@ export default function Page() {
         Télécharger la fiche d&apos;inscription 2026–2027
       </a>
 
-      {/* Fournitures scolaires — lists not yet available */}
+      {/* Fournitures scolaires */}
       <h2 id="fournitures" style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem', scrollMarginTop: '100px' }}>
         Listes de fournitures scolaires 2026–2027
       </h2>
-      <p style={{ lineHeight: 1.8, marginBottom: '3rem', color: 'var(--color-text-muted)' }}>
-        Les listes de fournitures par classe seront mises en ligne prochainement.
+      <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
+        Choisissez la classe de votre enfant pour télécharger uniquement la liste qui le concerne. Les listes pour PS, MS, CE2, CM1 et CM2 seront ajoutées dès leur réception.
       </p>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '0.75rem', marginBottom: '3rem' }}>
+        {supplyLists.map(item => (
+          <a
+            key={item.file}
+            href={`/documents/baillif/${item.file}`}
+            download
+            style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              gap: '0.35rem', textAlign: 'center',
+              background: '#f0f7f9', border: '1px solid #dceaee', borderRadius: '8px',
+              padding: '1rem 0.75rem', textDecoration: 'none',
+              borderTop: '3px solid var(--color-teal)',
+            }}
+          >
+            <span style={{ fontFamily: 'var(--font-condensed)', fontWeight: 700, color: 'var(--color-navy)', fontSize: '1rem' }}>
+              {item.level}
+            </span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--color-teal)', fontWeight: 600 }}>
+              Télécharger PDF
+            </span>
+          </a>
+        ))}
+      </div>
 
       {/* Documents */}
       <h2 style={{ fontFamily: 'var(--font-condensed)', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', color: 'var(--color-teal)', marginBottom: '1rem' }}>
