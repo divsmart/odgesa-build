@@ -40,7 +40,7 @@ export default function Page() {
         {[
           { label: 'Niveaux', value: 'PS – CM2' },
           { label: 'Élèves', value: '61' },
-          { label: 'Classes', value: '3' },
+          { label: 'Classes', value: '8' },
           { label: 'Fondée', value: '1992' },
         ].map(stat => (
           <div key={stat.label} style={{ background: '#f0f7f9', borderRadius: '8px', padding: '0.85rem 1.25rem', borderLeft: '3px solid var(--color-teal)', minWidth: '110px' }}>
@@ -109,7 +109,7 @@ export default function Page() {
         Fondée en 1992, l&apos;École primaire privée La Persévérance est née de la volonté d&apos;offrir aux familles de Marie-Galante une éducation de qualité fidèle à la vision chrétienne de l&apos;éducation. Les premiers élèves ont été accueillis en janvier 1993 sous la direction de Jean-Claude Souila, avec une classe unique réunissant huit enfants de Petite Section, Moyenne Section et Cours Préparatoire.
       </p>
       <p style={{ lineHeight: 1.8, marginBottom: '3rem' }}>
-        En 2013, l&apos;établissement prend le nom d&apos;école La Persévérance - Antoine Moeson, en hommage à Antoine Moeson dont la générosité a permis l&apos;implantation de l&apos;école sur le terrain qu&apos;il a offert. Aujourd&apos;hui, notre école accueille 61 élèves répartis dans trois classes.
+        En 2013, l&apos;établissement prend le nom d&apos;école La Persévérance - Antoine Moeson, en hommage à Antoine Moeson dont la générosité a permis l&apos;implantation de l&apos;école sur le terrain qu&apos;il a offert. Aujourd&apos;hui, notre école accueille 61 élèves répartis dans huit classes.
       </p>
 
       {/* Direction */}
