@@ -30,7 +30,16 @@ const fournituresData: {
   name: string;
   classes: { name: string; href: string }[];
 }[] = [
-  { name: 'La Persévérance Baillif',      slug: 'baillif',      classes: [] },
+  {
+    name: 'La Persévérance Baillif',
+    slug: 'baillif',
+    classes: [
+      { name: 'TPS', href: '/documents/baillif/fournitures-baillif-tps.pdf' },
+      { name: 'GS',  href: '/documents/baillif/fournitures-baillif-gs.pdf'  },
+      { name: 'CP',  href: '/documents/baillif/fournitures-baillif-cp.pdf'  },
+      { name: 'CE1', href: '/documents/baillif/fournitures-baillif-ce1.pdf' },
+    ],
+  },
   {
     name: 'La Persévérance Duportail',
     slug: 'duportail',
