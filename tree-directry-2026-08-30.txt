@@ -22266,7 +22266,6 @@
 │           ├── index.js.map
 │           ├── index.mjs
 │           └── index.mjs.map
-├── odgesa-build-tree.txt
 ├── ODGESA-Dev-Reference .md
 ├── package.json
 ├── package-lock.json
@@ -22276,13 +22275,24 @@
 │   │   │   ├── convention-reglement-financier-baillif-2026-2027.pdf
 │   │   │   ├── fiche-inscription-baillif-2026-2027.pdf
 │   │   │   ├── fiche-urgence-droit-image-baillif-2026-2027.pdf
-│   │   │   └── reglement-interieur-baillif-2026-2027.pdf
+│   │   │   ├── fournitures-baillif-ce1.pdf
+│   │   │   ├── fournitures-baillif-ce2.pdf
+│   │   │   ├── fournitures-baillif-cm1.pdf
+│   │   │   ├── fournitures-baillif-cm2.pdf
+│   │   │   ├── fournitures-baillif-cp.pdf
+│   │   │   ├── fournitures-baillif-gs.pdf
+│   │   │   ├── fournitures-baillif-ms.pdf
+│   │   │   ├── fournitures-baillif-ps.pdf
+│   │   │   ├── fournitures-baillif-tps.pdf
+│   │   │   ├── reglement-interieur-baillif-2026-2027.pdf
+│   │   │   └── rentree-baillif-2026-2027.pdf
 │   │   ├── duportail
 │   │   │   ├── fournitures-duportail-ce1.pdf
 │   │   │   ├── fournitures-duportail-ce2.pdf
 │   │   │   ├── fournitures-duportail-cm1.pdf
 │   │   │   ├── fournitures-duportail-cm2.pdf
 │   │   │   ├── fournitures-duportail-cp.pdf
+│   │   │   ├── fournitures-duportail-gs_old.pdf
 │   │   │   ├── fournitures-duportail-gs.pdf
 │   │   │   ├── fournitures-duportail-montessori.pdf
 │   │   │   └── fournitures-duportail-tps-ps-ms.pdf
@@ -22295,7 +22305,9 @@
 │   │       ├── fournitures-marie-galante-cp.pdf
 │   │       ├── fournitures-marie-galante-gs.pdf
 │   │       ├── fournitures-marie-galante-ms.pdf
-│   │       └── fournitures-marie-galante-ps.pdf
+│   │       ├── fournitures-marie-galante-ps.pdf
+│   │       └── rentree-marie-galante-2026-2027.pdf
+│   ├── favicon.ico
 │   ├── file.svg
 │   ├── globe.svg
 │   ├── images
@@ -22312,43 +22324,105 @@
 │   │   │   ├── actualite-baillif-ateliers.jpg
 │   │   │   ├── actualite-baillif-direction.jpg
 │   │   │   ├── actualite-baillif-nutrition.jpg
-│   │   │   ├── baillif-ecole.jpg
 │   │   │   ├── ecole-baillif-classe.jpg
 │   │   │   ├── ecole-baillif-exterieur.jpg
 │   │   │   ├── hero-left.jpg
 │   │   │   └── hero-right.jpg
 │   │   ├── bigord
+│   │   │   ├── bigord-bts-mobile.jpg
+│   │   │   ├── bigord-bts-padded.png
 │   │   │   └── hero-graduation.jpg
 │   │   ├── bureau
 │   │   │   ├── hugues-placide.jpg
 │   │   │   ├── organigramme-odgesa.png
 │   │   │   └── ruth-nanette.jpg
 │   │   ├── duportail
-│   │   │   ├── duportail-ecole.jpg
 │   │   │   ├── hero-left.jpg
 │   │   │   ├── hero-right.jpg
 │   │   │   └── refectoire-duportail.jpg
+│   │   ├── favicon
+│   │   │   ├── android-chrome-192x192.png
+│   │   │   ├── android-chrome-512x512.png
+│   │   │   ├── apple-touch-icon.png
+│   │   │   ├── icon-16x16.png
+│   │   │   ├── icon-192x192.png
+│   │   │   ├── icon-32x32.png
+│   │   │   ├── icon-48x48.png
+│   │   │   ├── icon-512x512.png
+│   │   │   └── site.webmanifest
 │   │   ├── marie-galante
 │   │   │   ├── bibliotheque-marie-galante-1.jpg
 │   │   │   ├── bibliotheque-marie-galante-2.jpg
 │   │   │   ├── hero-left.jpg
 │   │   │   ├── hero-right.jpg
 │   │   │   └── journee-sportive-marie-galante.jpg
-│   │   ├── shared
-│   │   │   ├── admin-gouvernance-infographique.jpg
-│   │   │   ├── annonce-lancement-site.jpg
-│   │   │   ├── odgesa-logo-icon.png
-│   │   │   ├── reseau-constellation-mobile.png
-│   │   │   ├── reseau-constellation.png
-│   │   │   ├── stats-gpe-mobile.png
-│   │   │   ├── stats-gpe.png
-│   │   │   ├── stats-monde-mobile.png
-│   │   │   ├── stats-monde.png
-│   │   │   ├── stats-uagf-mobile.png
-│   │   │   └── stats-uagf.png
-│   │   ├── slide1.jpg
-│   │   ├── slide2.jpg
-│   │   └── slide3.jpg
+│   │   ├── _originals_backup
+│   │   │   ├── actualites
+│   │   │   │   ├── actualite-reseau-choisir-perseverance-valeurs.jpg
+│   │   │   │   ├── actualite-reseau-familles-heritage.jpg
+│   │   │   │   ├── actualite-reseau-pourquoi-choisir-infographie.jpg
+│   │   │   │   ├── actualite-reseau-psychologue-referent-2026.jpg
+│   │   │   │   ├── actualite-reseau-savoirs-valeurs-1.jpg
+│   │   │   │   ├── actualite-reseau-savoirs-valeurs-2.jpg
+│   │   │   │   └── actualite-reseau-vue-ensemble-infographie.jpg
+│   │   │   ├── baillif
+│   │   │   │   ├── actualite-baillif-ateliers.jpg
+│   │   │   │   ├── actualite-baillif-direction.jpg
+│   │   │   │   ├── actualite-baillif-nutrition.jpg
+│   │   │   │   ├── baillif-ecole.jpg
+│   │   │   │   ├── ecole-baillif-classe.jpg
+│   │   │   │   ├── ecole-baillif-exterieur.jpg
+│   │   │   │   ├── hero-left.jpg
+│   │   │   │   └── hero-right.jpg
+│   │   │   ├── bigord
+│   │   │   │   ├── bigord-bts-padded.png
+│   │   │   │   └── hero-graduation.jpg
+│   │   │   ├── bureau
+│   │   │   │   ├── hugues-placide.jpg
+│   │   │   │   ├── organigramme-odgesa.png
+│   │   │   │   └── ruth-nanette.jpg
+│   │   │   ├── duportail
+│   │   │   │   ├── duportail-ecole.jpg
+│   │   │   │   ├── hero-left.jpg
+│   │   │   │   ├── hero-right.jpg
+│   │   │   │   └── refectoire-duportail.jpg
+│   │   │   ├── marie-galante
+│   │   │   │   ├── bibliotheque-marie-galante-1.jpg
+│   │   │   │   ├── bibliotheque-marie-galante-2.jpg
+│   │   │   │   ├── hero-left.jpg
+│   │   │   │   ├── hero-right.jpg
+│   │   │   │   └── journee-sportive-marie-galante.jpg
+│   │   │   ├── shared
+│   │   │   │   ├── admin-gouvernance-infographique.jpg
+│   │   │   │   ├── annonce-lancement-site.jpg
+│   │   │   │   ├── odgesa-logo-icon.png
+│   │   │   │   ├── reseau-constellation-mobile.png
+│   │   │   │   ├── reseau-constellation-padded.png
+│   │   │   │   ├── reseau-constellation.png
+│   │   │   │   ├── stats-gpe-mobile.png
+│   │   │   │   ├── stats-gpe.png
+│   │   │   │   ├── stats-monde-mobile.png
+│   │   │   │   ├── stats-monde.png
+│   │   │   │   ├── stats-uagf-mobile.png
+│   │   │   │   └── stats-uagf.png
+│   │   │   ├── slide1.jpg
+│   │   │   ├── slide2.jpg
+│   │   │   └── slide3.jpg
+│   │   └── shared
+│   │       ├── admin-gouvernance-infographique.jpg
+│   │       ├── annonce-lancement-site.jpg
+│   │       ├── annonce-lancement-site-mobile.jpg
+│   │       ├── instagram-icon.png
+│   │       ├── odgesa-logo-icon.png
+│   │       ├── odgesa-logo-mark.png
+│   │       ├── reseau-constellation-mobile.jpg
+│   │       ├── reseau-constellation-padded.jpg
+│   │       ├── stats-gpe.jpg
+│   │       ├── stats-gpe-mobile.jpg
+│   │       ├── stats-monde.jpg
+│   │       ├── stats-monde-mobile.jpg
+│   │       ├── stats-uagf.jpg
+│   │       └── stats-uagf-mobile.jpg
 │   ├── inscription
 │   ├── logo.png
 │   ├── next.svg
@@ -22407,19 +22481,19 @@
 │   │   ├── page.tsx
 │   │   ├── parents
 │   │   │   └── page.tsx
-│   │   ├── projet-educatif
-│   │   │   ├── cadre-de-vie
-│   │   │   │   └── page.tsx
-│   │   │   ├── charte-educative-commune
-│   │   │   │   └── page.tsx
-│   │   │   ├── notre-identite-educative
-│   │   │   │   └── page.tsx
-│   │   │   ├── notre-reseau
-│   │   │   │   └── page.tsx
-│   │   │   └── page.tsx
-│   │   └── ressources
+│   │   └── projet-educatif
+│   │       ├── cadre-de-vie
+│   │       │   └── page.tsx
+│   │       ├── charte-educative-commune
+│   │       │   └── page.tsx
+│   │       ├── notre-identite-educative
+│   │       │   └── page.tsx
+│   │       ├── notre-reseau
+│   │       │   └── page.tsx
 │   │       └── page.tsx
 │   ├── components
+│   │   ├── AnnouncementBanner.module.css
+│   │   ├── AnnouncementBanner.tsx
 │   │   ├── ContactForm.module.css
 │   │   ├── ContactForm.tsx
 │   │   ├── CookieBanner.module.css
@@ -22429,9 +22503,15 @@
 │   │   ├── HeroSlider.module.css
 │   │   ├── HeroSlider.tsx
 │   │   ├── NavBar.module.css
-│   │   └── NavBar.tsx
+│   │   ├── NavBar.tsx
+│   │   ├── ScrollChevron.module.css
+│   │   ├── ScrollChevron.tsx
+│   │   ├── UniformOrderSection.module.css
+│   │   └── UniformOrderSection.tsx
 │   ├── proxy.ts
 │   └── types
+├── tree-directory-2026-08-26.txt
+├── tree-directry-2026-0830.txt
 └── tsconfig.json
 
-1950 directories, 20485 files
+1958 directories, 20557 files

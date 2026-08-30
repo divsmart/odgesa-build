@@ -7,10 +7,15 @@ const galleryPhotos = [
 ];
 
 const supplyLists = [
-  { level: 'TPS', file: 'fournitures-baillif-tps.pdf' },
-  { level: 'GS',  file: 'fournitures-baillif-gs.pdf'  },
+  { level: 'Toute Petite Section (TPS)', file: 'fournitures-baillif-tps.pdf' },
+  { level: 'Petite Section (PS)',        file: 'fournitures-baillif-ps.pdf'  },
+  { level: 'Moyenne Section (MS)',       file: 'fournitures-baillif-ms.pdf'  },
+  { level: 'Grande Section (GS)',        file: 'fournitures-baillif-gs.pdf'  },
   { level: 'CP',  file: 'fournitures-baillif-cp.pdf'  },
   { level: 'CE1', file: 'fournitures-baillif-ce1.pdf' },
+  { level: 'CE2', file: 'fournitures-baillif-ce2.pdf' },
+  { level: 'CM1', file: 'fournitures-baillif-cm1.pdf' },
+  { level: 'CM2', file: 'fournitures-baillif-cm2.pdf' },
 ];
 
 export default function Page() {
@@ -254,7 +259,7 @@ export default function Page() {
         Listes de fournitures scolaires 2026–2027
       </h2>
       <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>
-        Choisissez la classe de votre enfant pour télécharger uniquement la liste qui le concerne. Les listes pour PS, MS, CE2, CM1 et CM2 seront ajoutées dès leur réception.
+        Choisissez la classe de votre enfant pour télécharger uniquement la liste qui le concerne.
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '0.75rem', marginBottom: '3rem' }}>
         {supplyLists.map(item => (
