@@ -14,6 +14,21 @@ const RESEAU = ['Baillif', 'Duportail', 'Marie-Galante', 'Les Abymes'];
 
 export const posts: Post[] = [
   {
+    slug: 'pre-rentree-personnels-engagement-2026',
+    date: '27 août 2026',
+    ecole: ['Baillif', 'Duportail', 'Marie-Galante'],
+    tag: 'Vie scolaire',
+    title: 'Pré-rentrée des personnels de l\'ODGESA (écoles hors contrat)',
+    excerpt: 'Jeudi 27 août 2026, les personnels des écoles La Persévérance de Baillif, Duportail et Marie-Galante se sont réunis pour leur journée de pré-rentrée.',
+    image: '/images/actualites/actualite-pre-rentree-nuage-mots-engagement-2026.png',
+    imageAlt: 'Nuage de mots — engagement personnel du personnel de l\'ODGESA pour la rentrée 2026-2027',
+    body: [
+      'Jeudi 27 août 2026, les personnels des écoles La Persévérance de Baillif, Duportail et Marie-Galante se sont réunis pour leur journée de pré-rentrée, un temps de préparation, de réflexion et de cohésion avant l\'accueil des élèves.',
+      'Parmi les temps forts de cette journée, un exercice collectif a invité chaque membre du personnel à exprimer, en un mot ou une phrase, son engagement personnel pour la nouvelle année scolaire.',
+      '(Plus de détails sur cette journée à venir.)',
+    ],
+  },
+  {
     slug: 'nouvelle-direction-baillif-2026',
     date: '25 juin 2026',
     ecole: 'Baillif',
