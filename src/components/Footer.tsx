@@ -25,6 +25,7 @@ export default function Footer() {
     <li><Link href="/a-propos/qui-sommes-nous">Qui sommes-nous ?</Link></li>
     <li><Link href="/a-propos/histoire">Histoire</Link></li>
     <li><Link href="/a-propos/administration-et-gouvernance">Administration et gouvernance</Link></li>
+    <li><Link href="/projet-educatif">Projet éducatif</Link></li>
     <li><Link href="/projet-educatif/notre-identite-educative">Notre identité éducative</Link></li>
     <li><Link href="/projet-educatif/charte-educative-commune">Charte éducative commune</Link></li>
     <li><Link href="/projet-educatif/cadre-de-vie">Cadre de vie des établissements</Link></li>
