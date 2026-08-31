@@ -38,6 +38,19 @@ const nouveauteBadge: React.CSSProperties = {
   lineHeight: 1.4,
 };
 
+const comingSoonBadge: React.CSSProperties = {
+  display: 'inline-block',
+  background: '#e5e7eb',
+  color: '#4b5563',
+  fontSize: '0.68rem',
+  fontWeight: 700,
+  letterSpacing: '0.05em',
+  textTransform: 'uppercase',
+  padding: '0.18rem 0.6rem',
+  borderRadius: '999px',
+  lineHeight: 1.4,
+};
+
 const instagramLink: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
@@ -120,6 +133,18 @@ const summaryBar: React.CSSProperties = {
   marginBottom: '1.5rem',
 };
 
+const apeItem: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.6rem',
+  flexWrap: 'wrap',
+};
+
+const apeLabel: React.CSSProperties = {
+  fontWeight: 600,
+  color: 'var(--color-teal)',
+};
+
 export default function Page() {
   return (
     <section style={{
@@ -175,10 +200,9 @@ export default function Page() {
             ecoles_perseverance_971
           </a>
         </li>
-        <li>Restauration scolaire</li>
         <li>
-          <a href="/projet-educatif/cadre-de-vie#ape" style={{ color: 'var(--color-teal)', fontWeight: 600 }}>
-            Association des parents d&apos;élèves (APE)
+          <a href="#restauration" style={{ color: 'var(--color-teal)', fontWeight: 600 }}>
+            Restauration scolaire
           </a>
         </li>
       </ul>
@@ -289,9 +313,37 @@ export default function Page() {
         Commander mes uniformes ↗
       </a>
 
+      <h2 style={h2Style}>Association des parents d&apos;élèves (APE)</h2>
+      <p style={p}>
+        Chaque établissement du réseau dispose de sa propre Association des Parents d&apos;Élèves
+        (APE), qui constitue le lien entre les familles et la direction de l&apos;école.
+      </p>
+      <ul style={{ paddingLeft: '1.25rem', lineHeight: '2.2', marginBottom: '1.5rem' }}>
+        <li style={apeItem}>
+          <span style={apeLabel}>APE — École de Baillif</span>
+          <span style={comingSoonBadge}>Bientôt disponible</span>
+        </li>
+        <li style={apeItem}>
+          <span style={apeLabel}>APE — École de Duportail</span>
+          <span style={comingSoonBadge}>Bientôt disponible</span>
+        </li>
+        <li style={apeItem}>
+          <span style={apeLabel}>APE — École de Marie-Galante</span>
+          <span style={comingSoonBadge}>Bientôt disponible</span>
+        </li>
+      </ul>
+
       <p style={p}>
         Une question sur la qualité ou la taille d&apos;un article ? Adressez-vous directement au
         fournisseur par mail, en mettant la direction de votre établissement en copie.
+      </p>
+
+      <h2 id="restauration" style={{ ...h2Style, scrollMarginTop: '6rem' }}>
+        Restauration scolaire
+      </h2>
+      <p style={p}>
+        Nos élèves bénéficient chaque jour de repas équilibrés et hautement nutritifs, préparés au
+        sein de notre cuisine moderne par une équipe de professionnels de la restauration scolaire.
       </p>
 
       <img
