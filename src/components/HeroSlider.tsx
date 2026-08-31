@@ -189,7 +189,28 @@ export default function HeroSlider() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const displaySlides = slides;
+  // Desktop-only slide order — Marie-Galante leads, Baillif second, then the
+  // rest of the rotation stays in its original order (flyer, Duportail,
+  // talents, Bigord BTS graphic, famille), still ending on the Bigord
+  // graduation photo. Mobile keeps the original `slides` order untouched —
+  // to change either order in future, just edit the array it reads from
+  // (this key list for desktop, `slides` itself for mobile).
+  const desktopOrderKeys = [
+    'marie-galante',
+    'baillif',
+    'annonce',
+    'duportail',
+    'talents',
+    'jbigord-bts-3-etudiants',
+    'famille',
+    'bigord',
+  ];
+
+  const desktopSlides = desktopOrderKeys
+    .map(key => slides.find(s => s.key === key))
+    .filter((s): s is Slide => Boolean(s));
+
+  const displaySlides = isMobile ? slides : desktopSlides;
 
   // Keep `current` in bounds if the slide list length changes (e.g. resizing
   // across the mobile breakpoint mid-session).
