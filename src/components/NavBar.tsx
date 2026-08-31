@@ -35,9 +35,14 @@ const fournituresData: {
     slug: 'baillif',
     classes: [
       { name: 'TPS', href: '/documents/baillif/fournitures-baillif-tps.pdf' },
+      { name: 'PS',  href: '/documents/baillif/fournitures-baillif-ps.pdf'  },
+      { name: 'MS',  href: '/documents/baillif/fournitures-baillif-ms.pdf'  },
       { name: 'GS',  href: '/documents/baillif/fournitures-baillif-gs.pdf'  },
       { name: 'CP',  href: '/documents/baillif/fournitures-baillif-cp.pdf'  },
       { name: 'CE1', href: '/documents/baillif/fournitures-baillif-ce1.pdf' },
+      { name: 'CE2', href: '/documents/baillif/fournitures-baillif-ce2.pdf' },
+      { name: 'CM1', href: '/documents/baillif/fournitures-baillif-cm1.pdf' },
+      { name: 'CM2', href: '/documents/baillif/fournitures-baillif-cm2.pdf' },
     ],
   },
   {
