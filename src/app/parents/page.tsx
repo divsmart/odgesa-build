@@ -176,7 +176,7 @@ export default function Page() {
       </a>
 
       <h2 style={h2Style}>Services et ressources</h2>
-      <ul style={{ paddingLeft: '1.25rem', lineHeight: '2', marginBottom: '1.5rem' }}>
+      <ul style={{ listStyle: 'none', paddingLeft: '1.25rem', lineHeight: '2', marginBottom: '1.5rem' }}>
         <li style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.4rem' }}>
           <span style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem' }}>
             <a href="#uniformes-commande" style={{ color: 'var(--color-teal)', fontWeight: 600 }}>
