@@ -60,6 +60,17 @@ export default function Page() {
           <li>La mise en œuvre du projet éducatif adventiste</li>
         </ul>
       </div>
+
+      <img
+        src="/images/bureau/organigramme-odgesa.png"
+        alt="Organigramme du réseau scolaire adventiste — de l'établissement local à l'organisation mondiale"
+        style={{
+          width: '100%',
+          height: 'auto',
+          borderRadius: '4px',
+          display: 'block',
+        }}
+      />
     </section>
   );
 }
