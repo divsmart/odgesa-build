@@ -45,6 +45,23 @@ export const posts: Post[] = [
     ],
   },
   {
+    slug: 'baillif-bonne-reputation-presse-2026',
+    date: 'Août 2026',
+    ecole: 'Baillif',
+    tag: 'Vie scolaire',
+    title: 'La Persévérance de Baillif, une école qui a bonne réputation selon France-Antilles',
+    excerpt: 'Dans un article paru en août 2026, France-Antilles est venu à la rencontre de l\'école La Persévérance de Baillif et de sa nouvelle directrice, Vanessa Hatchi.',
+    image: '/images/baillif/actualite-baillif-vanessa-hatchi-portrait.jpg',
+    imageAlt: 'Vanessa Hatchi, directrice de l\'école La Persévérance de Baillif',
+    body: [
+      'Dans un article paru en août 2026, France-Antilles est venu à la rencontre de l\'école La Persévérance de Baillif, implantée au pied de la route de Cadet depuis 1983. Le journal y rapporte que 78 élèves ont effectué leur rentrée cette année sous la direction de Vanessa Hatchi, qui a pris ses fonctions le 1er juillet dernier, et note que l\'établissement espère désormais une augmentation de ses effectifs.',
+      'L\'article rappelle qu\'école chrétienne aux valeurs adventistes, La Persévérance de Baillif est un établissement privé hors contrat : elle ne bénéficie d\'aucun accompagnement ni subvention de l\'État ou du Rectorat, et fonctionne grâce aux frais de scolarité des familles ainsi qu\'au bénévolat de sa direction. France-Antilles souligne également le soutien apporté par la Mission locale et le Département, notamment via la mise à disposition de volontaires en service civique.',
+      'Selon le journal, les quatre enseignants de l\'école prennent en charge des classes à double niveau, de la très petite section au CM2, et des ateliers de pause méridienne — nutrition, scrabble — complètent chaque midi les enseignements. Les repas, préparés par un traiteur et validés par une diététicienne attentive aux besoins nutritionnels des enfants, suivent un régime ovo-lacto-végétarien, sans poisson ni viande.',
+      'L\'article relève qu\'au sortir du CM2, les élèves de l\'établissement passent un examen de passage en 6ème. « Cela fait déjà plusieurs années que nous avons 100 % de réussite », a confié la directrice à France-Antilles — un résultat qui se prolonge favorablement au collège.',
+      '(D\'après un article de France-Antilles, août 2026.)',
+    ],
+  },
+  {
     slug: 'nouvelle-direction-baillif-2026',
     date: '25 juin 2026',
     ecole: 'Baillif',
