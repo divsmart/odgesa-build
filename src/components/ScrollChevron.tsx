@@ -2,13 +2,18 @@
 
 import styles from './ScrollChevron.module.css';
 
-const TARGET_ID = 'uniform-order-announcement';
+const TARGET_ID = 'resultats-examens';
 
 /**
  * Bouncing down-chevron meant to sit absolutely-positioned over the bottom
  * edge of the hero slider. The slider's outer wrapper needs
  * `position: relative` (it almost certainly already has this, since the
  * slides themselves stack with position/inset).
+ *
+ * Points at the exam-results stats section (ResultatsExamensSection,
+ * id="resultats-examens") rather than the uniform order section — the
+ * AnnouncementBanner handles the uniform pitch on its own, linking to
+ * /parents#uniformes-commande, so this and that are now fully decoupled.
  *
  * Usage inside HeroSlider.tsx, as a sibling of the slides, near the end of
  * the wrapper's JSX:
@@ -30,7 +35,7 @@ export default function ScrollChevron() {
       type="button"
       className={styles.chevron}
       onClick={handleClick}
-      aria-label="Découvrir l'achat des uniformes en ligne"
+      aria-label="Découvrir nos résultats aux examens"
     >
       <svg
         viewBox="0 0 24 24"
