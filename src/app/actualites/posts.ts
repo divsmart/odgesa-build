@@ -14,6 +14,22 @@ const RESEAU = ['Baillif', 'Duportail', 'Marie-Galante', 'Les Abymes'];
 
 export const posts: Post[] = [
   {
+    slug: 'resultats-examens-abymes-2026',
+    date: '1 septembre 2026',
+    ecole: 'Les Abymes',
+    tag: 'Vie scolaire',
+    title: 'Résultats aux examens 2026 : la Cité Scolaire largement au-dessus des moyennes',
+    excerpt: 'Brevet, baccalauréat, BTS : la Cité Scolaire La Persévérance des Abymes présente ses résultats à la session 2026, nettement au-dessus des moyennes académique et nationale.',
+    image: '/images/actualites/actualite-abymes-resultats-examens-2026.jpg',
+    imageAlt: 'Résultats aux examens 2026 — Cité Scolaire La Persévérance, Les Abymes',
+    body: [
+      'À l\'occasion de la réunion d\'accueil des familles du 1er septembre 2026, la Cité Scolaire La Persévérance des Abymes a présenté ses résultats à la session 2026 des examens nationaux : 93,5 % de réussite au diplôme national du brevet, 98,5 % au baccalauréat général et technologique, et 78,3 % au brevet de technicien supérieur.',
+      'Ces résultats placent l\'établissement nettement au-dessus des moyennes académique et nationale : au brevet, l\'écart atteint +24,8 points sur l\'académie et +11,9 points sur le niveau national ; au baccalauréat, +8,6 points sur l\'académie et +7,0 points sur le national.',
+      'Sur les douze dernières sessions du brevet et les onze dernières du baccalauréat, la Cité Scolaire est restée au-dessus de la moyenne académique sans exception — une régularité que l\'équipe éducative retient comme le signe d\'un accompagnement suivi, du CP au post-baccalauréat.',
+      'Le BTS progresse fortement cette année et demeure, selon l\'établissement, son principal axe de vigilance pour les prochaines sessions.',
+    ],
+  },
+  {
     slug: 'pre-rentree-personnels-engagement-2026',
     date: '27 août 2026',
     ecole: ['Baillif', 'Duportail', 'Marie-Galante'],
