@@ -189,13 +189,14 @@ export default function HeroSlider() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  // Desktop-only slide order — Marie-Galante leads, Baillif second, then the
-  // rest of the rotation stays in its original order (flyer, Duportail,
-  // talents, Bigord BTS graphic, famille), still ending on the Bigord
-  // graduation photo. Mobile keeps the original `slides` order untouched —
-  // to change either order in future, just edit the array it reads from
-  // (this key list for desktop, `slides` itself for mobile).
-  const desktopOrderKeys = [
+  // Explicit per-platform slide order. Desktop leads with Marie-Galante and
+  // Baillif, then the flyer, then the rest of the rotation, ending on the
+  // Bigord graduation photo. Mobile now follows the same order — the only
+  // thing that differs by platform is how a given slide *renders* (e.g. the
+  // flyer's mobileSrc crop), not its position in the rotation. Kept as two
+  // separate lists (rather than one shared order) so a future slide can
+  // still be special-cased for one platform without touching the other.
+  const desktopOrder = [
     'marie-galante',
     'baillif',
     'annonce',
@@ -206,11 +207,24 @@ export default function HeroSlider() {
     'bigord',
   ];
 
-  const desktopSlides = desktopOrderKeys
-    .map(key => slides.find(s => s.key === key))
-    .filter((s): s is Slide => Boolean(s));
+  const mobileOrder = [
+    'marie-galante',
+    'baillif',
+    'annonce',
+    'duportail',
+    'talents',
+    'jbigord-bts-3-etudiants',
+    'famille',
+    'bigord',
+  ];
 
-  const displaySlides = isMobile ? slides : desktopSlides;
+  function orderSlides(keys: string[]): Slide[] {
+    return keys
+      .map(key => slides.find(s => s.key === key))
+      .filter((s): s is Slide => Boolean(s));
+  }
+
+  const displaySlides = isMobile ? orderSlides(mobileOrder) : orderSlides(desktopOrder);
 
   // Keep `current` in bounds if the slide list length changes (e.g. resizing
   // across the mobile breakpoint mid-session).
