@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { posts } from '../posts';
 import styles from '../ArticleSticky.module.css';
+import LightboxImage from '@/components/LightboxImage';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -41,7 +42,7 @@ export default async function ArticlePage({ params }: Props) {
       {rest.length > 0 ? (
         <div className={styles.stickyBlock}>
           <div className={styles.stickyCol}>
-            <img src={post.image} alt={post.imageAlt} />
+            <LightboxImage src={post.image} alt={post.imageAlt} />
           </div>
           <div className={styles.textCol}>
             {rest.map((para, i) => (
@@ -53,7 +54,7 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       ) : (
         <div style={{ margin: '2rem 0' }}>
-          <img
+          <LightboxImage
             src={post.image}
             alt={post.imageAlt}
             style={{ width: '100%', borderRadius: '8px', display: 'block' }}
