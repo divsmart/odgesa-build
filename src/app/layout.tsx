@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   'Quatre établissements chrétiens adventistes en Guadeloupe — Baillif, Duportail, ' +
   'Marie-Galante et la Cité Scolaire J.Bigord Les Abymes. ' +
   'Une pédagogie chrétienne intégrale, une alimentation saine, le plein épanouissement de l\'enfant.',
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
