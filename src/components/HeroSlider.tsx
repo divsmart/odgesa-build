@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollChevron from '@/components/ScrollChevron';
 import styles from './HeroSlider.module.css';
 
@@ -66,11 +67,10 @@ const slides: Slide[] = [
     eyebrow: 'École La Persévérance — Baillif',
     heading: "Un cadre chaleureux\npour l'épanouissement\nde chaque élève",
     body: "À Baillif, nos élèves grandissent dans un environnement bienveillant et stimulant, où chaque enfant est accompagné avec soin dans son parcours scolaire et personnel.",
-    cta: { label: 'Faire un don pour Baillif', href: 'https://donate.stripe.com/BAILLIF_PLACEHOLDER' },
-    ctaSecondary: { label: "Découvrir l'école", href: '/nos-ecoles/baillif' },
+    cta: { label: "Découvrir l'école", href: '/nos-ecoles/baillif' },
+    ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/baillif#inscription' },
     images: { mode: 'split', left: '/images/baillif/hero-left.jpg', right: '/images/baillif/hero-right.jpg' } as SlideImages,
-    external: true,
-    externalSecondary: false,
+    external: false,
   },
   {
     id: 3,
@@ -255,6 +255,20 @@ export default function HeroSlider() {
 
   const slide = displaySlides[current];
 
+  // LCP FIX: previously every slide's background-image was set unconditionally,
+  // so all ~8 slides' photos (≈5.5MB) loaded on first paint regardless of which
+  // slide was showing — this was the root cause of the mobile LCP regression
+  // (24–30s under throttling). Now only the active slide plus its immediate
+  // neighbors actually mount a real <Image>; everything else renders an empty,
+  // imageless slide div until it enters that window. Neighbors are preloaded
+  // (not just the active one) so the crossfade/arrow-nav transition still feels
+  // instant — only the far-away slides are deferred.
+  const loadWindow = new Set([
+    current,
+    (current - 1 + displaySlides.length) % displaySlides.length,
+    (current + 1) % displaySlides.length,
+  ]);
+
   return (
     <section
     className={styles.hero}
@@ -264,16 +278,26 @@ export default function HeroSlider() {
     onTouchEnd={onTouchEnd}
     aria-label="Diaporama principal"
     >
-    {displaySlides.map((s, i) => (
+    {displaySlides.map((s, i) => {
+      const shouldLoad = loadWindow.has(i);
+      // Only slide index 0 (always 'marie-galante' in both orders) is ever
+      // the true page LCP element — mark it priority so Next emits
+      // fetchpriority="high" + a <link rel=preload> for it specifically.
+      const isPriority = i === 0;
+
+      return (
       <div key={s.id} className={`${styles.slide} ${i === current ? styles.active : ''}`} aria-hidden={i !== current}>
-        {s.isFlyer && s.images.mode === 'single' && (
+        {s.isFlyer && s.images.mode === 'single' && shouldLoad && (
           <div className={styles.flyerWrap}>
             <div className={styles.flyerFrame}>
-              <img
+              <Image
                 ref={flyerImgRef}
                 src={isMobile && s.images.mobileSrc ? s.images.mobileSrc : s.images.src}
                 alt="Annonce — ouverture officielle du site des Écoles La Persévérance, 30 juillet 2026"
                 className={styles.flyerImage}
+                fill
+                sizes="100vw"
+                priority={isPriority}
               />
               {i === current && flyerRect && !isMobile && s.flyerHotspots?.map((h, idx) => {
                 const hotspotStyle = {
@@ -305,21 +329,35 @@ export default function HeroSlider() {
             </div>
           </div>
         )}
-        {!s.isFlyer && s.images.mode === 'split' && (
+        {!s.isFlyer && s.images.mode === 'split' && shouldLoad && (
           <>
-            <div className={`${styles.slideImage} ${styles.slideImageLeft}`} style={{ backgroundImage: `url(${s.images.left})` }} />
-            <div className={`${styles.slideImage} ${styles.slideImageRight}`} style={{ backgroundImage: `url(${s.images.right})` }} />
+            <div className={`${styles.slideImage} ${styles.slideImageLeft}`}>
+              <Image src={s.images.left} alt="" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} priority={isPriority} />
+            </div>
+            <div className={`${styles.slideImage} ${styles.slideImageRight}`}>
+              <Image src={s.images.right} alt="" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} priority={isPriority} />
+            </div>
           </>
         )}
-        {!s.isFlyer && s.images.mode === 'single' && (
-          <div className={`${styles.slideImage} ${styles.slideImageSingle} ${["famille", "jbigord-bts-3-etudiants"].includes(s.key) ? styles.slideImageContain : ""}`} style={{ backgroundImage: `url(${isMobile && s.images.mobileSrc ? s.images.mobileSrc : s.images.src})` }} />
+        {!s.isFlyer && s.images.mode === 'single' && shouldLoad && (
+          <div className={`${styles.slideImage} ${styles.slideImageSingle} ${["famille", "jbigord-bts-3-etudiants"].includes(s.key) ? styles.slideImageContain : ""}`}>
+            <Image
+              src={isMobile && s.images.mobileSrc ? s.images.mobileSrc : s.images.src}
+              alt=""
+              fill
+              sizes="100vw"
+              style={{ objectFit: ["famille", "jbigord-bts-3-etudiants"].includes(s.key) ? 'contain' : 'cover' }}
+              priority={isPriority}
+            />
+          </div>
         )}
         {!s.isFlyer && s.images.mode === 'gradient' && (
           <div className={styles.slideGradient} />
         )}
       {!s.isFlyer && s.key !== 'famille' && s.key !== 'annonce' && s.key !== 'jbigord-bts-3-etudiants' && <div className={styles.overlay} />}
       </div>
-    ))}
+      );
+    })}
 
     {!slide.isFlyer && slide.key !== 'famille' && slide.key !== 'annonce' && slide.key !== 'jbigord-bts-3-etudiants' && (
     <div className={styles.content}>
