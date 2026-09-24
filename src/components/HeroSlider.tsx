@@ -80,7 +80,7 @@ const slides: Slide[] = [
     body: "À Duportail, nos élèves bénéficient d'un environnement naturel exceptionnel et d'un accompagnement pédagogique attentif, du plus jeune âge jusqu'au CM2.",
     cta: { label: "Découvrir l'école", href: '/nos-ecoles/duportail' },
     ctaSecondary: { label: "S'inscrire", href: '/nos-ecoles/duportail#inscription' },
-    images: { mode: 'split', left: '/images/duportail/hero-left.jpg', right: '/images/duportail/hero-right.jpg' } as SlideImages,
+    images: { mode: 'split', left: '/images/duportail/hero-left.jpg', right: '/images/duportail/hero-right-2.jpg' } as SlideImages,
     external: false,
   },
   {
