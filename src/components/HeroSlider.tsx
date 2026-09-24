@@ -86,16 +86,15 @@ const slides: Slide[] = [
   {
     id: 4,
     key: 'talents',
-    // PLACEHOLDER — awaiting the real jardinage/chorale/chants photos from Michael.
-    // Using two Marie-Galante activity photos as temporary filler so the slide
-    // isn't broken in the meantime. Swap `images.left` / `images.right` below
-    // once the real photos are in hand.
+    // PLACEHOLDER — left slot still awaiting the real chorale/chant photo from
+    // Michael. Right slot now uses the real jardinage photo (swapped 24 Sept 2026);
+    // left still uses a Marie-Galante activity photo as temporary filler.
     eyebrow: 'Arts, culture et activités — Réseau ODGESA',
     heading: "Des talents à découvrir,\ndes passions à développer,\ndes valeurs à cultiver",
     body: "Chant choral, musique, théâtre, langues, jardinage… pour former le corps, l'esprit et le cœur.",
     cta: { label: 'Notre projet éducatif', href: '/projet-educatif' },
     ctaSecondary: { label: 'Nos écoles', href: '/nos-ecoles' },
-    images: { mode: 'split', left: '/images/marie-galante/bibliotheque-marie-galante-1.jpg', right: '/images/marie-galante/journee-sportive-marie-galante.jpg' } as SlideImages,
+    images: { mode: 'split', left: '/images/marie-galante/bibliotheque-marie-galante-1.jpg', right: '/images/baillif/jardinage-baillif-2026.jpg' } as SlideImages,
     external: false,
   },
   {
