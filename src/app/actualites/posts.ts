@@ -14,6 +14,21 @@ const RESEAU = ['Baillif', 'Duportail', 'Marie-Galante', 'Les Abymes'];
 
 export const posts: Post[] = [
   {
+    slug: 'natation-riviere-sens-baillif-2026',
+    date: '24 septembre 2026',
+    ecole: 'Baillif',
+    tag: 'Activités',
+    title: 'Comme des poissons dans l\'eau !',
+    excerpt: 'Chaque jeudi, les élèves de l\'école primaire de Baillif se rendent à la plage de Rivière Sens pour une heure de natation — sécurité, autonomie et confiance en soi au programme.',
+    image: '/images/baillif/actualite-baillif-natation-riviere-sens.jpg',
+    imageAlt: 'Cours de natation à la plage de Rivière Sens — École La Persévérance de Baillif',
+    body: [
+      'Tous les jeudis, les élèves de l\'école primaire La Persévérance de Baillif quittent leur salle de classe pour se rendre à la plage de Rivière Sens, où ils bénéficient d\'une heure de cours de natation en pleine mer.',
+      'Au programme : apprendre à entrer dans l\'eau et à s\'y déplacer en toute sécurité, dans le respect des consignes de rigueur. Mais l\'exercice ne s\'arrête pas à la seule technique — savoir nager permet aussi aux élèves de développer leur autonomie et leur confiance en soi.',
+      'Un rendez-vous à la fois sportif et pédagogique, que nos jeunes nageurs apprécient particulièrement !',
+    ],
+  },
+  {
     slug: 'resultats-examens-abymes-2026',
     date: '1 septembre 2026',
     ecole: 'Les Abymes',
