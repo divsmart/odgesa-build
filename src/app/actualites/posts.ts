@@ -14,6 +14,22 @@ const RESEAU = ['Baillif', 'Duportail', 'Marie-Galante', 'Les Abymes'];
 
 export const posts: Post[] = [
   {
+    slug: 'semaine-bleue-chapelle-baillif-2026',
+    date: '6 octobre 2026',
+    ecole: 'Baillif',
+    tag: 'Vie scolaire',
+    title: 'Semaine Bleue 2026 : les élèves de Baillif invitent leurs aînés à un moment de chapelle',
+    excerpt: 'À l\'occasion de la Semaine Bleue 2026, l\'école La Persévérance de Baillif et TIFALY, l\'association des parents d\'élèves, invitent les aînés à partager un moment de chapelle avec les enfants.',
+    image: '/images/baillif/actualite-baillif-semaine-bleue-invitation-2026.jpg',
+    imageAlt: 'Invitation au moment de chapelle de la Semaine Bleue — École La Persévérance de Baillif',
+    body: [
+      'À l\'occasion de la Semaine Bleue 2026, l\'école primaire La Persévérance de Baillif et TIFALY, l\'association des parents d\'élèves, ont le plaisir d\'inviter les aînés à partager un moment de chapelle avec les enfants.',
+      'Cette rencontre intergénérationnelle aura lieu le mardi 6 octobre 2026 à 8h, au temple adventiste du 7e jour de Cadet - Baillif. Un temps de partage placé sous le signe de la rencontre, de la transmission et du lien entre les générations.',
+      'Les élèves seront heureux d\'accueillir leurs aînés pour vivre ce moment à leurs côtés.',
+      'Nou ké kontan vwè zòt !',
+    ],
+  },
+  {
     slug: 'natation-riviere-sens-baillif-2026',
     date: '24 septembre 2026',
     ecole: 'Baillif',
