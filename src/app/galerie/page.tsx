@@ -1,19 +1,14 @@
+import GalleryGrid from './GalleryGrid';
+import { photos } from './photos';
+
 export default function Page() {
   return (
-    <section style={{
-      padding: 'clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem)',
-      maxWidth: '1440px',
-      margin: '0 auto'
-    }}>
-    <h1 style={{
-      fontFamily: 'var(--font-condensed)',
-      fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-      color: 'var(--color-teal)',
-      marginBottom: '1rem'
-    }}>
-    Galerie
-    </h1>
-    <p style={{ color: 'var(--color-text-muted)' }}>Contenu à venir.</p>
+    <section style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 1.5rem' }}>
+      <h1 style={{ marginBottom: '0.5rem' }}>Galerie</h1>
+      <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
+        Un aperçu de la vie de nos écoles — filtrez par établissement.
+      </p>
+      <GalleryGrid photos={photos} />
     </section>
   );
 }
