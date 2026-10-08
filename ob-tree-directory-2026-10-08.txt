@@ -22266,7 +22266,7 @@
 │           ├── index.js.map
 │           ├── index.mjs
 │           └── index.mjs.map
-├── ob-tree-directory-2026-10-01.txt
+├── ob-tree-directory-2026-10-08.txt
 ├── ODGESA-Dev-Reference .md
 ├── package.json
 ├── package-lock.json
@@ -22328,7 +22328,10 @@
 │   │   │   ├── actualite-baillif-direction.jpg
 │   │   │   ├── actualite-baillif-natation-riviere-sens.jpg
 │   │   │   ├── actualite-baillif-nutrition.jpg
+│   │   │   ├── actualite-baillif-semaine-bleue-invitation-2026.jpg
 │   │   │   ├── actualite-baillif-vanessa-hatchi-portrait.jpg
+│   │   │   ├── baillif-semaine-bleue-ateliers-chiffres-1.jpg
+│   │   │   ├── baillif-semaine-bleue-ateliers-chiffres-2.jpg
 │   │   │   ├── ecole-baillif-classe.jpg
 │   │   │   ├── ecole-baillif-exterieur.jpg
 │   │   │   ├── hero-left.jpg
@@ -22461,7 +22464,10 @@
 │   │   │   └── page.tsx
 │   │   ├── favicon.ico
 │   │   ├── galerie
-│   │   │   └── page.tsx
+│   │   │   ├── GalleryGrid.module.css
+│   │   │   ├── GalleryGrid.tsx
+│   │   │   ├── page.tsx
+│   │   │   └── photos.ts
 │   │   ├── globals.css
 │   │   ├── layout.tsx
 │   │   ├── login
@@ -22524,4 +22530,4 @@
 │   └── types
 └── tsconfig.json
 
-1958 directories, 20567 files
+1958 directories, 20573 files

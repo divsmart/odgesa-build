@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { posts } from '../posts';
+import { getRelatedPosts } from '../related';
 import styles from '../ArticleSticky.module.css';
 import LightboxImage from '@/components/LightboxImage';
+import RelatedPosts from '@/components/RelatedPosts';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -24,6 +26,11 @@ export default async function ArticlePage({ params }: Props) {
   if (!post) notFound();
 
   const [intro, ...rest] = post.body;
+
+  // Only the fields the cards need — keeps article bodies out of the client bundle.
+  const related = getRelatedPosts(slug).map(({ slug, title, date, tag, image, imageAlt }) => ({
+    slug, title, date, tag, image, imageAlt,
+  }));
 
   return (
     <main className={styles.wrap}>
@@ -61,6 +68,8 @@ export default async function ArticlePage({ params }: Props) {
           />
         </div>
       )}
+
+      <RelatedPosts posts={related} />
     </main>
   );
 }
