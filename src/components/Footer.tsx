@@ -48,6 +48,7 @@ export default function Footer() {
     <ul className={styles.colLinks}>
     <li><Link href="/notre-eglise">Notre Église</Link></li>
     <li><Link href="/mentions-legales">Mentions légales</Link></li>
+    <li><Link href="/plan-du-site">Plan du site</Link></li>
     </ul>
     </div>
 

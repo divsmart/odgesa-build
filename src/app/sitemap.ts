@@ -67,6 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/galerie`, priority: 0.6, changeFrequency: 'monthly' },
     { url: `${SITE_URL}/contact`, priority: 0.6, changeFrequency: 'yearly' },
     { url: `${SITE_URL}/mentions-legales`, priority: 0.2, changeFrequency: 'yearly' },
+    { url: `${SITE_URL}/plan-du-site`, priority: 0.2, changeFrequency: 'yearly' },
 
     // /login and everything under /api are intentionally excluded — not
     // public-facing content, nothing for a search engine to index there.
